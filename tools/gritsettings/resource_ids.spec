@@ -41,6 +41,9 @@
   "chrome/app/chromium_strings.grd": {
     "messages": [400],
   },
+  "chrome/app/brave_strings.grd": {
+    "messages": [400],
+  },
   "chrome/app/google_chrome_strings.grd": {
     "messages": [400],
   },
@@ -205,7 +208,7 @@
     "includes": [1600],
   },
   "<(SHARED_INTERMEDIATE_DIR)/chrome/browser/resources/history/resources.grd": {
-    "META": {"sizes": {"includes": [40]}},
+    "META": {"sizes": {"includes": [44]}},
     "includes": [1620],
   },
   "<(SHARED_INTERMEDIATE_DIR)/chrome/browser/resources/identity_internals/resources.grd": {
@@ -292,7 +295,7 @@
     "includes": [1940],
   },
   "<(SHARED_INTERMEDIATE_DIR)/chrome/browser/resources/settings/resources.grd": {
-    "META": {"sizes": {"includes": [500],}},
+    "META": {"sizes": {"includes": [550],}},
     "includes": [1960],
   },
   "<(SHARED_INTERMEDIATE_DIR)/chrome/browser/resources/signin/profile_picker/resources.grd": {
@@ -723,6 +726,9 @@
   # We only use one file depending on whether we're building Chromium or
   # Google Chrome.
   "components/components_chromium_strings.grd": {
+    "messages": [3520],
+  },
+  "components/components_brave_strings.grd": {
     "messages": [3520],
   },
   "components/components_google_chrome_strings.grd": {

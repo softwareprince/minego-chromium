@@ -35,6 +35,7 @@ HostPortPair::HostPortPair(base::StringPiece in_host, uint16_t in_port)
 
 // static
 HostPortPair HostPortPair::FromURL(const GURL& url) {
+  BRAVE_HOST_PORT_PAIR_FROM_URL_
   return HostPortPair(url.HostNoBrackets(),
                       static_cast<uint16_t>(url.EffectiveIntPort()));
 }
@@ -61,6 +62,7 @@ HostPortPair HostPortPair::FromIPEndPoint(const IPEndPoint& ipe) {
 
 // static
 HostPortPair HostPortPair::FromString(base::StringPiece str) {
+  BRAVE_HOST_PORT_PAIR_FROM_STRING_
   // Input with more than one ':' is ambiguous unless it contains an IPv6
   // literal (signified by starting with a '['). ParseHostAndPort() allows such
   // input and always uses the last ':' as the host/port delimiter, but because
@@ -107,6 +109,7 @@ std::string HostPortPair::ToString() const {
   std::string ret(HostForURL());
   ret += ':';
   ret += base::NumberToString(port_);
+  BRAVE_HOST_PORT_PAIR_TO_STRING_
   return ret;
 }
 

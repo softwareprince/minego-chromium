@@ -39,6 +39,7 @@ config("compiler") {
     # http://crbug.com/448386
     "-Wl,--exclude-libs=libvpx_assembly_arm.a",
   ]
+  ldflags += ["-Wl,--allow-multiple-definition"] # Resolve conflict between libgcc++ and rustup symbols (e.g. __divdi3)
 
   if (current_cpu == "arm64") {
     # Reduce the page size from 65536 in order to reduce binary size slightly

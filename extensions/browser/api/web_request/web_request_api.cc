@@ -1395,6 +1395,9 @@ ExtensionWebRequestEventRouter::OnAuthRequired(
     const net::AuthChallengeInfo& auth_info,
     AuthCallback callback,
     net::AuthCredentials* credentials) {
+  ClearSignaled(request->id, kOnBeforeSendHeaders);
+  ClearSignaled(request->id, kOnSendHeaders);
+  ClearSignaled(request->id, kOnHeadersReceived);
   // No browser_context means that this is for authentication challenges in the
   // system context. Skip in that case. Also skip sensitive requests.
   if (!browser_context ||

@@ -198,6 +198,7 @@ ScriptPromise NavigatorRequestMediaKeySystemAccess::requestMediaKeySystemAccess(
       controller->EncryptedMediaClient(window);
   media_client->RequestMediaKeySystemAccess(
       WebEncryptedMediaRequest(initializer));
+  BRAVE_NAVIGATOR_REQUEST_MEDIA_KEY_SYSTEM_ACCESS
 
   // 7. Return promise.
   return promise;

@@ -137,6 +137,7 @@ class TabHoverCardBubbleView : public views::BubbleDialogDelegateView {
   // available, or `absl::nullopt` to disable crossfades entirely.
   static absl::optional<double> GetPreviewImageCrossfadeStart();
 
+  BRAVE_TAB_HOVER_CARD_BUBBLE_VIEW_H_
  private:
   class FadeLabel;
   class ThumbnailView;

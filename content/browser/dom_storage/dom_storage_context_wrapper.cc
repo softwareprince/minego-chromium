@@ -298,6 +298,7 @@ bool DOMStorageContextWrapper::IsRequestValid(
       return false;
     }
     host_storage_key_did_not_match = host->storage_key() != storage_key;
+    BRAVE_DOM_STORAGE_CONTEXT_WRAPPER_IS_REQUEST_VALID
   }
   if (!security_policy_handle.CanAccessDataForOrigin(storage_key.origin())) {
     const std::string type_string =

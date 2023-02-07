@@ -49,6 +49,7 @@ constexpr int kSidePanelContentViewId = 42;
 constexpr int kSidePanelContentWrapperViewId = 43;
 
 constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kReadingList;
+constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kWhatsapp;
 
 std::unique_ptr<views::ImageButton> CreateControlButton(
     views::View* host,
@@ -182,6 +183,7 @@ SidePanelCoordinator::~SidePanelCoordinator() {
 void SidePanelCoordinator::Show(
     absl::optional<SidePanelEntry::Id> entry_id,
     absl::optional<SidePanelUtil::SidePanelOpenTrigger> open_trigger) {
+  BRAVE_SIDE_PANEL_COORDINATOR_SHOW
   if (entry_id.has_value()) {
     Show(SidePanelEntry::Key(entry_id.value()), open_trigger);
   } else {
@@ -554,6 +556,7 @@ std::unique_ptr<views::View> SidePanelCoordinator::CreateHeader() {
           ChromeDistanceMetric::DISTANCE_SIDE_PANEL_HEADER_VECTOR_ICON_SIZE)));
   header_close_button->SetFocusBehavior(views::View::FocusBehavior::ALWAYS);
 
+  BRAVE_SIDE_PANEL_COORDINATOR_CREATE_HEADER
   return header;
 }
 

@@ -1068,6 +1068,7 @@ String HTMLCanvasElement::ToDataURLInternal(
     if (!data_buffer)
       return String("data:,");
 
+    BRAVE_TO_DATA_URL_INTERNAL
     String data_url = data_buffer->ToDataURL(encoding_mime_type, quality);
     base::TimeDelta elapsed_time = base::TimeTicks::Now() - start_time;
     float sqrt_pixels =

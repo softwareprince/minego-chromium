@@ -40,6 +40,7 @@ class WorkerContentSettingsClient : public blink::WebContentSettingsClient {
   bool AllowScriptFromSource(bool enabled_per_settings,
                              const blink::WebURL& script_url) override;
   bool ShouldAutoupgradeMixedContent() override;
+  BRAVE_WORKER_CONTENT_SETTINGS_CLIENT_H
 
  private:
   explicit WorkerContentSettingsClient(

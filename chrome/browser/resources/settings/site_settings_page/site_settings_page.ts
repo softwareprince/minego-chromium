@@ -8,6 +8,7 @@
  * security site settings.
  */
 
+import '../brave_overrides/config.js'
 import 'chrome://resources/cr_elements/cr_expand_button/cr_expand_button.js';
 import 'chrome://resources/cr_elements/cr_link_row/cr_link_row.js';
 import 'chrome://resources/cr_elements/cr_shared_style.css.js';

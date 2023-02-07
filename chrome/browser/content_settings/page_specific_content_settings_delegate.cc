@@ -122,6 +122,7 @@ void GetGuestViewDefaultContentSettingRules(
       ContentSettingsPattern::Wildcard(), ContentSettingsPattern::Wildcard(),
       content_settings::ContentSettingToValue(CONTENT_SETTING_BLOCK),
       std::string(), incognito));
+  BRAVE_GET_GUEST_VIEW_DEFAULT_CONTENT_SETTING_RULES
 }
 #endif
 }  // namespace

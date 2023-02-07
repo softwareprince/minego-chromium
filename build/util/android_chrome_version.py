@@ -281,7 +281,7 @@ def GenerateVersionCodes(version_values, arch, is_next_build):
   """
 
   base_version_code = int(
-      '%s%03d00' % (version_values['BUILD'], int(version_values['PATCH'])))
+      '%02d%02d%03d00' % (int(version_values['MINOR']) + 40, int(version_values['BUILD']), int(version_values['PATCH'])))
 
   if is_next_build:
     base_version_code += _NEXT_BUILD_VERSION_CODE_DIFF

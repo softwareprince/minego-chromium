@@ -347,6 +347,7 @@ void ToolbarView::Init() {
   if (side_panel_button)
     side_panel_button_ = AddChildView(std::move(side_panel_button));
 
+  BRAVE_TOOLBAR_VIEW_INIT
   avatar_ = AddChildView(std::make_unique<AvatarToolbarButton>(browser_view_));
   bool show_avatar_toolbar_button = true;
 #if BUILDFLAG(IS_CHROMEOS_ASH)

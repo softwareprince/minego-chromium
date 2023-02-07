@@ -26,6 +26,7 @@ std::string BackgroundDownloadClientToString(DownloadClient client) {
       return "PluginVmImage";
     case DownloadClient::OPTIMIZATION_GUIDE_PREDICTION_MODELS:
       return "OptimizationGuidePredictionModels";
+    BRAVE_BACKGROUND_DOWNLOAD_CLIENT_TO_STRING
     case DownloadClient::BOUNDARY:
       break;
   }

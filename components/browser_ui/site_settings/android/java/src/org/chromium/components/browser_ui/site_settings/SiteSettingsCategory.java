@@ -43,7 +43,7 @@ public class SiteSettingsCategory {
             Type.JAVASCRIPT, Type.MICROPHONE, Type.NFC, Type.NOTIFICATIONS, Type.POPUPS,
             Type.PROTECTED_MEDIA, Type.SENSORS, Type.SOUND, Type.USB, Type.VIRTUAL_REALITY,
             Type.USE_STORAGE, Type.AUTO_DARK_WEB_CONTENT, Type.REQUEST_DESKTOP_SITE,
-            Type.FEDERATED_IDENTITY_API})
+            Type.FEDERATED_IDENTITY_API, Type.AUTOPLAY})
     @Retention(RetentionPolicy.SOURCE)
     public @interface Type {
         // All updates here must also be reflected in {@link #preferenceKey(int)
@@ -74,10 +74,11 @@ public class SiteSettingsCategory {
         int AUTO_DARK_WEB_CONTENT = 23;
         int REQUEST_DESKTOP_SITE = 24;
         int FEDERATED_IDENTITY_API = 25;
+        int AUTOPLAY = 26;
         /**
          * Number of handled categories used for calculating array sizes.
          */
-        int NUM_ENTRIES = 26;
+        int NUM_ENTRIES = 27;
     }
 
     private final BrowserContextHandle mBrowserContextHandle;

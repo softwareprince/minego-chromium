@@ -45,6 +45,7 @@ absl::optional<std::string> KeyStorageKeyring::GetKeyImpl() {
   gchar* password_c = nullptr;
   GnomeKeyringResult result =
       GnomeKeyringLoader::gnome_keyring_find_password_sync_ptr(
+          BRAVE_KEY_STORAGE_KEYRING_GET_KEY_IMPL
           &kSchema, &password_c, "application", application_name_.c_str(),
           nullptr);
   if (result == GNOME_KEYRING_RESULT_OK) {

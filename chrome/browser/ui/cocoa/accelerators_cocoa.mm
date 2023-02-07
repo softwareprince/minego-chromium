@@ -41,6 +41,8 @@ const struct AcceleratorMapping {
      ui::VKEY_N},
     {IDC_NEW_TAB, ui::EF_COMMAND_DOWN, ui::VKEY_T},
     {IDC_NEW_WINDOW, ui::EF_COMMAND_DOWN, ui::VKEY_N},
+    {IDC_NEW_OFFTHERECORD_WINDOW_TOR, ui::EF_COMMAND_DOWN | ui::EF_ALT_DOWN,
+      ui::VKEY_N},
     {IDC_PASTE, ui::EF_COMMAND_DOWN, ui::VKEY_V},
     {IDC_PRINT, ui::EF_COMMAND_DOWN, ui::VKEY_P},
     {IDC_RESTORE_TAB, ui::EF_COMMAND_DOWN | ui::EF_SHIFT_DOWN, ui::VKEY_T},

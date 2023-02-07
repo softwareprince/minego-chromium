@@ -922,6 +922,7 @@ TextMetrics* CanvasRenderingContext2D::measureText(const String& text) {
   if (!canvas()->GetDocument().GetFrame())
     return MakeGarbageCollected<TextMetrics>();
 
+  BRAVE_CANVAS_RENDERING_CONTEXT_2D_MEASURE_TEXT
   canvas()->GetDocument().UpdateStyleAndLayoutTreeForNode(canvas());
 
   const Font& font = AccessFont();

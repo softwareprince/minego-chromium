@@ -71,7 +71,7 @@ class CookieSettingsBase {
   CookieSettingsBase(const CookieSettingsBase&) = delete;
   CookieSettingsBase& operator=(const CookieSettingsBase&) = delete;
 
-  virtual ~CookieSettingsBase() = default;
+  virtual ~CookieSettingsBase();
 
   // Returns true if the cookie associated with |domain| should be deleted
   // on exit.

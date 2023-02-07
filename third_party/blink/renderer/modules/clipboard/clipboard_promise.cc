@@ -548,6 +548,7 @@ void ClipboardPromise::RequestPermission(
   // `will_be_sanitized` is false only when we are trying to read/write
   // web custom formats.
   if (!will_be_sanitized &&
+      BRAVE_CLIPBOARD_PROMISE_REQUEST_PERMISSION
       RuntimeEnabledFeatures::ClipboardCustomFormatsEnabled() &&
       !has_transient_user_activation) {
     script_promise_resolver_->Reject(MakeGarbageCollected<DOMException>(

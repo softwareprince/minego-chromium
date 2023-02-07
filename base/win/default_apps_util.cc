@@ -24,6 +24,7 @@ std::wstring GetTargetForDefaultAppsSettings(base::WStringPiece protocol) {
     return base::StrCat({kSystemSettingsDefaultAppsPrefix, L"Browser"});
   if (base::EqualsCaseInsensitiveASCII(protocol, L"mailto"))
     return base::StrCat({kSystemSettingsDefaultAppsPrefix, L"Email"});
+  BRAVE_GET_TARGET_FOR_DEFAULT_APP_SETTINGS
   return L"SettingsPageAppsDefaultsProtocolView";
 }
 

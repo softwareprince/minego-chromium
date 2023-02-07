@@ -75,6 +75,7 @@ class ExternalProcessImporterHost
   void NotifyImportItemEnded(importer::ImportItem item);
   void NotifyImportEnded();
 
+  BRAVE_EXTERNAL_PROCESS_IMPORTER_HOST_H
  private:
   // ExternalProcessImporterHost deletes itself in OnImportEnded().
   ~ExternalProcessImporterHost() override;

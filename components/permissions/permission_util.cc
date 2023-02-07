@@ -290,6 +290,7 @@ ContentSettingsType PermissionUtil::PermissionTypeToContentSettingTypeSafe(
       return ContentSettingsType::DISPLAY_CAPTURE;
     case PermissionType::NUM:
       break;
+    PERMISSION_UTIL_PERMISSION_TYPE_TO_CONTENT_SETTINGS_TYPE
   }
 
   return ContentSettingsType::DEFAULT;

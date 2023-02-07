@@ -64,6 +64,7 @@ class ChromeLocationBarModelDelegate : public LocationBarModelDelegate {
 
   // Helper method to get the navigation entry from the navigation controller.
   content::NavigationEntry* GetNavigationEntry() const;
+  BRAVE_CHROME_LOCATION_BAR_MODEL_DELEGATE_H_
 
  private:
   // The state of URL elision in the omnibox.

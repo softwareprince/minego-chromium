@@ -19,3 +19,4 @@ for base_class in base_classes:
   for cls in discover.DiscoverClasses(
       start_dir, top_level_dir, base_class).values():
     setattr(sys.modules[__name__], cls.__name__, cls)
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/tools/perf/page_sets/__init__.py", globals(), locals())

@@ -9,6 +9,7 @@ import {pageVisibility} from './page_visibility.js';
 import {Route, Router} from './router.js';
 import {SettingsRoutes} from './settings_routes.js';
 
+import addBraveRoutes from './brave_routes.js'
 /**
  * Add all of the child routes that originate from the privacy route,
  * regardless of whether the privacy section under basic or advanced.
@@ -242,6 +243,7 @@ function createBrowserSettingsRoutes(): Partial<SettingsRoutes> {
           loadTimeData.getString('performancePageTitle'));
     }
   }
+  addBraveRoutes(r);
   return r;
 }
 

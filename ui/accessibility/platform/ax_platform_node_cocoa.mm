@@ -2213,6 +2213,7 @@ bool IsAXSetter(SEL selector) {
   if (!_node)
     return nil;
 
+  BRAVE_ACCESSIBILITY_ATTRIBUTED_STRING_FOR_RANGE
   return [self AXAttributedStringForRange:[NSValue valueWithRange:range]];
 }
 

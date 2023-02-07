@@ -1334,6 +1334,7 @@ void ChromeWebUIControllerFactory::GetFaviconForURL(
 
 // static
 ChromeWebUIControllerFactory* ChromeWebUIControllerFactory::GetInstance() {
+  BRAVE_CHROME_WEBUI_CONTROLLER_FACTORY
   return base::Singleton<ChromeWebUIControllerFactory>::get();
 }
 

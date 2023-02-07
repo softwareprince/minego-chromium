@@ -349,6 +349,7 @@ class BookmarkModel : public BookmarkUndoProvider,
     return weak_factory_.GetWeakPtr();
   }
 
+  BRAVE_BOOKMARK_MODEL_H
  private:
   friend class BookmarkCodecTest;
   friend class BookmarkModelFaviconTest;

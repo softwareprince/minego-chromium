@@ -1370,6 +1370,7 @@ static_library("extensions") {
   } else {
     sources += [ "api/braille_display_private/braille_controller_stub.cc" ]
   }
+  deps += brave_extensions_resources
 }
 
 static_library("test_support") {

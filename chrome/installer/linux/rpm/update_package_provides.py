@@ -33,6 +33,7 @@ LIBRARY_FILTER = set([
     "libatspi.so.0",
     "libc.so",
     "libcairo.so",
+    "libcairo-gobject.so.2",
     "libcups.so",
     "libdbus-1.so",
     "libdrm.so.2",
@@ -51,7 +52,10 @@ LIBRARY_FILTER = set([
     "libnssutil3.so",
     "libpango-1.0.so",
     "libpangocairo-1.0.so",
+    "libplc4.so",
+    "libplds4.so",
     "libpthread.so",
+    "libresolv.so.2",
     "librt.so",
     "libsmime3.so",
     "libstdc++.so",
@@ -60,6 +64,7 @@ LIBRARY_FILTER = set([
     "libxcb-dri3.so.0",
     "libxkbcommon.so.0",
     "libxshmfence.so.1",
+    "libz.so.1",
     "rtld(GNU_HASH)",
 ])
 

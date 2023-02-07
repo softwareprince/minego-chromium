@@ -109,6 +109,7 @@ RequestTypeForUma GetUmaValueForRequestType(RequestType request_type) {
     case RequestType::kWindowManagement:
       return RequestTypeForUma::PERMISSION_WINDOW_MANAGEMENT;
 #endif
+    BRAVE_GET_UMA_VALUE_FOR_REQUEST_TYPE
   }
 }
 

@@ -76,6 +76,7 @@ WebUIImpl::WebUIImpl(WebContentsImpl* contents, RenderFrameHostImpl* frame_host)
              RenderFrameHostImpl::LifecycleStateImpl::kActive ||
          frame_host->lifecycle_state() ==
              RenderFrameHostImpl::LifecycleStateImpl::kSpeculative);
+  BRAVE_WEB_UI_IMPL
 }
 
 WebUIImpl::~WebUIImpl() {

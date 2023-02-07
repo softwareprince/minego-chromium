@@ -178,6 +178,7 @@ component("cpp") {
     "//services/proxy_resolver/public/mojom",
   ]
 
+  public_deps += [ "//brave/services/network/public/cpp" ]
   defines = [ "IS_NETWORK_CPP_IMPL" ]
 }
 

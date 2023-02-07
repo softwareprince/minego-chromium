@@ -311,6 +311,7 @@ PermissionPromptBubbleView::PermissionPromptBubbleView(
   for (permissions::PermissionRequest* request :
        GetVisibleRequests(*delegate.get()))
     AddRequestLine(request);
+  BRAVE_PERMISSION_PROMPT_BUBBLE_VIEW
 
   absl::optional<std::u16string> extra_text = GetExtraText(*delegate.get());
   if (extra_text.has_value()) {

@@ -435,6 +435,7 @@ void ModuleTreeLinker::FetchDescendants(const ModuleScript* module_script) {
                              module_script->FetchOptions().GetReferrerPolicy(),
                              mojom::blink::FetchPriorityHint::kAuto,
                              RenderBlockingBehavior::kNonBlocking);
+  BRAVE_MODULE_TREE_LINKER_FETCH_DESCENDANTS
 
   // <spec step="8">For each moduleRequest in moduleRequests, ...</spec>
   //

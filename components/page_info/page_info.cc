@@ -1197,6 +1197,7 @@ void PageInfo::PresentSitePermissions() {
       }
     }
 
+    BRAVE_PAGE_INFO_SHOULD_SHOW_PERMISSION
     if (ShouldShowPermission(
             permission_info, site_url_, content_settings, web_contents_.get(),
             HasContentSettingChangedViaPageInfo(permission_info.type),

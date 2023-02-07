@@ -58,6 +58,7 @@ class IdentityGetAuthTokenError;
 // successfully, getAuthToken proceeds to the non-interactive flow.
 class IdentityGetAuthTokenFunction : public ExtensionFunction,
                                      public GaiaRemoteConsentFlow::Delegate,
+                                     public WebAuthFlow::Delegate,
                                      public IdentityMintRequestQueue::Request,
                                      public signin::IdentityManager::Observer,
                                      public OAuth2MintTokenFlow::Delegate {
@@ -81,6 +82,11 @@ class IdentityGetAuthTokenFunction : public ExtensionFunction,
       GaiaRemoteConsentFlow::Failure failure) override;
   void OnGaiaRemoteConsentFlowApproved(const std::string& consent_result,
                                        const std::string& gaia_id) override;
+
+  // Used only if Google API keys aren't set up.
+  // WebAuthFlow::Delegate implementation:
+  void OnAuthFlowFailure(WebAuthFlow::Failure failure) override;
+  void OnAuthFlowURLChange(const GURL& redirect_url) override;
 
   // Starts a login access token request.
   virtual void StartTokenKeyAccountAccessTokenRequest();
@@ -198,6 +204,9 @@ class IdentityGetAuthTokenFunction : public ExtensionFunction,
   void OnRemoteConsentSuccess(
       const RemoteConsentResolutionData& resolution_data) override;
 
+  // Used only if Google API keys aren't set up.
+  void StartWebAuthFlow();
+
 #if BUILDFLAG(IS_CHROMEOS)
   // Starts a login access token request for device robot account. This method
   // will be called only in Chrome OS for:
@@ -245,6 +254,10 @@ class IdentityGetAuthTokenFunction : public ExtensionFunction,
   std::string consent_result_;
   // Added for debugging https://crbug.com/1091423.
   bool remote_consent_approved_ = false;
+
+  // Used only if Google API keys aren't set up.
+  std::unique_ptr<WebAuthFlow> web_auth_flow_;
+  std::string redirect_scheme_;
 
   // Invoked when IdentityAPI is shut down.
   base::CallbackListSubscription identity_api_shutdown_subscription_;

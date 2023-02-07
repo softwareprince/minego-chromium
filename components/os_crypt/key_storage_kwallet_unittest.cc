@@ -35,8 +35,8 @@ constexpr KWalletDBus::Error CANNOT_CONTACT =
 const char kExpectedFolderName[] = "Chrome Keys";
 const char kExpectedEntryName[] = "Chrome Safe Storage";
 #else
-const char kExpectedFolderName[] = "Chromium Keys";
-const char kExpectedEntryName[] = "Chromium Safe Storage";
+const char kExpectedFolderName[] = "Brave Keys";
+const char kExpectedEntryName[] = "Brave Safe Storage";
 #endif
 
 // Environment-specific behavior is handled and tested with KWalletDBus, not

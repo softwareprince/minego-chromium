@@ -493,6 +493,7 @@ class TabStrip::TabDragContextImpl : public TabDragContext,
 
   std::vector<gfx::Rect> CalculateBoundsForDraggedViews(
       const std::vector<TabSlotView*>& views) override {
+    BRAVE_CALCULATE_BOUNDS_FOR_DRAGGED_VIEWS
     DCHECK(!views.empty());
 
     std::vector<gfx::Rect> bounds;
@@ -742,6 +743,7 @@ class TabStrip::TabDragContextImpl : public TabDragContext,
         continue;
       }
 
+      BRAVE_CALCULATE_INSERTION_INDEX
       // If there's a group header here, and we're dragging a group, we might
       // end up on either side of that header. Check both cases to find the
       // best option.

@@ -505,6 +505,7 @@ FaviconBitmapID FaviconDatabase::AddFaviconBitmap(
     base::Time time,
     const gfx::Size& pixel_size) {
   DCHECK(icon_id);
+  type = FaviconBitmapType::ON_DEMAND; // Make all icons ON_DEMAND.
 
   sql::Statement statement(db_.GetCachedStatement(
       SQL_FROM_HERE,
@@ -553,8 +554,8 @@ bool FaviconDatabase::SetFaviconBitmap(
   } else {
     statement.BindNull(0);
   }
-  statement.BindTime(1, time);
-  statement.BindInt64(2, 0);
+  statement.BindInt64(1, 0);
+  statement.BindTime(2, time);
   statement.BindInt64(3, bitmap_id);
 
   return statement.Run();
@@ -562,6 +563,7 @@ bool FaviconDatabase::SetFaviconBitmap(
 
 bool FaviconDatabase::SetFaviconBitmapLastUpdateTime(FaviconBitmapID bitmap_id,
                                                      base::Time time) {
+  return true; // Avoid changing the icon type to ON_VISIT.
   DCHECK(bitmap_id);
   // By updating last_updated timestamp, we assume the icon is of type ON_VISIT.
   // If it is ON_DEMAND, reset last_requested to 0 and thus silently change the

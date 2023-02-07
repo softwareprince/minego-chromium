@@ -976,6 +976,7 @@ int ConfiguredProxyResolutionService::TryToCompleteSynchronously(
   config_->value().proxy_rules().Apply(url, result);
   result->set_traffic_annotation(
       MutableNetworkTrafficAnnotationTag(config_->traffic_annotation()));
+  BRAVE_TRY_TO_COMPLETE_SYNCHRONOUSLY
 
   return OK;
 }

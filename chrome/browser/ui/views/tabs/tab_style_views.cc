@@ -74,6 +74,7 @@ class GM2TabStyle : public TabStyleViews {
   void HideHover(HideHoverStyle style) override;
 
  private:
+  BRAVE_GM2_TAB_STYLE_H
   // Gets the bounds for the leading and trailing separators for a tab.
   SeparatorBounds GetSeparatorBounds(float scale) const;
 
@@ -285,6 +286,7 @@ SkPath GM2TabStyle::GetPath(PathType path_type,
   const ShapeModifier shape_modifier = GetShapeModifier(path_type);
   const bool extend_left_to_bottom = shape_modifier & kNoLowerLeftArc;
   const bool extend_right_to_bottom = shape_modifier & kNoLowerRightArc;
+  bottom_radius = 0;
 
   SkPath path;
 
@@ -561,7 +563,7 @@ TabStyle::SeparatorBounds GM2TabStyle::GetSeparatorBounds(float scale) const {
   separator_bounds.leading =
       gfx::RectF(aligned_bounds.x() + corner_radius,
                  aligned_bounds.y() +
-                     (aligned_bounds.height() - separator_size.height()) / 2,
+                     aligned_bounds.height() - separator_size.height(),
                  separator_size.width(), separator_size.height());
 
   separator_bounds.trailing = separator_bounds.leading;
@@ -911,12 +913,16 @@ void GM2TabStyle::PaintSeparators(gfx::Canvas* canvas) const {
                                                    SK_AlphaOPAQUE));
   };
 
+  // Even if |separator_radius| becomes 1 native pixel the 'roundedness'
+  // will be approximated with color, although extremely subtle and
+  // likely only on screens >= 2x (i.e. separator width is 2+px)!
+  const int separator_radius =  separator_bounds.leading.width() / 2;
   cc::PaintFlags flags;
   flags.setAntiAlias(true);
   flags.setColor(separator_color(separator_opacities.left));
-  canvas->DrawRect(separator_bounds.leading, flags);
+  canvas->DrawRoundRect(separator_bounds.leading, separator_radius, flags);
   flags.setColor(separator_color(separator_opacities.right));
-  canvas->DrawRect(separator_bounds.trailing, flags);
+  canvas->DrawRoundRect(separator_bounds.trailing, separator_radius, flags);
 }
 
 // static

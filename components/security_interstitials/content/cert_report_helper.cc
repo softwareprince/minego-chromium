@@ -204,6 +204,7 @@ bool CertReportHelper::ShouldShowEnhancedProtectionMessage() {
   // the window is not incognito AND
   // Safe Browsing is not managed by policy AND
   // the user is not already in enhanced protection mode.
+  BRAVE_CERT_REPORT_HELPER_SHOULD_SHOW_ENHANCED_PROTECTION_MESSAGE
   if (!can_show_enhanced_protection_message_) {
     return false;
   }

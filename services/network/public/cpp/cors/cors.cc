@@ -332,6 +332,7 @@ bool IsCorsSafelistedHeader(const std::string& name, const std::string& value) {
       "sec-ch-ua-mobile",
       "sec-ch-ua-full-version",
       "sec-ch-ua-platform-version",
+      "x-brave-partner", // Prevent Allow-Cross-Origin-Request-Header failures
       // The `Sec-CH-Prefers-Color-Scheme` header field is modeled after the
       // prefers-color-scheme user preference media feature. It reflects the
       // user’s desire that the page use a light or dark color theme. This is

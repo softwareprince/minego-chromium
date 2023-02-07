@@ -480,6 +480,7 @@ const LocalizedErrorMap* LookupErrorMap(const std::string& error_domain,
                                         int error_code,
                                         bool is_secure_dns_network_error,
                                         bool is_post) {
+  BRAVE_LOOKUP_ERROR_MAP
   if (error_domain == Error::kNetErrorDomain) {
     // Display a different page in the special case of navigating through the
     // history to an uncached page created by a POST.

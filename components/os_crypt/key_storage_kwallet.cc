@@ -95,6 +95,7 @@ absl::optional<std::string> KeyStorageKWallet::GetKeyImpl() {
   // Read password
   absl::optional<std::string> password;
   error =
+      BRAVE_KEY_STORAGE_KWALLET_GET_KEY_IMPL
       kwallet_dbus_->ReadPassword(handle_, KeyStorageLinux::kFolderName,
                                   KeyStorageLinux::kKey, app_name_, &password);
   if (error)
@@ -119,6 +120,7 @@ absl::optional<std::string> KeyStorageKWallet::GetKeyImpl() {
 bool KeyStorageKWallet::InitFolder() {
   bool has_folder = false;
   KWalletDBus::Error error = kwallet_dbus_->HasFolder(
+      BRAVE_KEY_STORAGE_KWALLET_INIT_FOLDER
       handle_, KeyStorageLinux::kFolderName, app_name_, &has_folder);
   if (error)
     return false;

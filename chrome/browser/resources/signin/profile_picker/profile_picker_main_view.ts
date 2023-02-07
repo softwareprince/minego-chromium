@@ -95,6 +95,7 @@ export class ProfilePickerMainViewElement extends
     if (!isProfileCreationAllowed()) {
       this.$.addProfile.style.display = 'none';
     }
+    this.$.addProfile.style.borderRadius = '8px';
   }
 
   override connectedCallback() {

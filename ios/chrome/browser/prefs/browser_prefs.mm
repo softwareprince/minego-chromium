@@ -208,6 +208,7 @@ void RegisterLocalStatePrefs(PrefRegistrySimple* registry) {
       prefs::kAutofillBrandingIconAnimationRemainingCountPrefName, 2);
 
   registry->RegisterDictionaryPref(kLocalConsentsDictionary);
+  BRAVE_REGISTER_LOCAL_STATE_PREFS
 }
 
 void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
@@ -338,6 +339,7 @@ void RegisterBrowserStatePrefs(user_prefs::PrefRegistrySyncable* registry) {
       base::to_underlying(
           prerender_prefs::NetworkPredictionSetting::kEnabledWifiOnly),
       user_prefs::PrefRegistrySyncable::SYNCABLE_PREF);
+  BRAVE_REGISTER_BROWSER_STATE_PREFS
 }
 
 // This method should be periodically pruned of year+ old migrations.
@@ -400,4 +402,5 @@ void MigrateObsoleteBrowserStatePrefs(PrefService* prefs) {
     if (!account_id.empty())
       prefs->SetString(prefs::kGoogleServicesLastGaiaId, account_id);
   }
+  BRAVE_MIGRATE_OBSOLETE_BROWSER_STATE_PREFS
 }

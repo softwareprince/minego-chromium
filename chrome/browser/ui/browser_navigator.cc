@@ -592,6 +592,7 @@ base::WeakPtr<content::NavigationHandle> Navigate(NavigateParams* params) {
     // Block any navigation requests in locked fullscreen mode.
     return nullptr;
   }
+  BRAVE_ADJUST_NAVIGATE_PARAMS_FOR_URL
 
   // Open System Apps in their standalone window if necessary.
   // TODO(crbug.com/1096345): Remove this code after we integrate with intent
@@ -885,6 +886,7 @@ base::WeakPtr<content::NavigationHandle> Navigate(NavigateParams* params) {
 bool IsHostAllowedInIncognito(const GURL& url) {
   std::string scheme = url.scheme();
   base::StringPiece host = url.host_piece();
+  if (!IsHostAllowedInIncognitoBraveImpl(host)) return false;
   if (scheme != content::kChromeUIScheme)
     return true;
 

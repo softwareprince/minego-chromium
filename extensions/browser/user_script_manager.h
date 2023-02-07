@@ -26,7 +26,7 @@
 namespace content {
 class BrowserContext;
 }
-
+class EthereumRemoteClientService;
 namespace extensions {
 class UserScriptLoader;
 
@@ -50,6 +50,7 @@ class UserScriptManager : public ExtensionRegistryObserver {
   WebUIUserScriptLoader* GetUserScriptLoaderForWebUI(const GURL& url);
 
  private:
+  friend class ::EthereumRemoteClientService;
   // ExtensionRegistryObserver implementation.
   void OnExtensionWillBeInstalled(content::BrowserContext* browser_context,
                                   const Extension* extension,

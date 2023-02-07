@@ -435,6 +435,7 @@ void ChipController::HideChip() {
   chip_->SetVisible(false);
   // When the chip visibility changed from visible -> hidden, the locationbar
   // layout should be updated.
+  BRAVE_CHIP_CONTROLLER_HIDE_CHIP
   GetLocationBarView()->InvalidateLayout();
 }
 

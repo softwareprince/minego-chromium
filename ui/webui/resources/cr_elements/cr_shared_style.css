@@ -7,8 +7,9 @@
  * #import=./cr_shared_vars.css.js
  * #import=./cr_hidden_style.css.js
  * #import=./cr_icons.css.js
+ * #import=../br_elements/br_shared_style.css.js
  * #scheme=relative
- * #include=cr-hidden-style cr-icons
+ * #include=cr-hidden-style br-shared-style cr-icons
  * #css_wrapper_metadata_end */
 
 html,

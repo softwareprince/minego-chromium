@@ -79,4 +79,5 @@ build_webui("build") {
       "lazy_load.rollup.js|lazy_load.js",
     ]
   }
+  import("//brave/browser/resources/history/sources.gni") web_component_files += brave_history_web_component_files non_web_component_files += brave_history_non_web_component_files exclude_preprocess_files = brave_history_local_files preprocess_deps = brave_history_preprocess_extra_deps
 }

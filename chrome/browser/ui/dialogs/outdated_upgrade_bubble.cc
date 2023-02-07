@@ -42,6 +42,8 @@ constexpr int kNumIgnoredBuckets = 5;
 // we redirect to the safetyCheck page that interacts with these. On other
 // platforms it may be possible to download an updated browser via a site.
 const char* kUpdateBrowserRedirectUrl =
+    kDownloadBraveUrl;
+#if 0
 #if BUILDFLAG(IS_CHROMEOS_LACROS)
     // The URL to be used to update Lacros-Chrome when auto-update failed
     // for too long.
@@ -50,6 +52,7 @@ const char* kUpdateBrowserRedirectUrl =
     // The URL to be used to re-install Chrome when auto-update failed for
     // too long.
     "https://www.google.com/chrome";
+#endif
 #endif
 
 bool g_upgrade_bubble_is_showing = false;

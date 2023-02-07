@@ -128,7 +128,7 @@ public class TabbedModeTabDelegateFactory implements TabDelegateFactory {
 
     @Override
     public ExternalNavigationHandler createExternalNavigationHandler(Tab tab) {
-        return new ExternalNavigationHandler(new ExternalNavigationDelegateImpl(tab));
+        return new org.chromium.chrome.browser.externalnav.BraveExternalNavigationHandler(new ExternalNavigationDelegateImpl(tab));
     }
 
     @Override

@@ -91,6 +91,7 @@ class ChromeUpdateClientConfig : public update_client::Configurator {
 #if BUILDFLAG(ENABLE_PUFFIN_PATCHES)
   absl::optional<base::FilePath> GetCrxCachePath() const override;
 #endif
+  BRAVE_CHROME_UPDATE_CLIENT_CONFIG_H_
 
  protected:
   friend class base::RefCountedThreadSafe<ChromeUpdateClientConfig>;

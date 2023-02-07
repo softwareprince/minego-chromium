@@ -414,6 +414,7 @@ TransportSecurityState::TransportSecurityState(
 #if !BUILDFLAG(GOOGLE_CHROME_BRANDING) || BUILDFLAG(IS_IOS)
   enable_static_pins_ = false;
   enable_static_expect_ct_ = false;
+  BRAVE_ENABLE_STATIC_PINS
 #endif
   // Check that there no invalid entries in the static HSTS bypass list.
   for (auto& host : hsts_host_bypass_list) {

@@ -165,6 +165,7 @@ void SharingHubBubbleViewImpl::PopulateScrollView(
     view->SetGroup(kActionButtonGroup);
   }
 
+  BRAVE_SHARING_HUB_BUBBLE_VIEW_IMPL_POPULATE_SCROLL_VIEW
   action_list_view->AddChildView(std::make_unique<views::Separator>());
 
   constexpr int kIndent = 12;

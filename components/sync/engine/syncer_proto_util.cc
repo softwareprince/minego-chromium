@@ -396,6 +396,7 @@ SyncerError SyncerProtoUtil::PostClientToServerMessage(
 
   SyncProtocolError sync_protocol_error =
       GetProtocolErrorFromResponse(*response, cycle->context());
+  BRAVE_SYNCER_PROTO_UTIL_POST_CLIENT_TO_SERVER_MESSAGE
 
   // Inform the delegate of the error we got.
   cycle->delegate()->OnSyncProtocolError(sync_protocol_error);

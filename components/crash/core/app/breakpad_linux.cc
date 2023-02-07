@@ -1462,7 +1462,7 @@ bool IsValidCrashReportId(const char* buf, size_t bytes_read,
   return my_strcmp(buf, "_sys_cr_finished") == 0;
 #else
   for (size_t i = 0; i < bytes_read; ++i) {
-    if (!my_isxdigit(buf[i]))
+    if (!my_isxdigit(buf[i]) && buf[i] != '-')
       return false;
   }
   return true;
@@ -1957,7 +1957,7 @@ void HandleCrashDump(const BreakpadInfo& info) {
       if (upload_child > 0) {
         IGNORE_RET(sys_close(fds[1]));  // Close write end of pipe.
 
-        const size_t kCrashIdLength = 16;
+        const size_t kCrashIdLength = 36;
         char id_buf[kCrashIdLength + 1];
         size_t bytes_read =
             WaitForCrashReportUploadProcess(fds[0], kCrashIdLength, id_buf);

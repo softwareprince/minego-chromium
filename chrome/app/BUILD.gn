@@ -110,6 +110,8 @@ grit("generated_resources") {
   if (is_android) {
     outputs += android_generated_java_resources
   }
+
+  deps = [ "//brave/app:brave_generated_resources_grit" ]
 }
 
 if (is_android) {
@@ -145,7 +147,7 @@ grit("google_chrome_strings") {
 }
 
 grit("chromium_strings") {
-  source = "chromium_strings.grd"
+  source = "${branding_path_component}_strings.grd"
   defines = chrome_grit_defines
   output_dir = "$root_gen_dir/chrome"
   outputs =

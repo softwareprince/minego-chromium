@@ -198,6 +198,7 @@ bool BlobURLStoreImpl::BlobUrlIsValid(const GURL& url,
   } else {
     valid_origin = storage_key_origin == url_origin;
   }
+  BRAVE_BLOB_URL_STORE_IMPL_BLOB_URL_IS_VALID
   if (!valid_origin) {
     mojo::ReportBadMessage(base::StrCat(
         {"URL with invalid origin passed to BlobURLStore::", method}));

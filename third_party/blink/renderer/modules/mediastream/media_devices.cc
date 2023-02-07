@@ -859,6 +859,7 @@ void MediaDevices::DevicesEnumerated(
     }
   }
 
+  BRAVE_MEDIA_DEVICES_DEVICES_ENUMERATED
   RecordEnumeratedDevices(resolver, media_devices);
   RecordEnumerateDevicesLatency(request_metadata.start_time);
 

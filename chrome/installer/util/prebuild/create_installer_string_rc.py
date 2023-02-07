@@ -92,3 +92,5 @@ MODE_SPECIFIC_STRINGS = {
     ],
   },
 }
+
+from chrome.installer.util.prebuild.create_installer_string_rc import MODE_SPECIFIC_STRINGS

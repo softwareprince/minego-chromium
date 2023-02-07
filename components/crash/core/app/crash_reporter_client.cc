@@ -194,6 +194,7 @@ void CrashReporterClient::GetSanitizationInformation(
 #endif
 
 std::string CrashReporterClient::GetUploadUrl() {
+  BRAVE_CRASH_REPORTER_CLIENT_GET_UPLOAD_URL
 #if BUILDFLAG(GOOGLE_CHROME_BRANDING) && defined(OFFICIAL_BUILD)
   // Only allow the possibility of report upload in official builds. This
   // crash server won't have symbols for any other build types.

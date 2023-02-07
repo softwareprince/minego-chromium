@@ -212,3 +212,4 @@ def Read(path):
   """
   with open(os.path.join(path, 'compile_commands.json'), 'rb') as db:
     return json.load(db)
+import os, sys; sys.path.append(os.path.join(os.path.dirname(__file__), *[os.pardir] * 4, 'brave', 'script')); from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/tools/clang/pylib/clang/compile_db.py", globals(), locals())

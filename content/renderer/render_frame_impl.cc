@@ -4423,6 +4423,7 @@ bool RenderFrameImpl::ShouldUseUserAgentOverride() const {
   // Temporarily return early and fix properly as part of
   // https://crbug.com/426555.
   if (web_view->MainFrame()->IsWebRemoteFrame())
+    BRAVE_RENDER_FRAME_IMPL_SHOULD_USE_USER_AGENT_OVERRIDE
     return false;
   const WebLocalFrame* main_frame = web_view->MainFrame()->ToWebLocalFrame();
 

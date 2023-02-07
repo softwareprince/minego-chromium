@@ -132,6 +132,7 @@ template("build_webui") {
     if (defined(invoker.css_files)) {
       in_files += invoker.css_files
     }
+    if (defined(invoker.exclude_preprocess_files)) { in_files -= invoker.exclude_preprocess_files } if (defined(invoker.preprocess_deps)) { public_deps = invoker.preprocess_deps }
   }
 
   if (defined(html_files)) {

@@ -193,6 +193,8 @@ static_library("update_client") {
       "puffin_patcher.h",
     ]
   }
+
+  deps += brave_components_update_client_deps public_deps = brave_components_update_client_public_deps
 }
 
 static_library("test_support") {

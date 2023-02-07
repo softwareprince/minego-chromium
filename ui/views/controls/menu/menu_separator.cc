@@ -43,6 +43,7 @@ void MenuSeparator::OnPaint(gfx::Canvas* canvas) {
   if (type_ == ui::PADDED_SEPARATOR)
     paint_rect.Inset(
         gfx::Insets::TLBR(0, menu_config.padded_separator_left_margin, 0, 0));
+  BRAVE_MENU_SEPARATOR_ON_PAINT
   else if (menu_config.use_outer_border)
     paint_rect.Inset(gfx::Insets::VH(0, 1));
 

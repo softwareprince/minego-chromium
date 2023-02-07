@@ -87,6 +87,8 @@ UserSelectableTypeInfo GetUserSelectableTypeInfo(UserSelectableType type) {
 #endif
     case UserSelectableType::kReadingList:
       return {kReadingListTypeName, READING_LIST, {READING_LIST}};
+    case UserSelectableType::kWhatsapp:
+      return {kReadingListTypeName, WHATSAPP, {WHATSAPP}};
     case UserSelectableType::kTabs:
       return {kTabsTypeName, PROXY_TABS, {PROXY_TABS, SESSIONS}};
     case UserSelectableType::kWifiConfigurations:
@@ -165,6 +167,9 @@ absl::optional<UserSelectableType> GetUserSelectableTypeFromString(
   }
   if (type == kReadingListTypeName) {
     return UserSelectableType::kReadingList;
+  }
+  if (type == kReadingListTypeName) {
+    return UserSelectableType::kWhatsapp;
   }
   if (type == kTabsTypeName) {
     return UserSelectableType::kTabs;

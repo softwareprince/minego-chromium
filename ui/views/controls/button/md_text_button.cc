@@ -250,6 +250,7 @@ void MdTextButton::UpdateColors() {
     UpdateTextColor();
     UpdateBackgroundColor();
     SchedulePaint();
+    BRAVE_MD_TEXT_BUTTON_UPDATE_COLORS
   }
 }
 

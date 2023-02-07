@@ -226,6 +226,7 @@ enum class ModelTypeForHistograms {
   kAutofillWalletMetadata = 35,
   kArcPackage = 36,
   kPrinters = 37,
+  kWhatsapp = 57,
   kReadingList = 38,
   kUserEvents = 39,
   // kDeprecatedMountainShares = 40,
@@ -245,7 +246,7 @@ enum class ModelTypeForHistograms {
   kAutofillWalletUsage = 54,
   kSegmentation = 55,
   kSavedTabGroups = 56,
-  kMaxValue = kSavedTabGroups
+  kMaxValue = kWhatsapp
 };
 
 // Used to mark the type of EntitySpecifics that has no actual data.

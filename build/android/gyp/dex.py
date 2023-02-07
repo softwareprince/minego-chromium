@@ -54,7 +54,7 @@ _IGNORE_WARNINGS = (
 _SKIPPED_CLASS_FILE_NAMES = (
     'module-info.class',  # Explicitly skipped by r8/utils/FileUtils#isClassFile
 )
-
+_IGNORE_WARNINGS += ( r'.Brave', )
 
 def _ParseArgs(args):
   args = build_utils.ExpandFileArgs(args)

@@ -18,6 +18,7 @@
 #include "base/time/time.h"
 #include "base/trace_event/heap_profiler_allocation_context_tracker.h"
 #include "base/trace_event/trace_event.h"
+#include "brave/browser/brave_browser_main_loop.h"
 #include "build/build_config.h"
 #include "components/tracing/common/trace_startup_config.h"
 #include "components/tracing/common/tracing_switches.h"
@@ -104,7 +105,7 @@ int BrowserMainRunnerImpl::Initialize(MainFunctionParams parameters) {
     auto created_main_parts_closure =
         std::move(parameters.created_main_parts_closure);
 
-    main_loop_ = std::make_unique<BrowserMainLoop>(
+    main_loop_ = std::make_unique<brave::BraveBrowserMainLoop>(
         std::move(parameters), std::move(scoped_execution_fence_));
 
     main_loop_->Init();

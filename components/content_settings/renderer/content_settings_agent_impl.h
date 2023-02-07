@@ -107,6 +107,7 @@ class ContentSettingsAgentImpl
   void SetRendererContentSettingRulesForTest(
       const RendererContentSettingRules& rules);
 
+  BRAVE_CONTENT_SETTINGS_AGENT_IMPL_H_
  protected:
   // Allow this to be overridden by tests.
   virtual void BindContentSettingsManager(

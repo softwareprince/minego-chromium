@@ -319,6 +319,7 @@ StartupTabs StartupTabProviderImpl::GetPrivacySandboxTabs(
 bool StartupTabProviderImpl::CanShowWelcome(bool is_signin_allowed,
                                             bool is_child_account,
                                             bool is_force_signin_enabled) {
+  if ((true)) return true;
   return is_signin_allowed && !is_child_account && !is_force_signin_enabled;
 }
 

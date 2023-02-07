@@ -392,6 +392,7 @@ content::WebUIDataSource* CreateExtensionsSource(Profile* profile,
       "showAccessRequestsInToolbarLearnMoreLink",
       chrome_extension_constants::kShowAccessRequestsInToolbarHelpURL);
 
+  BRAVE_CREATE_EXTENSIONS_SOURCE
   return source;
 }
 

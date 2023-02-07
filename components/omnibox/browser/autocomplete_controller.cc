@@ -347,6 +347,7 @@ AutocompleteController::AutocompleteController(
     if (provider_types & AutocompleteProvider::TYPE_SEARCH) {
       search_provider_ = new SearchProvider(provider_client_.get(), this);
       providers_.push_back(search_provider_.get());
+      BRAVE_AUTOCOMPLETE_CONTROLLER_AUTOCOMPLETE_CONTROLLER
     }
     // Providers run in the order they're added.  Add `HistoryURLProvider` after
     // `SearchProvider` because:
@@ -993,6 +994,7 @@ void AutocompleteController::UpdateResult(
 #if DCHECK_IS_ON()
   result_.Validate();
 #endif  // DCHECK_IS_ON()
+  BRAVE_AUTOCOMPLETE_CONTROLLER_UPDATE_RESULT
 
   // Below are all annotations after the match list is ready.
 

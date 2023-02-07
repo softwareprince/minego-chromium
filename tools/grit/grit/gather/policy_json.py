@@ -354,3 +354,4 @@ class PolicyJson(skeleton_gatherer.SkeletonGatherer):
       }
     else:
       raise Exception('Unknown build')
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/tools/grit/grit/gather/policy_json.py", globals(), locals())

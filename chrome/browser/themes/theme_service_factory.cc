@@ -81,6 +81,7 @@ ThemeServiceFactory::~ThemeServiceFactory() = default;
 
 KeyedService* ThemeServiceFactory::BuildServiceInstanceFor(
     content::BrowserContext* profile) const {
+  BRAVE_THEMESERVICEFACTORY_BUILDSERVICEINSTANCEFOR
 #if BUILDFLAG(IS_LINUX)
   using ThemeService = ThemeServiceAuraLinux;
 #endif

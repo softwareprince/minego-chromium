@@ -4371,6 +4371,7 @@ if (is_android) {
       "android/java/src/org/chromium/base/task/TaskTraits.java",
       "android/java/src/org/chromium/base/task/TaskTraitsExtensionDescriptor.java",
     ]
+    sources += brave_java_base_sources
 
     annotation_processor_deps = [ "//base/android/jni_generator:jni_processor" ]
 

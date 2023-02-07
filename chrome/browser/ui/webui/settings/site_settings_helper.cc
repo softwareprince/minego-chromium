@@ -173,6 +173,7 @@ const ContentSettingsTypeNameEntry kContentSettingsTypeGroupNames[] = {
     // PPAPI_BROKER has been deprecated. The content setting is not used or
     // called from UI, so we don't need a representation JS string.
     {ContentSettingsType::DEPRECATED_PPAPI_BROKER, nullptr},
+    BRAVE_CONTENT_SETTINGS_TYPE_GROUP_NAMES_LIST
 };
 
 static_assert(std::size(kContentSettingsTypeGroupNames) ==
@@ -361,6 +362,7 @@ bool HasRegisteredGroupName(ContentSettingsType type) {
 }
 
 ContentSettingsType ContentSettingsTypeFromGroupName(base::StringPiece name) {
+  BRAVE_SITE_SETTINGS_HELPER_CONTENT_SETTINGS_TYPE_FROM_GROUP_NAME
   for (size_t i = 0; i < std::size(kContentSettingsTypeGroupNames); ++i) {
     if (name == kContentSettingsTypeGroupNames[i].name)
       return kContentSettingsTypeGroupNames[i].type;

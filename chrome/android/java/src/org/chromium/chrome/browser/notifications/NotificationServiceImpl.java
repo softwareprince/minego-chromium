@@ -113,7 +113,7 @@ public class NotificationServiceImpl extends NotificationService.Impl {
 
         // Now that the browser process is initialized, we pass forward the call to the
         // NotificationPlatformBridge which will take care of delivering the appropriate events.
-        if (!NotificationPlatformBridge.dispatchNotificationEvent(intent)) {
+        if (!BraveNotificationPlatformBridge.dispatchNotificationEvent(intent)) {
             Log.w(TAG, "Unable to dispatch the notification event to Chrome.");
         }
 

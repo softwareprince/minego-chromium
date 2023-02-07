@@ -215,6 +215,7 @@ class BrowserProcessImpl : public BrowserProcess,
   static void RegisterPrefs(PrefRegistrySimple* registry);
 
  private:
+  friend class BraveBrowserProcessImpl;
   using WebRtcEventLogManager = webrtc_event_logging::WebRtcEventLogManager;
 
   // KeepAliveStateObserver implementation

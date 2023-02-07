@@ -75,9 +75,11 @@ public class ChromeChannelDefinitions extends ChannelDefinitions {
      * more detailed instructions.
      */
     @StringDef({ChannelId.BROWSER, ChannelId.DOWNLOADS, ChannelId.INCOGNITO,
-            ChannelId.MEDIA_PLAYBACK, ChannelId.SCREEN_CAPTURE, ChannelId.CONTENT_SUGGESTIONS,
-            ChannelId.WEBAPP_ACTIONS, ChannelId.SITES, ChannelId.VR, ChannelId.SHARING,
-            ChannelId.UPDATES, ChannelId.COMPLETED_DOWNLOADS, ChannelId.PERMISSION_REQUESTS,
+            BraveChannelDefinitions.ChannelId.BRAVE_ADS,
+            BraveChannelDefinitions.ChannelId.BRAVE_ADS_BACKGROUND, ChannelId.MEDIA_PLAYBACK,
+            ChannelId.SCREEN_CAPTURE, ChannelId.CONTENT_SUGGESTIONS, ChannelId.WEBAPP_ACTIONS,
+            ChannelId.SITES, ChannelId.VR, ChannelId.SHARING, ChannelId.UPDATES,
+            ChannelId.COMPLETED_DOWNLOADS, ChannelId.PERMISSION_REQUESTS,
             ChannelId.PERMISSION_REQUESTS_HIGH, ChannelId.ANNOUNCEMENT, ChannelId.WEBAPPS,
             ChannelId.WEBAPPS_QUIET, ChannelId.WEBRTC_CAM_AND_MIC, ChannelId.PRICE_DROP,
             ChannelId.PRICE_DROP_DEFAULT, ChannelId.SECURITY_KEY, ChannelId.CHROME_TIPS,
@@ -116,7 +118,8 @@ public class ChromeChannelDefinitions extends ChannelDefinitions {
         String USB = "usb";
     }
 
-    @StringDef({ChannelGroupId.GENERAL, ChannelGroupId.SITES})
+    @StringDef({BraveChannelDefinitions.ChannelGroupId.BRAVE_ADS, ChannelGroupId.GENERAL,
+            ChannelGroupId.SITES})
     @Retention(RetentionPolicy.SOURCE)
     public @interface ChannelGroupId {
         String SITES = "sites";
@@ -145,6 +148,7 @@ public class ChromeChannelDefinitions extends ChannelDefinitions {
             Map<String, PredefinedChannel> map = new HashMap<>();
             Set<String> startup = new HashSet<>();
 
+            BraveChannelDefinitions.addBraveChannels(map, startup);
             map.put(ChannelId.BROWSER,
                     PredefinedChannel.create(ChannelId.BROWSER,
                             R.string.notification_category_browser,
@@ -315,6 +319,7 @@ public class ChromeChannelDefinitions extends ChannelDefinitions {
         static final Map<String, PredefinedChannelGroup> MAP;
         static {
             Map<String, PredefinedChannelGroup> map = new HashMap<>();
+            BraveChannelDefinitions.addBraveChannelGroups(map);
             map.put(ChannelGroupId.GENERAL,
                     new PredefinedChannelGroup(
                             ChannelGroupId.GENERAL, R.string.notification_category_group_general));

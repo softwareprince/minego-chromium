@@ -77,6 +77,7 @@ protodb::DownloadClient ProtoConversions::DownloadClientToProto(
       return protodb::DownloadClient::OPTIMIZATION_GUIDE_PREDICTION_MODELS;
     case DownloadClient::BOUNDARY:
       return protodb::DownloadClient::BOUNDARY;
+    BRAVE_DOWNLOAD_CLIENT_TO_PROTO
   }
 
   NOTREACHED();
@@ -108,6 +109,7 @@ DownloadClient ProtoConversions::DownloadClientFromProto(
       return DownloadClient::OPTIMIZATION_GUIDE_PREDICTION_MODELS;
     case protodb::DownloadClient::BOUNDARY:
       return DownloadClient::BOUNDARY;
+    BRAVE_DOWNLOAD_CLIENT_FROM_PROTO
   }
 
   NOTREACHED();

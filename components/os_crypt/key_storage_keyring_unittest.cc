@@ -18,7 +18,7 @@ namespace {
 #if BUILDFLAG(GOOGLE_CHROME_BRANDING)
 const char kApplicationName[] = "chrome";
 #else
-const char kApplicationName[] = "chromium";
+const char kApplicationName[] = "brave";
 #endif
 
 // Replaces some of GnomeKeyringLoader's methods with mocked ones.

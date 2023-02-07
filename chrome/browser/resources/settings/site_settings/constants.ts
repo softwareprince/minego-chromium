@@ -47,6 +47,7 @@ export enum ContentSettingsTypes {
   // The following item is not in the C++ kContentSettingsTypeGroupNames, but it
   // is used everywhere where ContentSettingsTypes is used in JS.
   PDF_DOCUMENTS = 'pdfDocuments',
+  AUTOPLAY = 'autoplay', ETHEREUM = 'ethereum', SOLANA = 'solana', BRAVE_SHIELDS = 'braveShields',
 }
 
 /**

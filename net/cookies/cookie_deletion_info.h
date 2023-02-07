@@ -146,6 +146,7 @@ struct NET_EXPORT CookieDeletionInfo {
   // all partitions.
   CookiePartitionKeyCollection cookie_partition_key_collection =
       CookiePartitionKeyCollection::ContainsAll();
+  BRAVE_COOKIE_DELETION_INFO_H
 };
 
 }  // namespace net

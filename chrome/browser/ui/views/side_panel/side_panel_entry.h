@@ -30,6 +30,7 @@ class SidePanelEntry final {
   enum class Id {
     // Global Entries
     kReadingList,
+    kWhatsapp,
     kBookmarks,
     kHistoryClusters,
     kReadAnything,

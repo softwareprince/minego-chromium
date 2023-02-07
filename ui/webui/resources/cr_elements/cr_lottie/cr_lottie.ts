@@ -345,6 +345,7 @@ export class CrLottieElement extends PolymerElement {
       this.fire_('cr-lottie-paused');
     } else if (event.data.name === 'stopped') {
       this.fire_('cr-lottie-stopped');
+    } else if (event.data.name === 'complete') { this.fire_('cr-lottie-complete');
     } else if (event.data.name === 'resized') {
       this.fire_('cr-lottie-resized', event.data.size);
     }

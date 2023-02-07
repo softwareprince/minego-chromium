@@ -109,6 +109,7 @@ constexpr HistogramValue kHistogramValue[] = {
     {ContentSettingsType::NOTIFICATION_PERMISSION_REVIEW, 88},
     {ContentSettingsType::PRIVATE_NETWORK_GUARD, 89},
     {ContentSettingsType::PRIVATE_NETWORK_CHOOSER_DATA, 90},
+    BRAVE_HISTOGRAM_VALUE_LIST
 };
 
 void FilterRulesForType(ContentSettingsForOneType& settings,

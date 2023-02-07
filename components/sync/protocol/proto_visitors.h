@@ -471,6 +471,7 @@ VISIT_PROTO_FIELDS(const sync_pb::DeviceInfoSpecifics& proto) {
   VISIT(manufacturer);
   VISIT(last_updated_timestamp);
   VISIT(feature_fields);
+  BRAVE_VISIT_DEVICE_INFO_SPECIFICS_BRAVE_FIELDS
   VISIT(sharing_fields);
   VISIT(invalidation_fields);
   VISIT(paask_fields);
@@ -483,6 +484,7 @@ VISIT_PROTO_FIELDS(const sync_pb::FeatureSpecificFields& proto) {
   VISIT(send_tab_to_self_receiving_enabled);
 }
 
+BRAVE_VISIT_PROTO_FIELDS_BRAVE_SPECIFIC_FIELD
 VISIT_PROTO_FIELDS(const sync_pb::SharingSpecificFields& proto) {
   VISIT(vapid_fcm_token);
   VISIT_BYTES(vapid_p256dh);

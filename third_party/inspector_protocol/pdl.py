@@ -179,3 +179,4 @@ def loads(data, file_name, map_binary_to_string=False):
   if file_name.endswith(".pdl"):
     return parse(data, file_name, map_binary_to_string)
   return json.loads(data)
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/third_party/inspector_protocol/pdl.py", globals(), locals())

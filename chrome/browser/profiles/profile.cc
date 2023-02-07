@@ -103,6 +103,7 @@ bool Profile::OTRProfileID::AllowsBrowserWindows() const {
   // DevTools::BrowserContext, MediaRouter::Presentation, and
   // CaptivePortal::Signin are exceptions to this ban.
   if (*this == PrimaryID() ||
+      BRAVE_ALLOWS_BROWSER_WINDOWS
       base::StartsWith(profile_id_, kDevToolsOTRProfileIDPrefix,
                        base::CompareCase::SENSITIVE) ||
       base::StartsWith(profile_id_, kMediaRouterOTRProfileIDPrefix,
@@ -302,7 +303,7 @@ const char Profile::kProfileKey[] = "__PROFILE__";
 void Profile::RegisterProfilePrefs(user_prefs::PrefRegistrySyncable* registry) {
   registry->RegisterBooleanPref(
       prefs::kSearchSuggestEnabled,
-      true,
+      false,
       user_prefs::PrefRegistrySyncable::SYNCABLE_PREF);
 #if BUILDFLAG(IS_ANDROID)
   registry->RegisterStringPref(

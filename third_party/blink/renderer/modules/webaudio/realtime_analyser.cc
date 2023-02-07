@@ -148,6 +148,7 @@ void RealtimeAnalyser::GetFloatTimeDomainData(
 
     unsigned write_index = GetWriteIndex();
 
+    BRAVE_REALTIMEANALYSER_GETFLOATTIMEDOMAINDATA
     for (unsigned i = 0; i < len; ++i) {
       // Buffer access is protected due to modulo operation.
       float value =
@@ -175,6 +176,7 @@ void RealtimeAnalyser::GetByteTimeDomainData(DOMUint8Array* destination_array) {
 
     unsigned write_index = GetWriteIndex();
 
+    BRAVE_REALTIMEANALYSER_GETBYTETIMEDOMAINDATA
     for (unsigned i = 0; i < len; ++i) {
       // Buffer access is protected due to modulo operation.
       float value =
@@ -291,6 +293,7 @@ void RealtimeAnalyser::ConvertToByteData(DOMUint8Array* destination_array) {
     const float* source = MagnitudeBuffer().Data();
     unsigned char* destination = destination_array->Data();
 
+    BRAVE_REALTIMEANALYSER_CONVERTTOBYTEDATA
     for (unsigned i = 0; i < len; ++i) {
       float linear_value = source[i];
       double db_mag = audio_utilities::LinearToDecibels(linear_value);
@@ -315,6 +318,7 @@ void RealtimeAnalyser::ConvertFloatToDb(DOMFloat32Array* destination_array) {
     const float* source = MagnitudeBuffer().Data();
     float* destination = destination_array->Data();
 
+    BRAVE_REALTIMEANALYSER_CONVERTFLOATTODB
     for (unsigned i = 0; i < len; ++i) {
       float linear_value = source[i];
       double db_mag = audio_utilities::LinearToDecibels(linear_value);

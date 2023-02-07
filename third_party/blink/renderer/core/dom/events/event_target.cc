@@ -477,6 +477,7 @@ bool EventTarget::AddEventListenerInternal(
   bool added = EnsureEventTargetData().event_listener_map.Add(
       event_type, listener, options, &registered_listener);
   if (added) {
+    BRAVE_EVENT_TARGET_ADD_EVENT_LISTENER_INTERNAL
     if (options->hasSignal()) {
       // Instead of passing the entire |options| here, which could create a
       // circular reference due to |options| holding a Member<AbortSignal>, just
@@ -610,6 +611,7 @@ bool EventTarget::RemoveEventListenerInternal(
                                     &index_of_removed_listener,
                                     &registered_listener))
     return false;
+  BRAVE_EVENT_TARGET_REMOVE_EVENT_LISTENER_INTERNAL
 
   // Notify firing events planning to invoke the listener at 'index' that
   // they have one less listener to invoke.

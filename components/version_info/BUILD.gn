@@ -11,6 +11,7 @@ declare_args() {
 }
 
 static_library("version_info") {
+  configs += [ "//brave/build:version" ]
   sources = [
     "version_info.cc",
     "version_info.h",

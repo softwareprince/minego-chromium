@@ -306,5 +306,6 @@ def main():
         h_file.close()
 
 
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/third_party/blink/renderer/build/scripts/make_instrumenting_probes.py", globals(), locals())
 if __name__ == "__main__":
     main()

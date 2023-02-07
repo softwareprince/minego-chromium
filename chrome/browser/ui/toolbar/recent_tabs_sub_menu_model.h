@@ -85,6 +85,7 @@ class RecentTabsSubMenuModel : public ui::SimpleMenuModel,
   bool GetURLAndTitleForItemAtIndex(size_t index,
                                     std::string* url,
                                     std::u16string* title);
+  BRAVE_RECENT_TABS_SUB_MENU_MODEL_H_
 
  private:
   struct TabNavigationItem;

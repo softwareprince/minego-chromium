@@ -59,6 +59,8 @@ proto::SchedulerClientType ToSchedulerClientType(SchedulerClientType type) {
       return proto::SchedulerClientType::PREFETCH;
     case SchedulerClientType::kReadingList:
       return proto::SchedulerClientType::READING_LIST;
+    case SchedulerClientType::kWhatsapp:
+      return proto::SchedulerClientType::WHATSAPP;
     case SchedulerClientType::kFeatureGuide:
       return proto::SchedulerClientType::FEATURE_GUIDE;
   }
@@ -85,6 +87,8 @@ SchedulerClientType FromSchedulerClientType(
       return SchedulerClientType::kPrefetch;
     case proto::SchedulerClientType::READING_LIST:
       return SchedulerClientType::kReadingList;
+    case proto::SchedulerClientType::WHATSAPP:
+      return SchedulerClientType::kWhatsapp;
     case proto::SchedulerClientType::FEATURE_GUIDE:
       return SchedulerClientType::kFeatureGuide;
   }

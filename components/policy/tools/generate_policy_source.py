@@ -55,6 +55,7 @@ PLATFORM_STRINGS = {
     'chrome.win7': ['win'],
 }
 
+from policy_source_helper import AddBravePolicies, CHROMIUM_POLICY_KEY
 
 class PolicyDetails:
   """Parses a policy template and caches all its details."""
@@ -382,6 +383,7 @@ def main():
     chrome_major_version = ParseVersionFile(version_path)
 
   template_file_contents = _LoadJSONFile(template_file_name)
+  AddBravePolicies(template_file_contents)
   risk_tags = RiskTags(template_file_contents)
   policy_details = [
       PolicyDetails(policy, chrome_major_version, deprecation_milestone_buffer,

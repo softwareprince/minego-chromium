@@ -28,6 +28,7 @@ action("instrumentation_probes") {
     "--output_dir",
     rebase_path(blink_core_output_dir, root_build_dir),
   ]
+  import("//brave/third_party/blink/renderer/core/probe/sources.gni") deps = brave_third_party_blink_renderer_core_probe_instrumentation_probes_deps
 }
 
 source_set("generated") {

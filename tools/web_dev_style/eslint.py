@@ -26,6 +26,7 @@ def Run(os_path=None, args=None):
   ] + args)
 
 
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/tools/web_dev_style/eslint.py", globals(), locals())
 if __name__ == '__main__':
   import os
   import sys

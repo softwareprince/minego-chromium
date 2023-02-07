@@ -325,6 +325,7 @@ void PermissionManager::RequestPermissionsFromCurrentDocument(
         permission_status_callback) {
   DCHECK_CURRENTLY_ON(content::BrowserThread::UI);
   const GURL requesting_origin =
+      BRAVE_FORCED_REQUESTING_ORIGIN
       PermissionUtil::GetLastCommittedOriginAsURL(render_frame_host);
   RequestPermissionsInternal(permissions_types, render_frame_host,
                              requesting_origin, user_gesture,
@@ -375,6 +376,7 @@ PermissionManager::GetPermissionResultForCurrentDocument(
       PermissionUtil::PermissionTypeToContentSettingType(permission);
 
   const GURL requesting_origin =
+      BRAVE_FORCED_REQUESTING_ORIGIN
       PermissionUtil::GetLastCommittedOriginAsURL(render_frame_host);
   const GURL embedding_origin =
       GetEmbeddingOrigin(render_frame_host, requesting_origin);

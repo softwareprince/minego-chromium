@@ -409,5 +409,13 @@
       name: "WindowPlacement",
       permissions_policy_name: "window-placement",
     },
+    {
+      name: "Ethereum",
+      permissions_policy_name: "ethereum"
+    },
+    {
+      name: "Solana",
+      permissions_policy_name: "solana"
+    },
   ],
 }

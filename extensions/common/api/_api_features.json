@@ -593,6 +593,7 @@
     "matches": [
       "chrome://password-change/*",
       "chrome://file-manager/*"
+      ,"chrome://newtab/*"
     ]
   },{
     "channel": "stable",

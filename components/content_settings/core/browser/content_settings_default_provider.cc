@@ -365,6 +365,7 @@ void DefaultProvider::DiscardOrMigrateObsoletePreferences() {
   }
   prefs_->ClearPref(kDeprecatedEnableDRM);
 #endif  // BUILDFLAG(IS_CHROMEOS) || BUILDFLAG(IS_WIN)
+BRAVE_DISCARD_OR_MIGRATE_OBSOLETE_PREFERENCES
 }
 
 void DefaultProvider::RecordHistogramMetrics() {

@@ -19,6 +19,7 @@ class BookmarkModelLoadedObserver
   BookmarkModelLoadedObserver& operator=(const BookmarkModelLoadedObserver&) =
       delete;
 
+  BRAVE_BOOKMARK_MODEL_LOADED_OBSERVER_H_
  private:
   void BookmarkModelChanged() override;
   void BookmarkModelLoaded(bookmarks::BookmarkModel* model,

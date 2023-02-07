@@ -526,6 +526,7 @@ gfx::Size PageInfoMainView::CalculatePreferredSize() const {
   if (site_settings_view_) {
     width = std::max(width, site_settings_view_->GetPreferredSize().width());
     width = std::max(width, permissions_view_->GetPreferredSize().width());
+    BRAVE_PAGE_INFO_MAIN_VIEW_CALCULATE_PREFERRED_SIZE
   }
   return gfx::Size(width, views::View::GetHeightForWidth(width));
 }

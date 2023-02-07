@@ -211,3 +211,4 @@ class PerfBenchmark(benchmark.Benchmark):
     if 'XVFB_DISPLAY' in os.environ:
       return True
     return False
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/tools/perf/core/perf_benchmark.py", globals(), locals())

@@ -253,6 +253,7 @@ static_library("metrics") {
       "motherboard_metrics_provider.h",
     ]
   }
+  import("//brave/components/metrics/sources.gni") deps += brave_components_metrics_deps
 }
 
 # The component metrics provider is a separate target because it depends upon

@@ -774,6 +774,7 @@ class FeatureCompiler(object):
                   abs_source_file)
         raise
       dupes = set(f_json) & set(self._json)
+      from tools.json_schema_compiler import feature_compiler_helper; feature_compiler_helper.DiscardBraveOverridesFromDupes(dupes)
       assert not dupes, 'Duplicate keys found: %s' % list(dupes)
       self._json.update(f_json)
 

@@ -32,8 +32,7 @@
 const char KeyStorageLinux::kFolderName[] = "Chrome Keys";
 const char KeyStorageLinux::kKey[] = "Chrome Safe Storage";
 #else
-const char KeyStorageLinux::kFolderName[] = "Chromium Keys";
-const char KeyStorageLinux::kKey[] = "Chromium Safe Storage";
+BRAVE_KEY_STORAGE_LINUX
 #endif
 
 namespace {
@@ -150,7 +149,7 @@ std::unique_ptr<KeyStorageLinux> KeyStorageLinux::CreateServiceInternal(
 #if BUILDFLAG(GOOGLE_CHROME_BRANDING)
   static const base::NoDestructor<std::string> kDefaultApplicationName("chrome");
 #else
-  static const base::NoDestructor<std::string> kDefaultApplicationName("chromium");
+  BRAVE_KEY_STORAGE_LINUX_CREATE_SERVICE_INTERNAL
 #endif
 
   std::unique_ptr<KeyStorageLinux> key_storage;

@@ -134,6 +134,8 @@ import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.profiles.ProfileManager;
 import org.chromium.chrome.browser.read_later.ReadingListBackPressHandler;
 import org.chromium.chrome.browser.read_later.ReadingListUtils;
+import org.chromium.chrome.browser.read_later.Whatsapp;
+import org.chromium.chrome.browser.read_later.Whatsapp;
 import org.chromium.chrome.browser.reengagement.ReengagementNotificationController;
 import org.chromium.chrome.browser.search_engines.SearchEngineChoiceNotification;
 import org.chromium.chrome.browser.settings.SettingsLauncherImpl;
@@ -384,6 +386,7 @@ public class ChromeTabbedActivity extends ChromeActivity<ChromeActivityComponent
 
     private ReturnToChromeBackPressHandler mReturnToChromeBackPressHandler;
     private ReadingListBackPressHandler mReadingListBackPressHandler;
+    private WhatsappListBackPressHandler mWhatsappBackPressHandler;
     private MinimizeAppAndCloseTabBackPressHandler mMinimizeAppAndCloseTabBackPressHandler;
 
     // ID assigned to each ChromeTabbedActivity instance in Android S+ where multi-instance feature
@@ -1051,7 +1054,7 @@ public class ChromeTabbedActivity extends ChromeActivity<ChromeActivityComponent
                                     this, getModalDialogManager()));
             NotificationPermissionController.attach(
                     getWindowAndroid(), mNotificationPermissionController);
-            mNotificationPermissionController.requestPermissionIfNeeded(false /* contextual */);
+            if(false) mNotificationPermissionController.requestPermissionIfNeeded(false /* contextual */);
             if (BackPressManager.isEnabled()) initializeBackPressHandlers();
         }
     }
@@ -2333,7 +2336,13 @@ public class ChromeTabbedActivity extends ChromeActivity<ChromeActivityComponent
             if (webContents != null) webContents.dispatchBeforeUnload(false);
             return true;
         }
-
+        if (type == TabLaunchType.FROM_WHATSAPP) {
+            assert !isTablet() : "Not expecting to see FROM_READING_LIST on tablets";
+            WhatsappUtils.showWhatsapp(currentTab.isIncognito());
+            BackPressManager.record(BackPressHandler.Type.SHOW_WHATSAPP);
+            if (webContents != null) webContents.dispatchBeforeUnload(false);
+            return true;
+        }
         // At this point we know either the tab will close or the app will minimize.
         NativePage nativePage = currentTab.getNativePage();
         if (nativePage != null) {
@@ -2383,6 +2392,12 @@ public class ChromeTabbedActivity extends ChromeActivity<ChromeActivityComponent
                     new ReadingListBackPressHandler(getActivityTabProvider());
             mBackPressManager.addHandler(
                     mReadingListBackPressHandler, BackPressHandler.Type.SHOW_READING_LIST);
+        }
+        if (mWhatsappBackPressHandler == null && !isTablet()) {
+            mWhatsappBackPressHandler =
+                    new WhatsappBackPressHandler(getActivityTabProvider());
+            mBackPressManager.addHandler(
+                    mWhatsappBackPressHandler, BackPressHandler.Type.SHOW_WHATSAPP);
         }
         if (mMinimizeAppAndCloseTabBackPressHandler == null) {
             mMinimizeAppAndCloseTabBackPressHandler = new MinimizeAppAndCloseTabBackPressHandler(

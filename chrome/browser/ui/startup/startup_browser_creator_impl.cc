@@ -398,6 +398,7 @@ StartupBrowserCreatorImpl::DetermineURLsAndLaunch(
 #elif !BUILDFLAG(IS_CHROMEOS_ASH)
   welcome_enabled =
       welcome::IsEnabled(profile_) && welcome::HasModulesToShow(profile_);
+  BRAVE_STARTUPBROWSERCREATORIMPL_DETERMINEURLSANDLAUNCH
 #endif  // !BUILDFLAG(IS_CHROMEOS_ASH)
 
   const bool whats_new_enabled =

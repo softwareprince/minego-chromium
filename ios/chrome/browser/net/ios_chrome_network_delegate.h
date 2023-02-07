@@ -50,6 +50,7 @@ class IOSChromeNetworkDelegate : public net::NetworkDelegateImpl {
 
  private:
   using QueryReason = content_settings::CookieSettings::QueryReason;
+  BRAVE_IOS_CHROME_NETWORK_DELEGATE_H
   // NetworkDelegate implementation.
   int OnBeforeURLRequest(net::URLRequest* request,
                          net::CompletionOnceCallback callback,

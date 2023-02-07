@@ -133,7 +133,7 @@ public class ChosenObjectSettings extends SiteSettingsPreferenceFragment {
             getSiteSettingsDelegate().launchSettingsHelpAndFeedbackActivity(getActivity());
             return true;
         }
-        return false;
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

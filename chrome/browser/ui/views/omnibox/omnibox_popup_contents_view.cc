@@ -348,7 +348,7 @@ void OmniboxPopupContentsView::UpdatePopupAppearance() {
     if (children().size() == i) {
       AddChildView(std::make_unique<OmniboxRowView>(
           i, edit_model_,
-          std::make_unique<OmniboxResultView>(this, edit_model_, i),
+          std::make_unique<BraveOmniboxResultView>(this, edit_model_, i),
           pref_service));
     }
 

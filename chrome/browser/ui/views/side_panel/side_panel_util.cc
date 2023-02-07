@@ -35,6 +35,7 @@ std::string GetHistogramNameForId(SidePanelEntry::Id id) {
       // is persisted to logs.
       base::MakeFixedFlatMap<SidePanelEntry::Id, const char*>(
           {{SidePanelEntry::Id::kReadingList, "ReadingList"},
+           {SidePanelEntry::Id::kWhatsapp, "Whatsapp"},
            {SidePanelEntry::Id::kBookmarks, "Bookmarks"},
            {SidePanelEntry::Id::kHistoryClusters, "HistoryClusters"},
            {SidePanelEntry::Id::kReadAnything, "ReadAnything"},

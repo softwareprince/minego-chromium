@@ -69,7 +69,7 @@ def sign_part(paths, config, part):
         part: The |model.CodeSignedProduct| to sign. The product's |path| must
             be in |paths.work|.
     """
-    command = ['codesign', '--sign', config.identity]
+    command = ['codesign', '--force', '--sign', config.identity]
     path = os.path.join(paths.work, part.path)
     if _linker_signed_arm64_needs_force(path):
         command.append('--force')

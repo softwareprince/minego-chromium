@@ -312,6 +312,7 @@ class CORE_EXPORT HTMLCanvasElement final
 
   bool IsPlaceholder() const override { return IsOffscreenCanvasRegistered(); }
 
+  BRAVE_HTML_CANVAS_ELEMENT_H_
  protected:
   void DidMoveToNewDocument(Document& old_document) override;
 

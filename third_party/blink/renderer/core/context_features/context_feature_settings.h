@@ -44,6 +44,7 @@ class CORE_EXPORT ContextFeatureSettings final
   }
 
   void Trace(Visitor*) const override;
+  BRAVE_CONTEXT_FEATURE_SETTINGS_H_
 
  private:
   bool enable_mojo_js_ = false;

@@ -516,6 +516,7 @@ base::Time CanonicalCookie::ValidateAndAdjustExpiryDate(
     // * network_handler.cc::MakeCookieFromProtocolValues
     fixed_creation_date = base::Time::Now();
   }
+  BRAVE_CANONICAL_COOKIE_VALIDATE_AND_ADJUST_EXPIRY_DATE
   if (base::FeatureList::IsEnabled(features::kClampCookieExpiryTo400Days)) {
     base::Time maximum_expiry_date = fixed_creation_date + base::Days(400);
     if (expiry_date > maximum_expiry_date)

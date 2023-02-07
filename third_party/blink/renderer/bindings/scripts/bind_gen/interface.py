@@ -8132,3 +8132,4 @@ def generate_interfaces(task_queue):
                          "InitIDLInterfacesForTesting",
                          "init_idl_interfaces_for_testing",
                          for_testing=True)
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/third_party/blink/renderer/bindings/scripts/bind_gen/interface.py", globals(), locals())

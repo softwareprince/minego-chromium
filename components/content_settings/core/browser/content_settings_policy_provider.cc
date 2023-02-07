@@ -34,6 +34,7 @@ struct PrefsForManagedContentSettingsMapEntry {
 
 constexpr PrefsForManagedContentSettingsMapEntry
     kPrefsForManagedContentSettingsMap[] = {
+        BRAVE_MANAGED_CONTENT_SETTINGS
         {prefs::kManagedCookiesAllowedForUrls, ContentSettingsType::COOKIES,
          CONTENT_SETTING_ALLOW},
         {prefs::kManagedCookiesBlockedForUrls, ContentSettingsType::COOKIES,
@@ -110,6 +111,7 @@ constexpr PrefsForManagedContentSettingsMapEntry
 };
 
 constexpr const char* kManagedPrefs[] = {
+    BRAVE_MANAGED_PREFS
     prefs::kManagedAutoSelectCertificateForUrls,
     prefs::kManagedClipboardAllowedForUrls,
     prefs::kManagedClipboardBlockedForUrls,

@@ -87,7 +87,13 @@ void ReadingListModelFactory::RegisterProfilePrefs(
   registry->RegisterBooleanPref(
       reading_list::prefs::kReadingListHasUnseenEntries, false,
       PrefRegistry::NO_REGISTRATION_FLAGS);
+  registry->RegisterBooleanPref(
+      reading_list::prefs::kWhatsappHasUnseenEntries, false,
+      PrefRegistry::NO_REGISTRATION_FLAGS);
 #if !BUILDFLAG(IS_ANDROID)
+  registry->RegisterBooleanPref(
+      reading_list::prefs::kWhatsappDesktopFirstUseExperienceShown, false,
+      PrefRegistry::NO_REGISTRATION_FLAGS);
   registry->RegisterBooleanPref(
       reading_list::prefs::kReadingListDesktopFirstUseExperienceShown, false,
       PrefRegistry::NO_REGISTRATION_FLAGS);

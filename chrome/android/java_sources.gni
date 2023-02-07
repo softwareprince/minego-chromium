@@ -26,6 +26,7 @@ import("//components/offline_pages/buildflags/features.gni")
 import("//device/vr/buildflags/buildflags.gni")
 
 chrome_java_sources += public_autofill_assistant_java_sources
+chrome_java_sources += brave_java_sources
 
 if (enable_vr) {
   chrome_java_sources += [ "java/src/org/chromium/chrome/browser/component_updater/VrAssetsComponentInstaller.java" ]

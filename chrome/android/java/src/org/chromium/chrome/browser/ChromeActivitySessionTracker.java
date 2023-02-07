@@ -37,6 +37,7 @@ import org.chromium.chrome.browser.preferences.SharedPreferencesManager;
 import org.chromium.chrome.browser.profiles.Profile;
 import org.chromium.chrome.browser.profiles.ProfileManagerUtils;
 import org.chromium.chrome.browser.read_later.ReadingListBridge;
+import org.chromium.chrome.browser.read_later.Whatsapp;
 import org.chromium.chrome.browser.tabmodel.TabModelSelector;
 import org.chromium.chrome.browser.translate.TranslateBridge;
 import org.chromium.components.browser_ui.accessibility.FontSizePrefs;
@@ -170,6 +171,7 @@ public class ChromeActivitySessionTracker {
             mPowerBroadcastReceiver.onForegroundSessionStart();
             AppHooks.get().getChimeDelegate().startSession();
             ReadingListBridge.onStartChromeForeground();
+            Whatsapp.onStartChromeForeground();
             PasswordManagerLifecycleHelper.getInstance().onStartForegroundSession();
 
             // Track the ratio of Chrome startups that are caused by notification clicks.

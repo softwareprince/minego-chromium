@@ -24,7 +24,7 @@ import cpp_checker
 import java_checker
 import results
 
-from builddeps import DepsBuilder
+from buildtools.checkdeps.brave_builddeps import DepsBuilder
 from rules import Rule, Rules
 
 

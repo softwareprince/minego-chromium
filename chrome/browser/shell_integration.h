@@ -249,6 +249,7 @@ class DefaultBrowserWorker : public DefaultWebClientWorker {
   DefaultBrowserWorker(const DefaultBrowserWorker&) = delete;
   DefaultBrowserWorker& operator=(const DefaultBrowserWorker&) = delete;
 
+  BRAVE_DEFAULT_BROWSER_WORKER_H
  protected:
   ~DefaultBrowserWorker() override;
 

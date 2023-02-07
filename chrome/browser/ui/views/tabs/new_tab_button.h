@@ -48,6 +48,7 @@ class NewTabButton : public views::ImageButton,
   // views::ImageButton:
   void AddLayerBeneathView(ui::Layer* new_layer) override;
   void RemoveLayerBeneathView(ui::Layer* old_layer) override;
+  BRAVE_NEW_TAB_BUTTON_H_
 
  protected:
   virtual void PaintIcon(gfx::Canvas* canvas);

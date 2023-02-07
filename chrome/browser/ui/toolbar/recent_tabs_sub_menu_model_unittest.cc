@@ -767,7 +767,7 @@ TEST_F(RecentTabsSubMenuModelTest, MaxTabsPerSessionAndRecency) {
   // 5-8         <4 most-recent tabs of session>
 
   TestRecentTabsSubMenuModel model(nullptr, browser());
-  EXPECT_EQ(9u, model.GetItemCount());
+  BRAVE_MAX_TABS_PER_SESSION_AND_RECENCY
 
   std::vector<std::u16string> tab_titles =
       recent_tabs_builder.GetTabTitlesSortedByRecency();

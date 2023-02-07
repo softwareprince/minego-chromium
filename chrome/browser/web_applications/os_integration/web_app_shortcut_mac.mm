@@ -749,6 +749,7 @@ base::FilePath GetChromeAppsFolder() {
   if (path.empty())
     return path;
 
+  return path.Append(GetLocalizableBraveAppShortcutsSubdirName());
   return path.Append(GetLocalizableAppShortcutsSubdirName());
 }
 

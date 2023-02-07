@@ -66,6 +66,7 @@ if (include_polymer) {
     web_component_files_polymer_ts +=
         [ "cr_searchable_drop_down/cr_searchable_drop_down.ts" ]
   }
+  else if (!is_android) { web_component_files_polymer_ts += [ "cr_searchable_drop_down/cr_searchable_drop_down.ts" ] }
 
   icons_html_files = [
     "cr_fingerprint/cr_fingerprint_icons.html",

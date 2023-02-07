@@ -58,10 +58,10 @@ enum class BookmarkLaunchLocation {
   kSidePanelPendingList = 10,
   // Reading list bubble in the bookmarks bar.
   kReadingListDialog = 11,
+  kWhatsappDialog = 13,
   // Context menu for a bookmark node in the side panel.
   kSidePanelContextMenu = 12,
-
-  kMaxValue = kSidePanelContextMenu
+  kMaxValue = kWhatsappDialog
 };
 
 // Records the launch of a bookmark for UMA purposes.

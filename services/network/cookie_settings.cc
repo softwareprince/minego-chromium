@@ -256,6 +256,7 @@ CookieSettings::GetCookieSettingWithMetadata(const GURL& url,
       match) {
     cookie_setting = match->GetContentSetting();
     found_explicit_setting = IsExplicitSetting(*match);
+    BRAVE_COOKIE_SETTINGS_GET_COOKIE_SETTINGS_INTERNAL
   }
 
   if (cookie_setting != CONTENT_SETTING_BLOCK && !found_explicit_setting) {

@@ -182,6 +182,7 @@ def _ParseAstHelper(mojom_abspath, enabled_features):
   with codecs.open(mojom_abspath, encoding='utf-8') as f:
     ast = parser.Parse(f.read(), mojom_abspath)
     conditional_features.RemoveDisabledDefinitions(ast, enabled_features)
+    from mojo.public.tools.mojom.mojom.parse import brave_ast_patcher; brave_ast_patcher.PatchMojomAst(mojom_abspath, ast, enabled_features)
     return mojom_abspath, ast
 
 

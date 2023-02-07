@@ -176,6 +176,7 @@ scoped_refptr<FontData> FontFallbackList::GetFontData(
         GetFontSelector()->ReportFontLookupByUniqueOrFamilyName(
             curr_family->FamilyName(), font_description,
             DynamicTo<SimpleFontData>(result.get()));
+        BRAVE_GET_FONT_DATA
       }
       if (result) {
         GetFontSelector()->ReportSuccessfulFontFamilyMatch(

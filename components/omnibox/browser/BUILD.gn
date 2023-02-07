@@ -299,6 +299,7 @@ static_library("browser") {
     "//ui/base",
     "//ui/gfx",
   ]
+  sources += brave_components_omnibox_browser_sources deps += brave_components_omnibox_browser_deps
 
   if ((!is_android || enable_vr) && !is_ios) {
     deps += [ ":vector_icons" ]

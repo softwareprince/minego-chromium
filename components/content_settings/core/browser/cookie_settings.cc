@@ -194,6 +194,7 @@ ContentSetting CookieSettings::GetCookieSettingInternal(
   DCHECK(value.is_int());
   ContentSetting setting = ValueToContentSetting(value);
   bool block = block_third && is_third_party_request;
+  BRAVE_COOKIE_SETTINGS_GET_COOKIES_SETTINGS_INTERNAL
 
   if (!block) {
     FireStorageAccessHistogram(

@@ -13,6 +13,7 @@
         padding-inline-start: 0;
       }
     </style>
+<if expr="_google_chrome">
 <if expr="not is_chromeos">
     <!-- Signout is not supported yet on lacros, https://crbug.com/1217645 -->
     <settings-toggle-button id="signinAllowedToggle"
@@ -26,6 +27,7 @@
         no-set-pref>
     </settings-toggle-button>
 </if><!-- not chromeos and not lacros -->
+</if>
     <template is="dom-if" if="[[showSearchSuggestToggle_()]]" restamp>
       <settings-toggle-button id="searchSuggestToggle"
           class="hr"
@@ -54,6 +56,7 @@
       </cr-link-row>
     </template>
 </if><!-- chromeos -->
+</if><!-- _google_chrome -->
 <if expr="not chromeos_ash">
     <settings-toggle-button id="metricsReportingControl"
         class="hr"
@@ -69,7 +72,7 @@
       </template>
     </settings-toggle-button>
 </if><!-- not chromeos -->
-</if><!-- _google_chrome -->
+<if expr="_google_chrome">
     <template is="dom-if" if="[[showUrlCollectionToggle_()]]" restamp>
       <settings-toggle-button id="urlCollectionToggle"
           class="hr"
@@ -78,6 +81,7 @@
           sub-label="$i18n{urlKeyedAnonymizedDataCollectionDesc}">
       </settings-toggle-button>
     </template>
+</if>
 <if expr="_google_chrome">
     <settings-toggle-button id="spellCheckControl"
         class="hr"
@@ -130,6 +134,7 @@
       </settings-toggle-button>
     </template>
 
+<if expr="_google_chrome">
     <template is="dom-if" if="[[showSignoutDialog_]]" restamp>
       <settings-signout-dialog sync-status="[[syncStatus]]"
           on-close="onSignoutDialogClosed_">
@@ -146,4 +151,5 @@
       <relaunch-confirmation-dialog restart-type="[[restartTypeEnum.RESTART]]"
           on-close="onRelaunchDialogClose"></relaunch-confirmation-dialog>
     </template>
+</if>
 </if>

@@ -135,6 +135,7 @@ void ImportDataHandler::HandleImportData(const base::Value::List& args) {
     selected_items |= importer::PASSWORDS;
   if (*types.FindBoolKey(prefs::kImportDialogSearchEngine))
     selected_items |= importer::SEARCH_ENGINES;
+  BRAVE_IMPORT_DATA
 
   const importer::SourceProfile& source_profile =
       importer_list_->GetSourceProfileAt(browser_index);
@@ -213,6 +214,7 @@ void ImportDataHandler::SendBrowserProfileData(const std::string& callback_id) {
     browser_profile.Set("autofillFormData",
                         (browser_services & importer::AUTOFILL_FORM_DATA) != 0);
 
+    BRAVE_SEND_BROWSER_PROFILE_DATA
     browser_profiles.Append(std::move(browser_profile));
   }
 

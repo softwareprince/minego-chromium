@@ -44,6 +44,13 @@
 #include "google_apis/gaia/gaia_constants.h"
 #endif
 
+#include "base/compiler_specific.h"
+#include "base/strings/string_split.h"
+#include "base/strings/string_util.h"
+#include "google_apis/google_api_keys.h"
+#include "net/base/url_util.h"
+#include "base/ranges/algorithm.h"
+
 namespace extensions {
 
 namespace {
@@ -154,6 +161,14 @@ ExtensionFunction::ResponseAction IdentityGetAuthTokenFunction::Run() {
   selected_gaia_id_ = gaia_id;
   // From here on out, results must be returned asynchronously.
   StartAsyncRun();
+
+  // Use the embedded Google OAuth flow only if Google Chrome API key is used.
+  // Otherwise, fallback to the web OAuth flow.
+  if (!google_apis::IsGoogleChromeAPIKeyUsed()) {
+    // Start mint token flow with an empty account id.
+    StartMintTokenFlow(IdentityMintRequestQueue::MINT_TYPE_NONINTERACTIVE);
+    return RespondLater();
+  }
 
   if (gaia_id.empty() || IsPrimaryAccountOnly()) {
     // Try the primary account.
@@ -381,9 +396,15 @@ void IdentityGetAuthTokenFunction::StartMintTokenFlow(
     IdentityMintRequestQueue::MintType type) {
 #if !BUILDFLAG(IS_CHROMEOS)
   // ChromeOS in kiosk mode may start the mint token flow without account.
-  DCHECK(!token_key_.account_info.IsEmpty());
-  DCHECK(IdentityManagerFactory::GetForProfile(GetProfile())
-             ->HasAccountWithRefreshToken(token_key_.account_info.account_id));
+  if (!google_apis::IsGoogleChromeAPIKeyUsed()) {
+    // Web Auth flow doesn't use an account.
+    DCHECK(token_key_.account_info.IsEmpty());
+  } else {
+    DCHECK(!token_key_.account_info.IsEmpty());
+    DCHECK(
+        IdentityManagerFactory::GetForProfile(GetProfile())
+            ->HasAccountWithRefreshToken(token_key_.account_info.account_id));
+  }
 #endif
   TRACE_EVENT_NESTABLE_ASYNC_BEGIN1("identity", "MintTokenFlow", this, "type",
                                     type);
@@ -464,6 +485,14 @@ void IdentityGetAuthTokenFunction::StartMintToken(
         }
 #endif
 
+        if (!google_apis::IsGoogleChromeAPIKeyUsed()) {
+          // Fallback to the web OAuth flow that can only be completed in
+          // interactive mode.
+          CompleteMintTokenFlow();
+          StartMintTokenFlow(IdentityMintRequestQueue::MINT_TYPE_INTERACTIVE);
+          return;
+        }
+
         if (oauth2_info.auto_approve && *oauth2_info.auto_approve) {
           // oauth2_info.auto_approve is protected by an allowlist in
           // _manifest_features.json hence only selected extensions take
@@ -506,6 +535,11 @@ void IdentityGetAuthTokenFunction::StartMintToken(
                                    cache_entry.granted_scopes());
         break;
       case IdentityTokenCacheValue::CACHE_STATUS_NOTFOUND:
+        if (!google_apis::IsGoogleChromeAPIKeyUsed()) {
+          StartWebAuthFlow();
+          return;
+        }
+        FALLTHROUGH;
       case IdentityTokenCacheValue::CACHE_STATUS_REMOTE_CONSENT:
         ShowRemoteConsentDialog(resolution_data_);
         break;
@@ -578,6 +612,33 @@ void IdentityGetAuthTokenFunction::OnRemoteConsentSuccess(
   resolution_data_ = resolution_data;
   CompleteMintTokenFlow();
   StartMintTokenFlow(IdentityMintRequestQueue::MINT_TYPE_INTERACTIVE);
+}
+
+void IdentityGetAuthTokenFunction::StartWebAuthFlow() {
+  // Compute the reverse DNS notation of the client ID and use it as a custom
+  // URI scheme.
+  std::vector<std::string> client_id_components = base::SplitString(
+      oauth2_client_id_, ".", base::TRIM_WHITESPACE, base::SPLIT_WANT_NONEMPTY);
+  std::reverse(client_id_components.begin(), client_id_components.end());
+  GURL redirect_url = GURL(base::JoinString(client_id_components, ".") + ":/");
+  redirect_scheme_ = redirect_url.scheme();
+  GURL google_oauth_url = GURL("https://accounts.google.com/o/oauth2/v2/auth");
+  google_oauth_url = net::AppendQueryParameter(google_oauth_url, "client_id",
+                                               oauth2_client_id_);
+  google_oauth_url = net::AppendQueryParameter(google_oauth_url, "redirect_uri",
+                                               redirect_url.spec());
+  google_oauth_url =
+      net::AppendQueryParameter(google_oauth_url, "response_type", "token");
+  google_oauth_url = net::AppendQueryParameter(
+      google_oauth_url, "scope",
+      base::JoinString(std::vector<std::string>(token_key_.scopes.begin(),
+                                                token_key_.scopes.end()),
+                       " "));
+  web_auth_flow_ = std::make_unique<WebAuthFlow>(
+      this, GetProfile(), google_oauth_url,
+      interactive_ ? WebAuthFlow::INTERACTIVE : WebAuthFlow::SILENT,
+      WebAuthFlow::LAUNCH_WEB_AUTH_FLOW);
+  web_auth_flow_->Start();
 }
 
 void IdentityGetAuthTokenFunction::OnRefreshTokenUpdatedForAccount(
@@ -727,6 +788,84 @@ void IdentityGetAuthTokenFunction::OnGaiaRemoteConsentFlowApproved(
   consent_result_ = consent_result;
   should_prompt_for_signin_ = false;
   StartMintTokenFlow(IdentityMintRequestQueue::MINT_TYPE_NONINTERACTIVE);
+}
+
+void IdentityGetAuthTokenFunction::OnAuthFlowFailure(
+    WebAuthFlow::Failure failure) {
+  IdentityGetAuthTokenError error;
+  switch (failure) {
+    case WebAuthFlow::WINDOW_CLOSED:
+      error = IdentityGetAuthTokenError(
+          IdentityGetAuthTokenError::State::kRemoteConsentFlowRejected);
+      break;
+    case WebAuthFlow::INTERACTION_REQUIRED:
+      error = IdentityGetAuthTokenError(
+          IdentityGetAuthTokenError::State::kGaiaConsentInteractionRequired);
+      break;
+    case WebAuthFlow::LOAD_FAILED:
+      error = IdentityGetAuthTokenError(
+          IdentityGetAuthTokenError::State::kRemoteConsentPageLoadFailure);
+      break;
+    default:
+      NOTREACHED() << "Unexpected error from web auth flow: " << failure;
+      break;
+  }
+  if (web_auth_flow_)
+    web_auth_flow_.release()->DetachDelegateAndDelete();
+  CompleteMintTokenFlow();
+  CompleteFunctionWithError(error);
+}
+
+void IdentityGetAuthTokenFunction::OnAuthFlowURLChange(
+    const GURL& redirect_url) {
+  if (!redirect_url.SchemeIs(redirect_scheme_))
+    return;
+
+  if (web_auth_flow_)
+    web_auth_flow_.release()->DetachDelegateAndDelete();
+
+  CompleteMintTokenFlow();
+
+  base::StringPairs response_pairs;
+  if (!base::SplitStringIntoKeyValuePairs(redirect_url.ref(), '=', '&',
+                                          &response_pairs)) {
+    CompleteFunctionWithError(
+        IdentityGetAuthTokenError(IdentityGetAuthTokenError::State::kNoGrant));
+    return;
+  }
+
+  auto access_token_it =
+      base::ranges::find(response_pairs, "access_token",
+                        &std::pair<std::string, std::string>::first);
+  if (access_token_it == response_pairs.end()) {
+    CompleteFunctionWithError(
+        IdentityGetAuthTokenError(IdentityGetAuthTokenError::State::kNoGrant));
+    return;
+  }
+  std::string access_token = access_token_it->second;
+
+  auto expires_in_it =
+      base::ranges::find(response_pairs, "expires_in",
+                        &std::pair<std::string, std::string>::first);
+  int time_to_live_seconds;
+  if (expires_in_it == response_pairs.end() ||
+      !base::StringToInt(expires_in_it->second, &time_to_live_seconds)) {
+    CompleteFunctionWithError(
+        IdentityGetAuthTokenError(IdentityGetAuthTokenError::State::kNoGrant));
+    return;
+  }
+
+  // `token_key_` doesn't have information about the account being used, so only
+  // the last used token will be cached.
+  IdentityTokenCacheValue token = IdentityTokenCacheValue::CreateToken(
+      access_token, token_key_.scopes,
+      base::TimeDelta::FromSeconds(time_to_live_seconds));
+  IdentityAPI::GetFactoryInstance()
+      ->Get(GetProfile())
+      ->token_cache()
+      ->SetToken(token_key_, token);
+
+  CompleteFunctionWithResult(access_token, token_key_.scopes);
 }
 
 void IdentityGetAuthTokenFunction::OnGetAccessTokenComplete(

@@ -27,6 +27,7 @@ ReadingListSidePanelCoordinator::~ReadingListSidePanelCoordinator() = default;
 void ReadingListSidePanelCoordinator::CreateAndRegisterEntry(
     SidePanelRegistry* global_registry) {
   global_registry->Register(std::make_unique<SidePanelEntry>(
+      SidePanelEntry::Id::kWhatsapp,
       SidePanelEntry::Id::kReadingList,
       l10n_util::GetStringUTF16(IDS_READ_LATER_TITLE),
       ui::ImageModel::FromVectorIcon(kReadLaterIcon, ui::kColorIcon),

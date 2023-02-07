@@ -369,6 +369,7 @@ void GetChromeProgIdEntries(
   app_info.delegate_clsid = install_static::GetLegacyCommandExecuteImplClsid();
 
   GetProgIdEntries(app_info, entries);
+  BRAVE_GET_CHROME_PROG_ID_ENTRIES
 
   if (!app_info.delegate_clsid.empty()) {
     auto delegate_execute_entries =
@@ -465,6 +466,7 @@ void GetShellIntegrationEntries(
 
   const std::wstring html_prog_id(GetBrowserProgId(suffix));
   for (int i = 0; ShellUtil::kPotentialFileAssociations[i] != nullptr; i++) {
+    BRAVE_GET_SHELL_INTEGRATION_ENTRIES
     entries->push_back(std::make_unique<RegistryEntry>(
         capabilities + L"\\FileAssociations",
         ShellUtil::kPotentialFileAssociations[i], html_prog_id));
@@ -489,6 +491,7 @@ void GetAppExtRegistrationEntries(
   std::wstring key_name =
       base::StrCat({ShellUtil::kRegClasses, kFilePathSeparator, ext,
                     kFilePathSeparator, ShellUtil::kRegOpenWithProgids});
+  BRAVE_GET_APP_EXT_REGISTRATION_ENTRIES
   entries->push_back(
       std::make_unique<RegistryEntry>(key_name, prog_id, std::wstring()));
 }
@@ -1885,8 +1888,10 @@ const wchar_t* ShellUtil::kPotentialFileAssociations[] = {
     L".htm", L".html",  L".pdf",  L".shtml", L".svg",
     L".xht", L".xhtml", L".webp", nullptr};
 const wchar_t* ShellUtil::kBrowserProtocolAssociations[] = {L"ftp", L"http",
+                                                            BRAVE_BROWSER_PROTOCOL_ASSOCIATIONS
                                                             L"https", nullptr};
 const wchar_t* ShellUtil::kPotentialProtocolAssociations[] = {
+    BRAVE_POTENTIAL_PROTOCOL_ASSOCIATIONS
     L"ftp", L"http",  L"https", L"irc", L"mailto", L"mms",    L"news", L"nntp",
     L"sms", L"smsto", L"snews", L"tel", L"urn",    L"webcal", nullptr};
 const wchar_t* ShellUtil::kRegUrlProtocol = L"URL Protocol";

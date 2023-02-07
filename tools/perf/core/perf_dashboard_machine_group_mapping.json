@@ -1,4 +1,5 @@
 {
+  "brave.perf": "BravePerf",
   "chromium": "Chromium",
   "chromium.android": "ChromiumAndroid",
   "chromium.android.fyi": "ChromiumAndroidFyi",

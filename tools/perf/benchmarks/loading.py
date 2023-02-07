@@ -103,3 +103,4 @@ class LoadingMBI(_LoadingBase):
   @classmethod
   def Name(cls):
     return 'UNSCHEDULED_loading.mbi'
+from import_inline import inline_file_from_src; inline_file_from_src("brave/chromium_src/tools/perf/benchmarks/loading.py", globals(), locals())

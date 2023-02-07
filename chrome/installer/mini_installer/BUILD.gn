@@ -13,6 +13,7 @@ import("//third_party/icu/config.gni")
 import("//tools/v8_context_snapshot/v8_context_snapshot.gni")
 import("//ui/base/ui_features.gni")
 import("//v8/gni/v8.gni")
+import("//brave/build/config.gni")
 
 declare_args() {
   # The Chrome archive is compressed in official builds to reduce the size of
@@ -171,6 +172,9 @@ action("mini_installer_archive") {
     "//mojo/core:shared_library",
     "//third_party/icu:icudata",
   ]
+  if (skip_signing) { args += [ "--skip_signing" ] }
+  if (build_delta_installer) { args += [ "--setup_exe_format=DIFF", "--diff_algorithm=COURGETTE", "--last_chrome_installer",rebase_path("$root_out_dir/$last_chrome_installer", root_build_dir) ] }
+  deps += [ "//brave:mini_installer_dependencies" ]
 
   if (enable_hidpi) {
     args += [ "--enable_hidpi=1" ]

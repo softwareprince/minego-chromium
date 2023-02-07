@@ -143,6 +143,7 @@ source_set("permissions") {
       "contexts/geolocation_permission_context_mac.h",
     ]
   }
+  import("//brave/components/permissions/sources.gni") sources += brave_components_permissions_sources deps += brave_components_permissions_deps
   if (is_android) {
     sources += [
       "android/android_permission_util.cc",

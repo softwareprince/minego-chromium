@@ -106,4 +106,5 @@ build_webui("build") {
     optimize_webui_resource_paths_rewrites =
         [ "extensions.rollup.js|extensions.js" ]
   }
+  import("//brave/browser/resources/extensions/sources.gni") web_component_files += brave_extensions_web_component_files non_web_component_files += brave_extensions_non_web_component_files exclude_preprocess_files = brave_extensions_local_files preprocess_deps = brave_extensions_preprocess_extra_deps
 }

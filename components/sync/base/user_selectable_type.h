@@ -33,6 +33,7 @@ enum class UserSelectableType {
   kExtensions,
   kApps,
   kReadingList,
+  kWhatsapp,
   kTabs,
   kWifiConfigurations,
   kSavedTabGroups,

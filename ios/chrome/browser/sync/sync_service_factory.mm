@@ -148,7 +148,7 @@ std::unique_ptr<KeyedService> SyncServiceFactory::BuildServiceInstanceFor(
   init_params.debug_identifier = browser_state->GetDebugName();
 
   auto sync_service =
-      std::make_unique<syncer::SyncServiceImpl>(std::move(init_params));
+      BRAVE_BUILD_SERVICE_INSTANCE_FOR
   sync_service->Initialize();
 
   // Hook `sync_service` into PersonalDataManager (a circular dependency).
