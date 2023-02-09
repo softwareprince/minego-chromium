@@ -96,6 +96,7 @@ base::TimeDelta GetDefaultLocalChangeNudgeDelay(ModelType model_type) {
     case PRINTERS:
     case PRINTERS_AUTHORIZATION_SERVERS:
     case READING_LIST:
+    case WHATSAPP:
     case USER_CONSENTS:
     case SEND_TAB_TO_SELF:
     case SECURITY_EVENTS:
@@ -153,6 +154,7 @@ bool CanGetCommitsFromExtensions(ModelType model_type) {
     case PRINTERS:
     case PRINTERS_AUTHORIZATION_SERVERS:
     case READING_LIST:
+    case WHATSAPP:
     case USER_CONSENTS:
     case SEGMENTATION:
     case SEND_TAB_TO_SELF:

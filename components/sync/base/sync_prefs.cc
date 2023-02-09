@@ -308,7 +308,7 @@ const char* SyncPrefs::GetPrefNameForType(UserSelectableType type) {
     case UserSelectableType::kReadingList:
       return prefs::kSyncReadingList;
     case UserSelectableType::kWhatsapp:
-      return prefs::kSyncReadingList;
+      return prefs::kSyncWhatsapp;
     case UserSelectableType::kTabs:
       return prefs::kSyncTabs;
     case UserSelectableType::kWifiConfigurations:

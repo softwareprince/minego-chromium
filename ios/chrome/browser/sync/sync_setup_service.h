@@ -43,6 +43,7 @@ class SyncSetupService : public KeyedService {
     kSyncAutofill,
     kSyncPreferences,
     kSyncReadingList,
+    kSyncWhatsapp,
     kNumberOfSyncableDatatypes
   };
 

@@ -2463,7 +2463,7 @@ void BrowserView::MaybeShowReadingListInSidePanelIPH() {
   }
   if (pref_service &&
       pref_service->GetBoolean(
-          reading_list::prefs::kWhatsappDesktopFirstUseExperienceShown)) {
+          reading_list::prefs::kReadingListDesktopFirstUseExperienceShown)) {
     MaybeShowFeaturePromo(
         feature_engagement::kIPHReadingListInSidePanelFeature);
   }

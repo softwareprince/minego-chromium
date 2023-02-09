@@ -50,6 +50,7 @@ inline constexpr char kSyncExtensions[] = "sync.extensions";
 inline constexpr char kSyncPasswords[] = "sync.passwords";
 inline constexpr char kSyncPreferences[] = "sync.preferences";
 inline constexpr char kSyncReadingList[] = "sync.reading_list";
+inline constexpr char kSyncWhatsapp[] = "sync.whatsapp";
 inline constexpr char kSyncTabs[] = "sync.tabs";
 inline constexpr char kSyncThemes[] = "sync.themes";
 inline constexpr char kSyncTypedUrls[] = "sync.typed_urls";

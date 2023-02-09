@@ -48,7 +48,7 @@ const char kGlobalSidePanelRegistryKey[] = "global_side_panel_registry_key";
 constexpr int kSidePanelContentViewId = 42;
 constexpr int kSidePanelContentWrapperViewId = 43;
 
-constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kReadingList;
+// constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kReadingList;
 constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kWhatsapp;
 
 std::unique_ptr<views::ImageButton> CreateControlButton(
