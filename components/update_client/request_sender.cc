@@ -86,6 +86,7 @@ void RequestSender::Send(
 
 void RequestSender::SendInternal() {
   DCHECK(cur_url_ != urls_.end());
+  return;
   DCHECK(cur_url_->is_valid());
   DCHECK(thread_checker_.CalledOnValidThread());
 

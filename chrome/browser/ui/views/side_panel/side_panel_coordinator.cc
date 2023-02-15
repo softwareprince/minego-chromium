@@ -48,8 +48,8 @@ const char kGlobalSidePanelRegistryKey[] = "global_side_panel_registry_key";
 constexpr int kSidePanelContentViewId = 42;
 constexpr int kSidePanelContentWrapperViewId = 43;
 
-// constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kReadingList;
-constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kWhatsapp;
+constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kReadingList;
+// constexpr SidePanelEntry::Id kDefaultEntry = SidePanelEntry::Id::kWhatsapp;
 
 std::unique_ptr<views::ImageButton> CreateControlButton(
     views::View* host,
@@ -183,34 +183,45 @@ SidePanelCoordinator::~SidePanelCoordinator() {
 void SidePanelCoordinator::Show(
     absl::optional<SidePanelEntry::Id> entry_id,
     absl::optional<SidePanelUtil::SidePanelOpenTrigger> open_trigger) {
+  DLOG(ERROR) << "SidePanelCoordinator::Show";
   BRAVE_SIDE_PANEL_COORDINATOR_SHOW
   if (entry_id.has_value()) {
+    DLOG(ERROR) << "3 SidePanelCoordinator::Show entry_id.has_value()";
     Show(SidePanelEntry::Key(entry_id.value()), open_trigger);
   } else {
+    DLOG(ERROR) << "4 SidePanelCoordinator::Show entry_id.has_value()";
     Show(GetLastActiveEntryKey().value_or(SidePanelEntry::Key(kDefaultEntry)),
          open_trigger);
   }
+  DLOG(ERROR) << "5 SidePanelCoordinator::Show return";
 }
 
 void SidePanelCoordinator::Show(
     SidePanelEntry::Key entry_key,
     absl::optional<SidePanelUtil::SidePanelOpenTrigger> open_trigger) {
+DLOG(ERROR) << "SidePanelCoordinator::Show entry_key";
   SidePanelEntry* entry = GetEntryForKey(entry_key);
   if (!entry)
     return;
 
   if (GetContentView() == nullptr) {
+    DLOG(ERROR) << "SidePanelCoordinator::Show GetContentView() == nullptr";
+
     InitializeSidePanel();
+    DLOG(ERROR) << "SidePanelCoordinator::Show InitializeSidePanel()";
     opened_timestamp_ = base::TimeTicks::Now();
-    SidePanelUtil::RecordSidePanelOpen(open_trigger);
+    DLOG(ERROR) << "SidePanelCoordinator::Show opened_timestamp_";
+     SidePanelUtil::RecordSidePanelOpen(open_trigger);
+    DLOG(ERROR) << "SidePanelCoordinator::Show RecordSidePanelOpen";
     // Record usage for side panel promo.
     feature_engagement::TrackerFactory::GetForBrowserContext(
         browser_view_->GetProfile())
         ->NotifyEvent("side_panel_shown");
-
-    // Close IPH for side panel if shown.
-    browser_view_->browser()->window()->CloseFeaturePromo(
-        feature_engagement::kIPHReadingListInSidePanelFeature);
+    DLOG(ERROR) << "SidePanelCoordinator::Show side_panel_shown";
+        // Close IPH for side panel if shown.
+        browser_view_->browser()->window()->CloseFeaturePromo(
+            feature_engagement::kIPHReadingListInSidePanelFeature);
+        DLOG(ERROR) << "SidePanelCoordinator::Show CloseFeaturePromo";
   }
 
   SidePanelContentSwappingContainer* content_wrapper =
