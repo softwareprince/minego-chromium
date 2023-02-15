@@ -99,7 +99,8 @@ void SidePanelUtil::PopulateGlobalEntries(Browser* browser,
         ->CreateAndRegisterEntry(global_registry);
   }
 
-  if (base::FeatureList::IsEnabled(features::kSidePanelWebView)) {
+  // if (base::FeatureList::IsEnabled(features::kSidePanelWebView)) 
+  {
     WebViewSidePanelCoordinator::GetOrCreateForBrowser(browser)
         ->CreateAndRegisterEntry(global_registry);
   }

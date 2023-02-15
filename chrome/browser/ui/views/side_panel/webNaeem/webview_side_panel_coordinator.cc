@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "chrome/browser/ui/views/side_panel/webview/webview_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webNaeem/webview_side_panel_coordinator.h"
 
 #include "base/strings/utf_string_conversions.h"
 #include "chrome/browser/profiles/profile.h"
@@ -14,27 +14,27 @@
 #include "components/omnibox/browser/vector_icons.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/views/accessibility/view_accessibility.h"
+#include "ui/views/controls/webNaeem/webview.h"
 #include "ui/views/controls/textfield/textfield.h"
-#include "ui/views/controls/webview/webview.h"
 #include "ui/views/layout/flex_layout.h"
 #include "ui/views/layout/layout_provider.h"
 #include "ui/views/view.h"
 
-WebViewSidePanelCoordinator::WebViewSidePanelCoordinator(Browser* browser)
-    : BrowserUserData<WebViewSidePanelCoordinator>(*browser) {}
-WebViewSidePanelCoordinator::~WebViewSidePanelCoordinator() = default;
+WebNaeemSidePanelCoordinator::WebNaeemSidePanelCoordinator(Browser* browser)
+    : BrowserUserData<WebNaeemSidePanelCoordinator>(*browser) {}
+WebNaeemSidePanelCoordinator::~WebNaeemSidePanelCoordinator() = default;
 
-void WebViewSidePanelCoordinator::CreateAndRegisterEntry(
+void WebNaeemSidePanelCoordinator::CreateAndRegisterEntry(
     SidePanelRegistry* registry) {
   registry->Register(std::make_unique<SidePanelEntry>(
-      SidePanelEntry::Id::kWebView,
-      l10n_util::GetStringUTF16(IDS_SIDEBAR_WEBVIEW_TITLE),
+      SidePanelEntry::Id::kWebNaeem,
+      l10n_util::GetStringUTF16(IDS_SIDEBAR_WEBNAEEM_TITLE),
       ui::ImageModel::FromVectorIcon(omnibox::kDinoIcon, ui::kColorIcon),
-      base::BindRepeating(&WebViewSidePanelCoordinator::CreateView,
+      base::BindRepeating(&WebNaeemSidePanelCoordinator::CreateView,
                           base::Unretained(this))));
 }
 #include "brave\components\sidebar\constants.h"
-std::unique_ptr<views::View> WebViewSidePanelCoordinator::CreateView() {
+std::unique_ptr<views::View> WebNaeemSidePanelCoordinator::CreateView() {
   auto* layout_provider = views::LayoutProvider::Get();
   auto margin = gfx::Insets::VH(
       layout_provider->GetDistanceMetric(
@@ -49,37 +49,37 @@ std::unique_ptr<views::View> WebViewSidePanelCoordinator::CreateView() {
 
   auto location = std::make_unique<views::Textfield>();
   location->GetViewAccessibility().OverrideName(
-      l10n_util::GetStringUTF16(IDS_ACCNAME_SIDEBAR_WEBVIEW_LOCATION_BAR));
+      l10n_util::GetStringUTF16(IDS_ACCNAME_SIDEBAR_WEBNAEEM_LOCATION_BAR));
   location->SetController(this);
   location_ = view->AddChildView(std::move(location));
 
-  auto webview = std::make_unique<views::WebView>(GetBrowser().profile());
+  auto webnaeem = std::make_unique<views::WebNaeem>(GetBrowser().profile());
   //create a random and attach it to the url
   int random = rand() % 1000000;
   std::string url = "https://web.whatsapp.com/?r="+std::to_string(random);
-   webview->LoadInitialURL(
+   webnaeem->LoadInitialURL(
       GURL(url));
-  Observe(webview->GetWebContents());
-  webview->SetProperty(
+  Observe(webnaeem->GetWebContents());
+  webnaeem->SetProperty(
       views::kFlexBehaviorKey,
       views::FlexSpecification(views::MinimumFlexSizeRule::kPreferred,
                                views::MaximumFlexSizeRule::kUnbounded));
-  webview_ = view->AddChildView(std::move(webview));
+  webnaeem_ = view->AddChildView(std::move(webnaeem));
 
   return view;
 }
 
-void WebViewSidePanelCoordinator::PrimaryPageChanged(content::Page& page) {
+void WebNaeemSidePanelCoordinator::PrimaryPageChanged(content::Page& page) {
   location_->SetText(base::UTF8ToUTF16(
-      webview_->GetWebContents()->GetVisibleURL().possibly_invalid_spec()));
+      webnaeem_->GetWebContents()->GetVisibleURL().possibly_invalid_spec()));
 }
 
-bool WebViewSidePanelCoordinator::HandleKeyEvent(
+bool WebNaeemSidePanelCoordinator::HandleKeyEvent(
     views::Textfield* sender,
     const ui::KeyEvent& key_event) {
   if (key_event.type() == ui::ET_KEY_PRESSED &&
       key_event.key_code() == ui::VKEY_RETURN) {
-    webview_->GetWebContents()->GetController().LoadURL(
+    webnaeem_->GetWebContents()->GetController().LoadURL(
         GURL(sender->GetText()), {}, ui::PageTransition::PAGE_TRANSITION_TYPED,
         {});
     return true;
@@ -87,4 +87,4 @@ bool WebViewSidePanelCoordinator::HandleKeyEvent(
   return false;
 }
 
-WEB_CONTENTS_USER_DATA_KEY_IMPL(WebViewSidePanelCoordinator);
+WEB_CONTENTS_USER_DATA_KEY_IMPL(WebNaeemSidePanelCoordinator);
