@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-Copyright 2018 The Chromium Authors
-Use of this source code is governed by a BSD-style license that can be
-found in the LICENSE file.
--->
+<!-- Copyright 2020 The Brave Authors. All rights reserved.
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file. -->
 
-<org.chromium.chrome.browser.toolbar.top.TabSwitcherModeTopToolbar
+<org.chromium.chrome.browser.toolbar.top.BraveTabSwitcherModeTopToolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -72,7 +70,6 @@ found in the LICENSE file.
         android:layout_marginBottom="4dp"/>
 
     <LinearLayout
-        android:id="@+id/tab_switcher_switches_and_menu"
         android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -103,4 +100,4 @@ found in the LICENSE file.
 
     </LinearLayout>
 
-</org.chromium.chrome.browser.toolbar.top.TabSwitcherModeTopToolbar>
+</org.chromium.chrome.browser.toolbar.top.BraveTabSwitcherModeTopToolbar>

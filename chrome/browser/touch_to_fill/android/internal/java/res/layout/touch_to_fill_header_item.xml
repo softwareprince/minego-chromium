@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-Copyright 2019 The Chromium Authors
-Use of this source code is governed by a BSD-style license that can be
-found in the LICENSE file.
--->
+<!-- Copyright 2020 The Brave Authors. All rights reserved.
+     Use of this source code is governed by a BSD-style license that can be
+     found in the LICENSE file. -->
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,7 +16,8 @@ found in the LICENSE file.
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:importantForAccessibility="no" />
+        android:importantForAccessibility="no"
+        android:visibility="gone" />
 
     <org.chromium.ui.widget.TextViewWithLeading
         android:id="@+id/touch_to_fill_sheet_title"
