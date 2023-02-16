@@ -28,7 +28,7 @@ void WebNaeemSidePanelCoordinator::CreateAndRegisterEntry(
     SidePanelRegistry* registry) {
   registry->Register(std::make_unique<SidePanelEntry>(
       SidePanelEntry::Id::kWebNaeem,
-      l10n_util::GetStringUTF16(IDS_SIDEBAR_WEBNAEEM_TITLE),
+      l10n_util::GetStringUTF16(IDS_SIDEBAR_WEBVIEW_TITLE),
       ui::ImageModel::FromVectorIcon(omnibox::kDinoIcon, ui::kColorIcon),
       base::BindRepeating(&WebNaeemSidePanelCoordinator::CreateView,
                           base::Unretained(this))));
@@ -49,7 +49,7 @@ std::unique_ptr<views::View> WebNaeemSidePanelCoordinator::CreateView() {
 
   auto location = std::make_unique<views::Textfield>();
   location->GetViewAccessibility().OverrideName(
-      l10n_util::GetStringUTF16(IDS_ACCNAME_SIDEBAR_WEBNAEEM_LOCATION_BAR));
+      l10n_util::GetStringUTF16(IDS_ACCNAME_SIDEBAR_WEBVIEW_LOCATION_BAR));
   location->SetController(this);
   location_ = view->AddChildView(std::move(location));
 
