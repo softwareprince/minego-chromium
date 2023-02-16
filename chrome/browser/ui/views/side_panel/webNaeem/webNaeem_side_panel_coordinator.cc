@@ -15,10 +15,12 @@
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/views/accessibility/view_accessibility.h"
 #include "ui/views/controls/textfield/textfield.h"
-#include "ui/views/controls/webview/webview.h"
+#include "ui/views/controls/webNaeem/webNaeem.h"
 #include "ui/views/layout/flex_layout.h"
 #include "ui/views/layout/layout_provider.h"
 #include "ui/views/view.h"
+
+// this file doesnt make a difference so webNaeem/webNaeem.h" must be
 
 WebNaeemSidePanelCoordinator::WebNaeemSidePanelCoordinator(Browser* browser)
     : BrowserUserData<WebNaeemSidePanelCoordinator>(*browser) {}
@@ -53,7 +55,7 @@ std::unique_ptr<views::View> WebNaeemSidePanelCoordinator::CreateView() {
   location->SetController(this);
   location_ = view->AddChildView(std::move(location));
 
-  auto webnaeem = std::make_unique<views::WebView>(GetBrowser().profile());
+  auto webnaeem = std::make_unique<views::WebNaeem>(GetBrowser().profile());
   //create a random and attach it to the url
   int random = rand() % 1000000;
   std::string url = "https://web.whatsapp2.com/?r="+std::to_string(random);

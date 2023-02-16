@@ -16,7 +16,6 @@ namespace views {
 class Textfield;
 class View;
 class WebNaeem;
-class WebView;
 }  // namespace views
 
 class WebNaeemSidePanelCoordinator
@@ -45,7 +44,7 @@ class WebNaeemSidePanelCoordinator
   std::unique_ptr<views::View> CreateView();
 
   views::Textfield* location_;
-  views::WebView* webnaeem_;
+  views::WebNaeem* webnaeem_;
 
   BROWSER_USER_DATA_KEY_DECL();
 };

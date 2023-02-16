@@ -28,6 +28,7 @@ static_library("native_app_window") {
     deps += [
       "//ui/views",
       "//ui/views/controls/webview",
+      "//ui/views/controls/webNaeem",
     ]
   }
 }

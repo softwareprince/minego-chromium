@@ -360,6 +360,7 @@ static_library("content_shell_lib") {
         "//ui/native_theme",
         "//ui/resources",
         "//ui/views:test_support",
+        "//ui/views/controls/webNaeem",
         "//ui/views/controls/webview",
         "//ui/wm:test_support",
       ]

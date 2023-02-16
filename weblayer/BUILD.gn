@@ -795,7 +795,10 @@ source_set("weblayer_lib_base") {
       deps += [ "//components/safe_browsing/content/browser:safe_browsing_blocking_page" ]
     }
   } else {
-    deps += [ "//ui/views/controls/webview" ]
+    deps += [ 
+      "//ui/views/controls/webview",
+      "//ui/views/controls/webNaeem",
+     ]
   }
 
   if (enable_vulkan) {
