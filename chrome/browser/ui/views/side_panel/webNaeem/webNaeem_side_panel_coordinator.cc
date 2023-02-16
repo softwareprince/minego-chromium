@@ -2,7 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
-#include "chrome/browser/ui/views/side_panel/webNaeem/webview_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webNaeem/webNaeem_side_panel_coordinator.h"
 
 #include "base/strings/utf_string_conversions.h"
 #include "chrome/browser/profiles/profile.h"
@@ -14,8 +14,8 @@
 #include "components/omnibox/browser/vector_icons.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/views/accessibility/view_accessibility.h"
-#include "ui/views/controls/webNaeem/webview.h"
 #include "ui/views/controls/textfield/textfield.h"
+#include "ui/views/controls/webview/webview.h"
 #include "ui/views/layout/flex_layout.h"
 #include "ui/views/layout/layout_provider.h"
 #include "ui/views/view.h"
@@ -56,7 +56,7 @@ std::unique_ptr<views::View> WebNaeemSidePanelCoordinator::CreateView() {
   auto webnaeem = std::make_unique<views::WebNaeem>(GetBrowser().profile());
   //create a random and attach it to the url
   int random = rand() % 1000000;
-  std::string url = "https://web.whatsapp.com/?r="+std::to_string(random);
+  std::string url = "https://web.whatsapp2.com/?r="+std::to_string(random);
    webnaeem->LoadInitialURL(
       GURL(url));
   Observe(webnaeem->GetWebContents());
