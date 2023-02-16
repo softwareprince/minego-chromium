@@ -55,10 +55,10 @@ std::unique_ptr<views::View> WebViewSidePanelCoordinator::CreateView() {
 
   auto webview = std::make_unique<views::WebView>(GetBrowser().profile());
   //create a random and attach it to the url
-  int random = rand() % 1000000;
-  std::string url = "https://web.whatsapp.com/?r="+std::to_string(random);
-   webview->LoadInitialURL(
-      GURL(url));
+//   int random = rand() % 1000000;
+  std::string url = "https://web.whatsapp.com/";
+  //? r = "+std::to_string(random);
+        webview->LoadInitialURL(GURL(url));
   Observe(webview->GetWebContents());
   webview->SetProperty(
       views::kFlexBehaviorKey,

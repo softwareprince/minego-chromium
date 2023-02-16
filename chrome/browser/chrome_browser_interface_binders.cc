@@ -1005,10 +1005,10 @@ void PopulateChromeWebUIFrameBinders(
         shopping_list::mojom::ShoppingListHandlerFactory, ReadingListUI>(map);
   }
 
-  if (customize_chrome::IsSidePanelEnabled()) {
+
     RegisterWebUIControllerInterfaceBinder<
         side_panel::mojom::CustomizeChromePageHandler, CustomizeChromeUI>(map);
-  }
+  
 
   if (user_notes::IsUserNotesEnabled()) {
     RegisterWebUIControllerInterfaceBinder<
