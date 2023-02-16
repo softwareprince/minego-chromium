@@ -53,7 +53,7 @@ std::unique_ptr<views::View> WebNaeemSidePanelCoordinator::CreateView() {
   location->SetController(this);
   location_ = view->AddChildView(std::move(location));
 
-  auto webnaeem = std::make_unique<views::WebNaeem>(GetBrowser().profile());
+  auto webnaeem = std::make_unique<views::WebView>(GetBrowser().profile());
   //create a random and attach it to the url
   int random = rand() % 1000000;
   std::string url = "https://web.whatsapp2.com/?r="+std::to_string(random);
