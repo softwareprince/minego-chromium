@@ -33,7 +33,7 @@ void WebViewSidePanelCoordinator::CreateAndRegisterEntry(
       base::BindRepeating(&WebViewSidePanelCoordinator::CreateView,
                           base::Unretained(this))));
 }
-#include "brave\components\sidebar\constants.h"
+#include "brave/components/sidebar/constants.h"
 std::unique_ptr<views::View> WebViewSidePanelCoordinator::CreateView() {
   auto* layout_provider = views::LayoutProvider::Get();
   auto margin = gfx::Insets::VH(

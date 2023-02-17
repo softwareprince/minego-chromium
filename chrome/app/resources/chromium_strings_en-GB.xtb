@@ -59,7 +59,7 @@ Some features may be unavailable and changes to preferences won't be saved.</tra
 <translation id="7387051847644272380">An operating system error occurred during installation. Please download Brave again.</translation>
 <translation id="2648689842065142443">If you share a device, friends and family can browse separately and set up Brave just the way they want</translation>
 <translation id="5926459996518749366">Brave blocked this archive file because it may hide malware</translation>
-<translation id="6384359666082467439">Welcome to Brave, <ph name="ACCOUNT_FIRST_NAME"/></translation>
+<translation id="6384359666082467439">Welcome to Minego, <ph name="ACCOUNT_FIRST_NAME"/></translation>
 <translation id="6791166902140255175">Brave Tab</translation>
 <translation id="8372880274820509128">For added security, Brave will encrypt your data.</translation>
 <translation id="2770231113462710648">Change default browser to:</translation>
@@ -142,7 +142,7 @@ Some features may be unavailable and changes to preferences won't be saved.</tra
 <translation id="4065288863231444640">Let Brave Run in the Background</translation>
 <translation id="8148611988012584308">Customise and control Brave</translation>
 <translation id="4427306783828095590">Enhanced protection does more to block phishing and malware</translation>
-<translation id="7084397798469173252">Welcome to Brave; new browser window opened</translation>
+<translation id="7084397798469173252">Welcome to Minego; new browser window opened</translation>
 <translation id="2633397153656205379">Brave didn't update. Something went wrong. <ph name="BEGIN_LINK"/>Fix Brave update problems and failed updates.<ph name="END_LINK"/></translation>
 <translation id="3679799810790990472">Continue in a new Brave profile?</translation>
 <translation id="4567424176335768812">You're signed in as <ph name="USER_EMAIL_ADDRESS"/>. Now you can access your bookmarks, history and other settings on all your signed in devices.</translation>
@@ -188,7 +188,7 @@ Some features may be unavailable and changes to preferences won't be saved.</tra
 <translation id="95624393026532554">Brave requires Windows 7 or higher.</translation>
 <translation id="5646769069113654257">Please restart Brave now</translation>
 <translation id="2335583906071111058">Display Brave in this language</translation>
-<translation id="7207456302801184289">Welcome to Brave</translation>
+<translation id="7207456302801184289">Welcome to Minego</translation>
 <translation id="8054200348483755053">Brave found that these items contain malware:</translation>
 <translation id="5895138241574237353">Restart</translation>
 <translation id="5903106910045431592"><ph name="PAGE_TITLE"/> – Network sign-in</translation>
@@ -231,7 +231,7 @@ Some features may be unavailable and changes to preferences won't be saved.</tra
 <translation id="4867486350347355096"><ph name="BEGIN_BOLD"/>How we use this data:<ph name="END_BOLD"/> Brave can estimate your interests. Later, a site that you visit can ask Brave to see your interests in order to personalise the ads that you see.</translation>
 <translation id="6373767849825830651">Brave is a web browser that runs webpages and applications with lightning speed. It's fast, stable, and easy to use. Browse the web more safely with malware and phishing protection built into Brave.</translation>
 <translation id="2139300032719313227">Restart Chrome OS</translation>
-<translation id="1684121725014454063">Welcome to Brave profiles</translation>
+<translation id="1684121725014454063">Welcome to Minego profiles</translation>
 <translation id="2513524988380267210">{SECONDS,plural, =1{Brave will restart in 1 second}other{Brave will restart in # seconds}}</translation>
 <translation id="2675662665675552980">It also controls what page is shown when you start Brave.</translation>
 <translation id="5590013613412457132">Uninstall Brave</translation>

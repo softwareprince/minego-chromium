@@ -21,7 +21,7 @@ namespace {
 // - `kBraveUninstallSurveyUrl` used instead of `kUninstallSurveyUrl`
 
 constexpr base::WStringPiece kBraveUninstallSurveyUrl(
-    L"https://brave.com/uninstall-survey/?p=brave_uninstall_survey");
+    L"https://minego.io/uninstall-survey/?p=brave_uninstall_survey");
 
 }  // namespace
 

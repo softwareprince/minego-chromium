@@ -47,7 +47,7 @@
 <translation id="4647657427328119430">Not enough tokens.</translation>
 <translation id="2359808026110333948">Continue</translation>
 <translation id="4227681408214010862">Love that #Brave lets me support creators! Just tipped <ph name="NAME"/> with #BAT. If they verify at https://creators.brave.com before <ph name="DATE"/>, the BAT is theirs!</translation>
-<translation id="6231182869178328516">I just tipped <ph name="NAME"/> using the Brave Browser. Check it out at https://brave.com/tips.</translation>
+<translation id="6231182869178328516">I just tipped <ph name="NAME"/> using the Brave Browser. Check it out at https://minego.io/tips.</translation>
 <translation id="7172012963002631836">There was a problem sending your tip.</translation>
 <translation id="8994556588732085585">Please close and reopen the tipping banner to try again.</translation>
 <translation id="2278950434998763147">Opens some sites using a secure HTTPS connection instead of plain HTTP.</translation>
@@ -127,7 +127,7 @@
 <translation id="6587448235155023666">Your changes will take effect the next time you relaunch Brave</translation>
 <translation id="8701563696941209024">RELAUNCH NOW</translation>
 <translation id="834487290629916192">LATER</translation>
-<translation id="7207456302801184289">Welcome to Brave</translation>
+<translation id="7207456302801184289">Welcome to Minego</translation>
 <translation id="4117451092682672487">Privacy. Made simple.</translation>
 <translation id="7909375417585209817">With Brave as default, every link you tap opens with Brave's privacy protections.</translation>
 <translation id="7370959926683925817">Block ads. Save data. Every single day.</translation>
@@ -441,7 +441,7 @@ Are you sure you want to do this?</translation>
 <translation id="631124996535890460">By proceeding, you agree to the <ph name="TERMS_OF_SERVICE"/> and <ph name="PRIVACY_POLICY"/>.</translation>
 <translation id="8804164990146287819">Privacy Policy</translation>
 <translation id="185034574799484512">Let’s take a quick tour</translation>
-<translation id="7930505144430343145">Welcome to Brave Rewards!</translation>
+<translation id="7930505144430343145">Welcome to Minego Rewards!</translation>
 <translation id="3477340970981564961">Brave Private Ads reward you with tokens to support content creators unlike traditional ads, all while keeping your personal information private.</translation>
 <translation id="6973095375773523904">Where do ads show up?</translation>
 <translation id="7556325460112047619">Brave Private Ads will appear as a normal notification. You control how often you see these ads in settings.</translation>
