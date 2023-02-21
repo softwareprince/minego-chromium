@@ -19,6 +19,7 @@ CustomizeChromePageHandler::~CustomizeChromePageHandler() = default;
 void CustomizeChromePageHandler::SetMostVisitedSettings(
     bool custom_links_enabled,
     bool visible) {
+      DLOG(ERROR) << "CustomizeChromePageHandler::SetMostVisitedSettings";
   if (IsShortcutsVisible() != visible)
     profile_->GetPrefs()->SetBoolean(ntp_prefs::kNtpShortcutsVisible, visible);
 

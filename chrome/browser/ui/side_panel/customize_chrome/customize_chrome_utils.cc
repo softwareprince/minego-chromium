@@ -11,9 +11,11 @@
 namespace customize_chrome {
 
 bool IsSidePanelEnabled() {
-  return base::FeatureList::IsEnabled(
-             ntp_features::kCustomizeChromeSidePanel) &&
-         base::FeatureList::IsEnabled(features::kUnifiedSidePanel);
+  return true;
+
+  // return base::FeatureList::IsEnabled(
+  //            ntp_features::kCustomizeChromeSidePanel) &&
+  //        base::FeatureList::IsEnabled(features::kUnifiedSidePanel);
 }
 
 }  // namespace customize_chrome

@@ -27,7 +27,6 @@ class CustomizeChromeSidePanelController
   CustomizeChromeSidePanelController& operator=(
       const CustomizeChromeSidePanelController&) = delete;
   ~CustomizeChromeSidePanelController() override;
-
   // CustomizeChromeTabHelper::Delegate
   void CreateAndRegisterEntry() override;
   void DeregisterEntry() override;

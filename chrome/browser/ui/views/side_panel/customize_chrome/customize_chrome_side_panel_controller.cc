@@ -30,6 +30,8 @@ CustomizeChromeSidePanelController::~CustomizeChromeSidePanelController() =
     default;
 
 void CustomizeChromeSidePanelController::CreateAndRegisterEntry() {
+  DLOG(ERROR)
+      << "CustomizeChromeSidePanelController::CreateAndRegisterEntry() ";
   const int icon_size = ChromeLayoutProvider::Get()->GetDistanceMetric(
       ChromeDistanceMetric::DISTANCE_SIDE_PANEL_HEADER_VECTOR_ICON_SIZE);
   auto* registry = SidePanelRegistry::Get(web_contents_);
@@ -65,26 +67,32 @@ void CustomizeChromeSidePanelController::DeregisterEntry() {
 }
 
 void CustomizeChromeSidePanelController::ShowCustomizeChromeSidePanel() {
+  DLOG(ERROR) << "CustomizeChromeSidePanelController::ShowCustomizeChromeSidePanel() ";
+
   auto* browser_view = GetBrowserView();
   if (!browser_view)
     return;
   DCHECK(IsCustomizeChromeEntryAvailable());
+  DLOG(ERROR) << "CustomizeChromeSidePanelController::ShowCustomizeChromeSidePanel() 2";
   browser_view->side_panel_coordinator()->Show(
       SidePanelEntry::Id::kCustomizeChrome);
 }
 
 bool CustomizeChromeSidePanelController::IsCustomizeChromeEntryShowing() const {
+  DLOG(ERROR) << "CustomizeChromeSidePanelController::IsCustomizeChromeEntryShowing() ";
   auto* browser_view = GetBrowserView();
   if (!browser_view)
     return false;
   auto* side_panel_coordinator = browser_view->side_panel_coordinator();
+  DLOG(ERROR) << "CustomizeChromeSidePanelController::IsCustomizeChromeEntryShowing() 2";
   return side_panel_coordinator->IsSidePanelShowing() &&
          (side_panel_coordinator->GetCurrentEntryId() ==
           SidePanelEntry::Id::kCustomizeChrome);
 }
 
 bool CustomizeChromeSidePanelController::IsCustomizeChromeEntryAvailable()
-    const {
+     const {
+    DLOG(ERROR) << "CustomizeChromeSidePanelController::IsCustomizeChromeEntryAvailable() ";
   auto* registry = SidePanelRegistry::Get(web_contents_);
   return registry ? (registry->GetEntryForKey(SidePanelEntry::Key(
                          SidePanelEntry::Id::kCustomizeChrome)) != nullptr)
@@ -92,6 +100,7 @@ bool CustomizeChromeSidePanelController::IsCustomizeChromeEntryAvailable()
 }
 
 void CustomizeChromeSidePanelController::OnEntryShown(SidePanelEntry* entry) {
+ DLOG(ERROR) << "CustomizeChromeSidePanelController::OnEntryShown(SidePanelEntry* entry) ";
   auto* customize_chrome_tab_helper =
       CustomizeChromeTabHelper::FromWebContents(web_contents_);
   customize_chrome_tab_helper->EntryStateChanged(true);
@@ -105,6 +114,7 @@ void CustomizeChromeSidePanelController::OnEntryHidden(SidePanelEntry* entry) {
 
 std::unique_ptr<views::View>
 CustomizeChromeSidePanelController::CreateCustomizeChromeWebView() {
+ DLOG(ERROR) << "CustomizeChromeSidePanelController::CreateCustomizeChromeWebView() ";
   auto customize_chrome_web_view =
       std::make_unique<SidePanelWebUIViewT<CustomizeChromeUI>>(
           base::RepeatingClosure(), base::RepeatingClosure(),
@@ -119,6 +129,7 @@ CustomizeChromeSidePanelController::CreateCustomizeChromeWebView() {
 }
 
 BrowserView* CustomizeChromeSidePanelController::GetBrowserView() const {
+  DLOG(ERROR) << "CustomizeChromeSidePanelController::GetBrowserView() ";
   auto* browser = chrome::FindBrowserWithWebContents(web_contents_);
   return browser ? BrowserView::GetBrowserViewForBrowser(browser) : nullptr;
 }

@@ -444,12 +444,15 @@ NewTabPageHandler::NewTabPageHandler(
       promo_service_(PromoServiceFactory::GetForProfile(profile)),
       page_{std::move(pending_page)},
       receiver_{this, std::move(pending_page_handler)} {
+  DLOG(ERROR) << "NewTabPageHandler::NewTabPageHandler";
+
   CHECK(ntp_background_service_);
   CHECK(ntp_custom_background_service_);
   CHECK(logo_service_);
   CHECK(theme_service_);
   CHECK(promo_service_);
   CHECK(web_contents_);
+
   ntp_background_service_->AddObserver(this);
   native_theme_observation_.Observe(ui::NativeTheme::GetInstanceForNativeUi());
   theme_service_observation_.Observe(theme_service_.get());
@@ -457,7 +460,10 @@ NewTabPageHandler::NewTabPageHandler(
       ntp_custom_background_service_.get());
   promo_service_observation_.Observe(promo_service_.get());
   OnThemeChanged();
-  if (customize_chrome::IsSidePanelEnabled()) {
+  // if (customize_chrome::IsSidePanelEnabled()) 
+  {
+    DLOG(ERROR) << "NewTabPageHandler::NewTabPageHandler 2 "
+                   "CustomizeChromeTabHelper::FromWebContents";
     auto* customize_chrome_tab_helper =
         CustomizeChromeTabHelper::FromWebContents(web_contents_);
     // Lifetime is tied to NewTabPageUI which owns the NewTabPageHandler.
@@ -796,7 +802,8 @@ void NewTabPageHandler::LogModulesFreOptInStatus(
 }
 
 void NewTabPageHandler::ShowCustomizeChromeSidePanel() {
-  auto* customize_chrome_tab_helper =
+  DLOG(ERROR) << "ShowCustomizeChromeSidePanel";
+      auto* customize_chrome_tab_helper =
       CustomizeChromeTabHelper::FromWebContents(web_contents_);
   customize_chrome_tab_helper->ShowCustomizeChromeSidePanel();
 }
@@ -1277,5 +1284,6 @@ bool NewTabPageHandler::IsShortcutsVisible() const {
 
 void NewTabPageHandler::NotifyCustomizeChromeSidePanelVisibilityChanged(
     bool is_open) {
-  page_->CustomizeChromeSidePanelVisibilityChanged(is_open);
+  DLOG(ERROR) << "NotifyCustomizeChromeSidePanelVisibilityChanged";
+                 page_->CustomizeChromeSidePanelVisibilityChanged(is_open);
 }

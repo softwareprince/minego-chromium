@@ -28,13 +28,13 @@ BASE_FEATURE(kCacheOneGoogleBar,
 // on NTP Customize Chrome background change.
 BASE_FEATURE(kCustomizeChromeColorExtraction,
              "CustomizeChromeColorExtraction",
-             base::FEATURE_DISABLED_BY_DEFAULT);
+             base::FEATURE_ENABLED_BY_DEFAULT);
 
 // If enabled, Customize Chrome will be an option in the Unified Side Panel
 // when on the New Tab Page.
 BASE_FEATURE(kCustomizeChromeSidePanel,
              "CustomizeChromeSidePanel",
-             base::FEATURE_DISABLED_BY_DEFAULT);
+             base::FEATURE_ENABLED_BY_DEFAULT);
 
 // Enables the removal of the NTP background scrim and forced dark foreground
 // colors for a specific subset of Chrome Web Store themes (see

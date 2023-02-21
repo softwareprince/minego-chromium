@@ -568,7 +568,7 @@ NewTabPageUI::NewTabPageUI(content::WebUI* web_ui)
   content::WebUIDataSource::Add(profile_, source);
 
   source->AddBoolean("customizeChromeEnabled",
-                     customize_chrome::IsSidePanelEnabled());
+                     true);
 
   content::URLDataSource::Add(profile_,
                               std::make_unique<SanitizedImageSource>(profile_));
@@ -605,7 +605,9 @@ NewTabPageUI::NewTabPageUI(content::WebUI* web_ui)
       ntp_custom_background_service_.get());
 
   // Create and register customize chrome entry on unified side panel
-  if (customize_chrome::IsSidePanelEnabled()) {
+  // if (customize_chrome::IsSidePanelEnabled()) 
+  {
+   DLOG(ERROR) << "Create and register customize chrome entry on unified side panel in NewTabPageUI";
     auto* customize_chrome_tab_helper =
         CustomizeChromeTabHelper::FromWebContents(web_contents_);
     customize_chrome_tab_helper->CreateAndRegisterEntry();
@@ -621,8 +623,10 @@ WEB_UI_CONTROLLER_TYPE_IMPL(NewTabPageUI)
 
 NewTabPageUI::~NewTabPageUI() {
   // Deregister customize chrome entry on unified side panel
-  if (customize_chrome::IsSidePanelEnabled()) {
-    auto* customize_chrome_tab_helper =
+  //if (customize_chrome::IsSidePanelEnabled()) 
+  {
+    DLOG(ERROR) << "Deregister customize chrome entry on unified side panel in destructor of NewTabPageUI";
+        auto* customize_chrome_tab_helper =
         CustomizeChromeTabHelper::FromWebContents(web_contents_);
     customize_chrome_tab_helper->DeregisterEntry();
   }

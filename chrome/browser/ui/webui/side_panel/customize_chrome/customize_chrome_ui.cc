@@ -21,6 +21,7 @@
 CustomizeChromeUI::CustomizeChromeUI(content::WebUI* web_ui)
     : ui::MojoBubbleWebUIController(web_ui),
       profile_(Profile::FromWebUI(web_ui)) {
+        DLOG(ERROR) << "CustomizeChromeUI::CustomizeChromeUI";
   content::WebUIDataSource* source = content::WebUIDataSource::Create(
       chrome::kChromeUICustomizeChromeSidePanelHost);
 
@@ -28,12 +29,12 @@ CustomizeChromeUI::CustomizeChromeUI(content::WebUI* web_ui)
       {"title", IDS_SIDE_PANEL_CUSTOMIZE_CHROME_TITLE},
   };
   source->AddLocalizedStrings(kLocalizedStrings);
-
-  webui::SetupWebUIDataSource(
-      source,
-      base::make_span(kSidePanelCustomizeChromeResources,
-                      kSidePanelCustomizeChromeResourcesSize),
-      IDR_SIDE_PANEL_CUSTOMIZE_CHROME_CUSTOMIZE_CHROME_HTML);
+  DLOG(ERROR) << "CustomizeChromeUI::CustomizeChromeUI";
+      webui::SetupWebUIDataSource(
+          source,
+          base::make_span(kSidePanelCustomizeChromeResources,
+                          kSidePanelCustomizeChromeResourcesSize),
+          IDR_SIDE_PANEL_CUSTOMIZE_CHROME_CUSTOMIZE_CHROME_HTML);
 
   content::WebUIDataSource::Add(profile_, source);
 }
@@ -45,6 +46,7 @@ WEB_UI_CONTROLLER_TYPE_IMPL(CustomizeChromeUI)
 void CustomizeChromeUI::BindInterface(
     mojo::PendingReceiver<side_panel::mojom::CustomizeChromePageHandler>
         receiver) {
+            DLOG(ERROR) << "CustomizeChromeUI::BindInterface";
   customize_chrome_page_handler_ = std::make_unique<CustomizeChromePageHandler>(
       std::move(receiver), profile_);
 }

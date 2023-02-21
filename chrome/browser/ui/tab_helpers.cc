@@ -597,7 +597,6 @@ void TabHelpers::AttachTabHelpers(WebContents* web_contents) {
 #endif
 
 #if !BUILDFLAG(IS_ANDROID)
-  if (customize_chrome::IsSidePanelEnabled())
     CustomizeChromeTabHelper::CreateForWebContents(web_contents);
 #endif
 

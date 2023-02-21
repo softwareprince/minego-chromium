@@ -9,7 +9,7 @@
 #include <memory>
 #include <string>
 
-#include "base/callback.h"
+#include "base/functional/callback.h"
 #include "base/functional/callback_forward.h"
 #include "base/observer_list.h"
 #include "base/time/time.h"
@@ -30,24 +30,19 @@ class SidePanelEntry final {
   enum class Id {
     // Global Entries
     kReadingList,
-    kWhatsapp,
     kBookmarks,
     kHistoryClusters,
-    kReadAnything,  
+    kReadAnything,
     kUserNote,
     kFeed,
     kWebView,
-    kWebNaeem,
     // Contextual Entries
     kSideSearch,
     kLens,
     kAssistant,
     kAboutThisSite,
-    // check all chromium commits I have made if they contain CustomizeChrome
-    // word
-    // or check where chrome\browser\ui\views\side_panel\side_panel_entry.h was disabled 
-    // if compiling commit before
     kCustomizeChrome,
+    kSearchCompanion,
     // Extensions (nothing more should be added below here)
     kExtension
   };
@@ -74,6 +69,9 @@ class SidePanelEntry final {
     absl::optional<extensions::ExtensionId> extension_id_ = absl::nullopt;
   };
 
+  // If adding a callback to provide a URL to the 'Open in New Tab' button, you
+  // must also add a relevant entry in actions.xml because a user action is
+  // logged on button click.
   SidePanelEntry(Id id,
                  std::u16string name,
                  ui::ImageModel icon,

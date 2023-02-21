@@ -9,6 +9,7 @@
 CustomizeChromeTabHelper::~CustomizeChromeTabHelper() = default;
 
 void CustomizeChromeTabHelper::CreateAndRegisterEntry() {
+  DLOG(ERROR)<< "CreateAndRegisterEntry from CustomizeChromeTabHelper ";
   DCHECK(delegate_);
   delegate_->CreateAndRegisterEntry();
 }
@@ -19,16 +20,19 @@ void CustomizeChromeTabHelper::DeregisterEntry() {
 }
 
 void CustomizeChromeTabHelper::ShowCustomizeChromeSidePanel() {
+ DLOG(ERROR)<< "ShowCustomizeChromeSidePanel from CustomizeChromeTabHelper ";
   DCHECK(delegate_);
   delegate_->ShowCustomizeChromeSidePanel();
 }
 
 bool CustomizeChromeTabHelper::IsCustomizeChromeEntryShowing() const {
+DLOG(ERROR)<< "IsCustomizeChromeEntryShowing from CustomizeChromeTabHelper ";
   DCHECK(delegate_);
   return delegate_->IsCustomizeChromeEntryShowing();
 }
 
 bool CustomizeChromeTabHelper::IsCustomizeChromeEntryAvailable() const {
+DLOG(ERROR)<< "IsCustomizeChromeEntryAvailable from CustomizeChromeTabHelper ";
   DCHECK(delegate_);
   return delegate_->IsCustomizeChromeEntryAvailable();
 }

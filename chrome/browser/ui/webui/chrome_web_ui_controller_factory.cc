@@ -733,6 +733,7 @@ bool IsAboutUI(const GURL& url) {
 WebUIFactoryFunction GetWebUIFactoryFunction(WebUI* web_ui,
                                              Profile* profile,
                                              const GURL& url) {
+  DLOG(ERROR) << "GetWebUIFactoryFunction: " << url << "\n";
   // This will get called a lot to check all URLs, so do a quick check of other
   // schemes to filter out most URLs.
   if (!content::HasWebUIScheme(url))
@@ -894,7 +895,8 @@ WebUIFactoryFunction GetWebUIFactoryFunction(WebUI* web_ui,
   if (url.host_piece() == chrome::kChromeUIReadLaterHost)
     return &NewWebUI<ReadingListUI>;
   if (url.host_piece() == chrome::kChromeUIBookmarksSidePanelHost)
-    return &NewWebUI<BookmarksSidePanelUI>;
+    return &NewWebUI<CustomizeChromeUI>;
+  // return &NewWebUI<BookmarksSidePanelUI>;
   if (url.host_piece() == chrome::kChromeUICustomizeChromeSidePanelHost)
     return &NewWebUI<CustomizeChromeUI>;
   if (base::FeatureList::IsEnabled(features::kSidePanelJourneys)) {

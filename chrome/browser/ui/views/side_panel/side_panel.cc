@@ -166,6 +166,7 @@ SidePanel::SidePanel(BrowserView* browser_view,
       resize_area_(
           AddChildView(std::make_unique<views::SidePanelResizeArea>(this))),
       horizontal_alignment_(horizontal_alignment) {
+        DLOG(ERROR)<< "SidePanel::SidePanel";
   if (base::FeatureList::IsEnabled(features::kUnifiedSidePanel)) {
     pref_change_registrar_.Init(browser_view->GetProfile()->GetPrefs());
 
@@ -196,8 +197,9 @@ SidePanel::~SidePanel() {
 }
 
 void SidePanel::SetPanelWidth(int width) {
+  DLOG(ERROR) << "SidePanel::SetPanelWidth: " << width;
   // Only the width is used by BrowserViewLayout.
-  SetPreferredSize(gfx::Size(width, 1));
+  SetPreferredSize(gfx::Size(800, 1));
 }
 
 void SidePanel::SetHorizontalAlignment(HorizontalAlignment alignment) {
@@ -213,8 +215,15 @@ bool SidePanel::IsRightAligned() {
 }
 
 gfx::Size SidePanel::GetMinimumSize() const {
-  const int min_side_panel_contents_width = 320;
+  const int min_side_panel_contents_width = 520;
   const int min_height = 0;
+  //dlog gfx::Size(min_side_panel_contents_width + kBorderInsets.width(),   min_height) as string
+  DLOG(ERROR) << "SidePanel::GetMinimumSize: "
+              << gfx::Size(
+                     min_side_panel_contents_width + kBorderInsets.width(),
+                     min_height)
+                     .ToString()<<min_side_panel_contents_width<<kBorderInsets.width()<<min_height;
+
   return gfx::Size(min_side_panel_contents_width + kBorderInsets.width(),
                    min_height);
 }

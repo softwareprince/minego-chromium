@@ -158,7 +158,7 @@ export class AppElement extends PolymerElement {
 
       customizeChromeEnabled_: {
         type: Boolean,
-        value: () => loadTimeData.getBoolean('customizeChromeEnabled'),
+        value: () => true,
       },
 
       customizeChromeSidePanelShowing_: {

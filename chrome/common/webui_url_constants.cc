@@ -253,7 +253,8 @@ const char kChromeUIBookmarksSidePanelURL[] =
     "chrome://bookmarks-side-panel.top-chrome/";
 const char kChromeUICustomizeChromeSidePanelHost[] =
     "customize-chrome-side-panel.top-chrome";
-const char kChromeUICustomizeChromeSidePanelURL[] =
+// DLOG(ERROR) << "kChromeUICustomizeChromeSidePanelURL defined";
+    const char kChromeUICustomizeChromeSidePanelURL[] =
     "chrome://customize-chrome-side-panel.top-chrome";
 const char kChromeUIHistoryClustersSidePanelHost[] =
     "history-clusters-side-panel.top-chrome";
