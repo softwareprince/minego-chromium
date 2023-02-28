@@ -63,13 +63,16 @@ GURL GetWebstoreItemJsonDataURL(const std::string& extension_id) {
 }
 
 GURL GetDefaultWebstoreUpdateUrl() {
+  DLOG(ERROR) << "ExtensionsClient::GetWebstoreUpdateURL() "<<kChromeWebstoreBaseURL;
   return GURL(kChromeWebstoreUpdateURL);
 }
 
 GURL GetWebstoreUpdateUrl() {
   extensions::ExtensionsClient* client = extensions::ExtensionsClient::Get();
-  if (client)
-    return client->GetWebstoreUpdateURL();
+  DLOG(ERROR) << "ExtensionsClient::GetWebstoreUpdateURL() "<<client->GetWebstoreUpdateURL();
+  if (client && false){
+     client->GetWebstoreUpdateURL();
+  }
   return GetDefaultWebstoreUpdateUrl();
 }
 

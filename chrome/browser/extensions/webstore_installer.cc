@@ -201,12 +201,14 @@ GURL WebstoreInstaller::GetWebstoreInstallURL(
     params.push_back(installsource_param);
   params.push_back("uc");
   std::string url_string = extension_urls::GetWebstoreUpdateUrl().spec();
+DLOG(ERROR) << "url_string: " << url_string;
 
   GURL url(
       url_string + "?response=redirect&" +
       update_client::UpdateQueryParams::Get(
           update_client::UpdateQueryParams::CRX) +
       "&x=" + base::EscapeQueryParamValue(base::JoinString(params, "&"), true));
+      DLOG(ERROR) << "url: " << url;
   DCHECK(url.is_valid());
 
   return url;
