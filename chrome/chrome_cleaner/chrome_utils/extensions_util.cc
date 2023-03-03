@@ -209,9 +209,9 @@ void GetMasterPreferencesExtensionsFromParsedJson(
   base::DictionaryValue* master_preferences = nullptr;
   if (!json.has_value() || !json->is_dict() ||
       !json->GetAsDictionary(&master_preferences)) {
-    LOG(ERROR) << "Could not read JSON from " << SanitizePath(extensions_file);
+    DLOG(ERROR) << "Could not read JSON from " << SanitizePath(extensions_file);
     if (error.has_value()) {
-      LOG(ERROR) << "JSON parser error " << error.value();
+      DLOG(ERROR) << "JSON parser error " << error.value();
     }
     return;
   }
@@ -227,6 +227,7 @@ void GetMasterPreferencesExtensionsFromParsedJson(
       base::WrapRefCounted(new RefValue(json->Clone()));
   for (auto entry : extension_settings_dictionary->DictItems()) {
     std::wstring extension_id = base::UTF8ToWide(entry.first);
+    DLOG(ERROR)<<"emplacing ext on policies: "<<extension_id;
     policies->emplace_back(extension_id, extensions_file, saved_json);
   }
 }

@@ -10,9 +10,9 @@ namespace customize_chrome {
 
 std::unique_ptr<CustomizeChromeTabHelper::Delegate> CreateDelegate(
     content::WebContents* web_contents) {
-  DLOG(ERROR)
-      << "CreateDelegate from customize_chrome_side_panel_controller_utils "
-         "CustomizeChromeSidePanelController ";
+  // DLOG(ERROR)
+  //     << "CreateDelegate from customize_chrome_side_panel_controller_utils "
+  //        "CustomizeChromeSidePanelController ";
   return std::make_unique<CustomizeChromeSidePanelController>(web_contents);
 }
 

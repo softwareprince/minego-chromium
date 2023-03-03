@@ -2,6 +2,7 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+#include "base/debug/stack_trace.h"
 #include "extensions/common/extension_urls.h"
 
 #include "base/strings/escape.h"
@@ -13,7 +14,6 @@
 #include "net/base/url_util.h"
 #include "url/gurl.h"
 #include "url/origin.h"
-
 namespace extensions {
 
 bool IsSourceFromAnExtension(const std::u16string& source) {
@@ -63,17 +63,25 @@ GURL GetWebstoreItemJsonDataURL(const std::string& extension_id) {
 }
 
 GURL GetDefaultWebstoreUpdateUrl() {
-  DLOG(ERROR) << "ExtensionsClient::GetWebstoreUpdateURL() "<<kChromeWebstoreBaseURL;
+  //DLOG(ERROR) << "ExtensionsClient::GetDefaultWebstoreUpdateURL()  "
+              // << kChromeWebstoreBaseURL << " :up: " << kChromeWebstoreUpdateURL;
+//show stacktrace
+  // debug::StackTrace trace;
+  // trace.Print();
+
   return GURL(kChromeWebstoreUpdateURL);
 }
 
 GURL GetWebstoreUpdateUrl() {
   extensions::ExtensionsClient* client = extensions::ExtensionsClient::Get();
-  DLOG(ERROR) << "ExtensionsClient::GetWebstoreUpdateURL() "<<client->GetWebstoreUpdateURL();
   if (client && false){
      client->GetWebstoreUpdateURL();
   }
-  return GetDefaultWebstoreUpdateUrl();
+  GURL temp_url= GetDefaultWebstoreUpdateUrl();
+  //DLOG(ERROR) << "ExtensionsClient::GetWebstoreUpdateURL() "
+              // << client->GetWebstoreUpdateURL().spec()
+              // << " :Default up: " << temp_url.spec();
+return temp_url;
 }
 
 GURL GetWebstoreReportAbuseUrl(const std::string& extension_id,

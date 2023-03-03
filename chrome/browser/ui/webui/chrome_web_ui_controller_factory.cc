@@ -733,7 +733,7 @@ bool IsAboutUI(const GURL& url) {
 WebUIFactoryFunction GetWebUIFactoryFunction(WebUI* web_ui,
                                              Profile* profile,
                                              const GURL& url) {
-  DLOG(ERROR) << "GetWebUIFactoryFunction: " << url << "\n";
+  // DLOG(ERROR) << "GetWebUIFactoryFunction: " << url << "\n";
   // This will get called a lot to check all URLs, so do a quick check of other
   // schemes to filter out most URLs.
   if (!content::HasWebUIScheme(url))

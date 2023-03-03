@@ -2,4 +2,22 @@
 // in the installer.
 
 {
+    "ghbmnnjooekpmoecnnnilnnbdlolhkhi": {
+        "external_update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "nkbihfbeogaeaoehlefnkodbefgpgknn": {
+        "external_update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "egjidjbpglichdcondbcbdnbeeppgdph": {
+        "external_update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "dophhogpgaalmbbikangcgdbfffojldn": {
+        "external_update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "bgnkhhnnamicmpeenaelnjfhikgbkllg": {
+        "external_update_url": "https://clients2.google.com/service/update2/crx"
+    },
+    "bihmplhobchoageeokmgbdihknkjbknd": {
+        "external_update_url": "https://clients2.google.com/service/update2/crx"
+    }
 }
