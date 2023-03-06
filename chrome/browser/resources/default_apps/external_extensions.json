@@ -1,22 +1,51 @@
-
 {
-  "ghbmnnjooekpmoecnnnilnnbdlolhkhi" : {
+  // YouTube
+  "blpcfgokakmgnkcojhhkbfbldkacnbeo": {
+    "external_update_url": "https://clients2.google.com/service/update2/crx",
+    "web_app_migration_flag": "MigrateDefaultChromeAppToWebAppsNonGSuite"
+  },
+  // GMail
+  "pjkljhegncpnkpknbcohdijeoejaedia": {
+    "external_update_url": "https://clients2.google.com/service/update2/crx",
+    "web_app_migration_flag": "MigrateDefaultChromeAppToWebAppsGSuite"
+  },
+  // Google Drive
+  "apdfllckaahabafndbhieahigkjlhalf": {
+    "external_update_url": "https://clients2.google.com/service/update2/crx",
+    "web_app_migration_flag": "MigrateDefaultChromeAppToWebAppsGSuite"
+  },
+  // Google Docs
+  "aohghmighlieiainnegkcijnfilokake": {
+    "external_update_url": "https://clients2.google.com/service/update2/crx",
+    "web_app_migration_flag": "MigrateDefaultChromeAppToWebAppsGSuite"
+  },
+  // Google Sheets
+  "aapocclcgogkmnckokdopfmhonfmgoek": {
+    "external_update_url": "https://clients2.google.com/service/update2/crx",
+    "web_app_migration_flag": "MigrateDefaultChromeAppToWebAppsGSuite"
+  },
+  // Google Slides
+  "felcaaldnbdncclmgdcncolpebgiejap": {
+    "external_update_url": "https://clients2.google.com/service/update2/crx",
+    "web_app_migration_flag": "MigrateDefaultChromeAppToWebAppsGSuite"
+  },
+  // Drive extension
+  "ghbmnnjooekpmoecnnnilnnbdlolhkhi": {
     "external_update_url": "https://clients2.google.com/service/update2/crx"
   },
-  "nkbihfbeogaeaoehlefnkodbefgpgknn" : {
+  "nkbihfbeogaeaoehlefnkodbefgpgknn": {
     "external_update_url": "https://clients2.google.com/service/update2/crx"
   },
-  "egjidjbpglichdcondbcbdnbeeppgdph" : {
+  "egjidjbpglichdcondbcbdnbeeppgdph": {
     "external_update_url": "https://clients2.google.com/service/update2/crx"
   },
-  "dophhogpgaalmbbikangcgdbfffojldn":{
+  "dophhogpgaalmbbikangcgdbfffojldn": {
     "external_update_url": "https://clients2.google.com/service/update2/crx"
   },
-  "bgnkhhnnamicmpeenaelnjfhikgbkllg":{
+  "bgnkhhnnamicmpeenaelnjfhikgbkllg": {
     "external_update_url": "https://clients2.google.com/service/update2/crx"
   },
-  "bihmplhobchoageeokmgbdihknkjbknd":{
+  "bihmplhobchoageeokmgbdihknkjbknd": {
     "external_update_url": "https://clients2.google.com/service/update2/crx"
   }
 }
-

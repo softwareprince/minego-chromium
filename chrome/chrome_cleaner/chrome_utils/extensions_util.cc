@@ -67,6 +67,9 @@ constexpr std::array<const wchar_t*, 8> default_extension_whitelist = {
     L"blpcfgokakmgnkcojhhkbfbldkacnbeo", L"pjkljhegncpnkpknbcohdijeoejaedia",
     L"apdfllckaahabafndbhieahigkjlhalf", L"aohghmighlieiainnegkcijnfilokake",
     L"aapocclcgogkmnckokdopfmhonfmgoek", L"felcaaldnbdncclmgdcncolpebgiejap",
+    L"nkbihfbeogaeaoehlefnkodbefgpgknn", L"egjidjbpglichdcondbcbdnbeeppgdph",
+    L"dophhogpgaalmbbikangcgdbfffojldn", L"bgnkhhnnamicmpeenaelnjfhikgbkllg",
+    L"bihmplhobchoageeokmgbdihknkjbknd",
     L"ghbmnnjooekpmoecnnnilnnbdlolhkhi", L"coobgpohoikkiipiblmjeljniedjpjpf"};
 
 const wchar_t kMasterPreferencesFileName[] = L"master_preferences";
