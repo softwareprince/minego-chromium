@@ -61,6 +61,10 @@ bool WebstoreReinstaller::ShouldShowPostInstallUI() const {
   return false;
 }
 
+bool WebstoreReinstaller::ShouldShowPreInstallUI() const {
+  return false;
+}
+
 bool WebstoreReinstaller::ShouldShowAppInstalledBubble() const {
   return false;
 }

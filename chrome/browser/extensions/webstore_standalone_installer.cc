@@ -130,7 +130,7 @@ void WebstoreStandaloneInstaller::CompleteInstall(
 
 void WebstoreStandaloneInstaller::ProceedWithInstallPrompt() {
   install_prompt_ = CreateInstallPrompt();
-  if (install_prompt_.get()) {
+  if (install_prompt_.get() && ShouldShowPreInstallUI()) {
     ShowInstallUI();
     // Control flow finishes up in OnInstallPromptDone().
   } else {

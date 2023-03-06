@@ -31,6 +31,7 @@ class WebstoreReinstaller : public WebstoreStandaloneInstaller,
   // WebstoreStandaloneInstaller:
   bool CheckRequestorAlive() const override;
   bool ShouldShowPostInstallUI() const override;
+  bool ShouldShowPreInstallUI() const override;
   bool ShouldShowAppInstalledBubble() const override;
   content::WebContents* GetWebContents() const override;
   std::unique_ptr<ExtensionInstallPrompt::Prompt> CreateInstallPrompt()

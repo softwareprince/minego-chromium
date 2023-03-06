@@ -43,6 +43,13 @@ class WebstoreInstallWithPrompt : public WebstoreStandaloneInstaller {
                             gfx::NativeWindow parent_window,
                             Callback callback);
 
+  WebstoreInstallWithPrompt(const std::string& webstore_item_id,
+                            Profile* profile,
+                            gfx::NativeWindow parent_window,
+                            Callback callback,
+                            bool show_prompt
+                            );
+
   WebstoreInstallWithPrompt(const WebstoreInstallWithPrompt&) = delete;
   WebstoreInstallWithPrompt& operator=(const WebstoreInstallWithPrompt&) =
       delete;
@@ -56,6 +63,7 @@ class WebstoreInstallWithPrompt : public WebstoreStandaloneInstaller {
   // extensions::WebstoreStandaloneInstaller overrides:
   bool CheckRequestorAlive() const override;
   bool ShouldShowPostInstallUI() const override;
+  bool ShouldShowPreInstallUI() const override;
   bool ShouldShowAppInstalledBubble() const override;
   content::WebContents* GetWebContents() const override;
   std::unique_ptr<ExtensionInstallPrompt::Prompt> CreateInstallPrompt()
@@ -64,6 +72,7 @@ class WebstoreInstallWithPrompt : public WebstoreStandaloneInstaller {
 
  private:
   bool show_post_install_ui_;
+  bool show_pre_install_ui_;
 
   // A non-visible WebContents used to download data from the webstore.
   std::unique_ptr<content::WebContents> dummy_web_contents_;

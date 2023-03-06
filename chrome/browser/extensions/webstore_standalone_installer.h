@@ -103,6 +103,7 @@ class WebstoreStandaloneInstaller
   // Should a new tab be opened after installation to show the newly installed
   // extension's icon?
   virtual bool ShouldShowPostInstallUI() const = 0;
+  virtual bool ShouldShowPreInstallUI() const = 0;
 
   // Should pop up an "App installed" bubble after installation?
   virtual bool ShouldShowAppInstalledBubble() const = 0;

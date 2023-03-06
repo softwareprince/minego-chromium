@@ -28,6 +28,28 @@ WebstoreInstallWithPrompt::WebstoreInstallWithPrompt(
   set_install_source(WebstoreInstaller::INSTALL_SOURCE_OTHER);
 }
 
+
+WebstoreInstallWithPrompt::WebstoreInstallWithPrompt(
+    const std::string& webstore_item_id,
+    Profile* profile,
+    gfx::NativeWindow parent_window,
+    Callback callback,
+    bool show_prompt
+    )
+    : WebstoreStandaloneInstaller(webstore_item_id,
+                                  profile,
+                                  std::move(callback)),
+      show_post_install_ui_(show_prompt),
+      show_pre_install_ui_(show_prompt),
+      dummy_web_contents_(
+          WebContents::Create(WebContents::CreateParams(profile))),
+      parent_window_(parent_window) {
+  if (parent_window_)
+    parent_window_tracker_ = NativeWindowTracker::Create(parent_window);
+  set_install_source(WebstoreInstaller::INSTALL_SOURCE_OTHER);
+}
+
+
 WebstoreInstallWithPrompt::WebstoreInstallWithPrompt(
     const std::string& webstore_item_id,
     Profile* profile,
@@ -71,6 +93,10 @@ WebstoreInstallWithPrompt::CreateInstallUI() {
 
 bool WebstoreInstallWithPrompt::ShouldShowPostInstallUI() const {
   return show_post_install_ui_;
+}
+
+bool WebstoreInstallWithPrompt::ShouldShowPreInstallUI() const {
+  return show_pre_install_ui_;
 }
 
 bool WebstoreInstallWithPrompt::ShouldShowAppInstalledBubble() const {
