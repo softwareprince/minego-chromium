@@ -38,6 +38,7 @@ class SidePanelEntry final {
     kFeed,
     kWebView,
     kWebNaeem,
+    kWebDiscord,
     // Contextual Entries
     kSideSearch,
     kLens,

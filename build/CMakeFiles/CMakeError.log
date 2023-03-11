@@ -362,3 +362,355 @@ cl : command line error D8021: invalid numeric argument '/Wno-implicit-fallthrou
 
 Source file was:
 int main(void) { return 0; }
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-x4cskh
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_68499.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+  src.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CMAKE_HAVE_LIBC_PTHREAD /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_68499.dir\Debug\\" /Fd"cmTC_68499.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-x4cskh\src.c"
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-x4cskh\src.c(1,10): fatal  error C1083: Cannot open include file: 'pthread.h': No such file or directory [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-x4cskh\cmTC_68499.vcxproj]
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-qpme4h
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_0a58e.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_0a58e.dir\Debug\\" /Fd"cmTC_0a58e.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-qpme4h\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'pthreads.lib' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-qpme4h\cmTC_0a58e.vcxproj]
+
+
+
+Determining if the function pthread_create exists in the pthread failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-hm106z
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_bd5dd.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=pthread_create /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bd5dd.dir\Debug\\" /Fd"cmTC_bd5dd.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-hm106z\CheckFunctionExists.c"
+LINK : fatal error LNK1104: cannot open file 'pthread.lib' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-hm106z\cmTC_bd5dd.vcxproj]
+
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIM failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-xmo8jl
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_eac83.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+  src.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STRUCT_STAT_ST_MTIM /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_eac83.dir\Debug\\" /Fd"cmTC_eac83.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-xmo8jl\src.c"
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-xmo8jl\src.c(7,36): error C2039: 'st_mtim': is not a member of 'stat' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-xmo8jl\cmTC_eac83.vcxproj]
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\sys/stat.h(87,12): message : see declaration of 'stat' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-xmo8jl\cmTC_eac83.vcxproj]
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtim);
+  return 0;
+}
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_ST_MTIMESPEC failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-5j4mqv
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_ff06c.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+  src.c
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-5j4mqv\src.c(7,36): error C2039: 'st_mtimespec': is not a member of 'stat' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-5j4mqv\cmTC_ff06c.vcxproj]
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\sys/stat.h(87,12): message : see declaration of 'stat' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-5j4mqv\cmTC_ff06c.vcxproj]
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STRUCT_STAT_ST_MTIMESPEC /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ff06c.dir\Debug\\" /Fd"cmTC_ff06c.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-5j4mqv\src.c"
+
+
+Source file was:
+
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtimespec);
+  return 0;
+}
+
+
+Performing C SOURCE FILE Test HAVE_STRUCT_STAT_MTIME_NSEC failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-1vh6q0
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4793d.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+  src.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D HAVE_STRUCT_STAT_MTIME_NSEC /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4793d.dir\Debug\\" /Fd"cmTC_4793d.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-1vh6q0\src.c"
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-1vh6q0\src.c(6,36): error C2039: 'st_mtime_nsec': is not a member of 'stat' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-1vh6q0\cmTC_4793d.vcxproj]
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\ucrt\sys/stat.h(87,12): message : see declaration of 'stat' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-1vh6q0\cmTC_4793d.vcxproj]
+
+
+Source file was:
+
+#include <sys/stat.h>
+
+int main()
+{
+  (void)sizeof(((struct stat *)0)->st_mtime_nsec);
+  return 0;
+}
+
+
+Determining if the function futimens exists failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-fskpkh
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_b3ee9.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  Microsoft (R) C/C++ Optimizing Compiler Version 19.35.32215 for x86
+  CheckFunctionExists.c
+  Copyright (C) Microsoft Corporation.  All rights reserved.
+  cl /c /Zi /W3 /WX- /diagnostics:column /Od /Ob0 /Oy- /D _MBCS /D WIN32 /D _WINDOWS /D CHECK_FUNCTION_EXISTS=futimens /D "CMAKE_INTDIR=\"Debug\"" /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_b3ee9.dir\Debug\\" /Fd"cmTC_b3ee9.dir\Debug\vc143.pdb" /external:W3 /Gd /TC /analyze- /errorReport:queue "C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-fskpkh\CheckFunctionExists.c"
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol _futimens referenced in function _main [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-fskpkh\cmTC_b3ee9.vcxproj]
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-fskpkh\Debug\cmTC_b3ee9.exe : fatal error LNK1120: 1 unresolved externals [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-fskpkh\cmTC_b3ee9.vcxproj]
+
+
+
+Determining if the prototype qsort_r exists for GIT_QSORT_R_BSD failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-e8a9q6
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_c0754.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckPrototypeDefinition.c
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-e8a9q6\CheckPrototypeDefinition.c(10,33): error C2065: 'qsort_r': undeclared identifier [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-e8a9q6\cmTC_c0754.vcxproj]
+
+
+
+#include <stdlib.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef qsort_r
+  cmakeRequireSymbol(0, &qsort_r);
+#endif
+}
+
+void qsort_r(void *base, size_t nmemb, size_t size, void *thunk, int (*compar)(void *, const void *, const void *)) {
+  return ;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Determining if the prototype qsort_r exists for GIT_QSORT_R_GNU failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-mdz5kg
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_43feb.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckPrototypeDefinition.c
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-mdz5kg\CheckPrototypeDefinition.c(10,33): error C2065: 'qsort_r': undeclared identifier [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-mdz5kg\cmTC_43feb.vcxproj]
+
+
+
+#include <stdlib.h>
+
+
+static void cmakeRequireSymbol(int dummy, ...) {
+  (void) dummy;
+}
+
+static void checkSymbol(void) {
+#ifndef qsort_r
+  cmakeRequireSymbol(0, &qsort_r);
+#endif
+}
+
+void qsort_r(void *base, size_t nmemb, size_t size, int (*compar)(const void *, const void *, void *), void *arg) {
+  return ;
+}
+
+#ifdef __CLASSIC_C__
+int main() {
+  int ac;
+  char*av[];
+#else
+int main(int ac, char *av[]) {
+#endif
+  checkSymbol();
+  if (ac > 1000) {
+    return *av[0];
+  }
+  return 0;
+}
+
+
+Determining if the function getentropy exists failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-8bkyww
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_e016b.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckFunctionExists.c
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol _getentropy referenced in function _main [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-8bkyww\cmTC_e016b.vcxproj]
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-8bkyww\Debug\cmTC_e016b.exe : fatal error LNK1120: 1 unresolved externals [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-8bkyww\cmTC_e016b.vcxproj]
+
+
+
+Determining if the function clock_gettime exists in the rt failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-ygvcce
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4f2c8.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckFunctionExists.c
+LINK : fatal error LNK1104: cannot open file 'rt.lib' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-ygvcce\cmTC_4f2c8.vcxproj]
+
+
+
+Performing C SOURCE FILE Test IS_WIMPLICIT_FALLTHROUGH_1_SUPPORTED failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-45fl8x
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4b61b.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+cl : command line  error D8021: invalid numeric argument '/Wimplicit-fallthrough=1' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-45fl8x\cmTC_4b61b.vcxproj]
+
+
+Source file was:
+int main(void) { return 0; }
+
+Determining if the regcomp_l exist failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-se33k6
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_233ce.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckSymbolExists.c
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-se33k6\CheckSymbolExists.c(2,10): fatal  error C1083: Cannot open include file: 'regex.h': No such file or directory [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-se33k6\cmTC_233ce.vcxproj]
+
+
+File CheckSymbolExists.c:
+/* */
+#include <regex.h>
+#include <xlocale.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef regcomp_l
+  return ((int*)(&regcomp_l))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+Determining if the include file dirent.h exists failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-jmlevs
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_4ca2e.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckIncludeFile.c
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-jmlevs\CheckIncludeFile.c(1,10): fatal  error C1083: Cannot open include file: 'dirent.h': No such file or directory [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-jmlevs\cmTC_4ca2e.vcxproj]
+
+
+
+Determining if the include file unistd.h exists failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-g7ulnm
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_efda8.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckIncludeFile.c
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-g7ulnm\CheckIncludeFile.c(1,10): fatal  error C1083: Cannot open include file: 'unistd.h': No such file or directory [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-g7ulnm\cmTC_efda8.vcxproj]
+
+
+
+Determining if the function bcopy exists failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-38uwwv
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_62c9e.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckFunctionExists.c
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol _bcopy referenced in function _main [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-38uwwv\cmTC_62c9e.vcxproj]
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-38uwwv\Debug\cmTC_62c9e.exe : fatal error LNK1120: 1 unresolved externals [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-38uwwv\cmTC_62c9e.vcxproj]
+
+
+
+Determining if the function strtoq exists failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-iwywad
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_333d5.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+  CheckFunctionExists.c
+CheckFunctionExists.obj : error LNK2019: unresolved external symbol _strtoq referenced in function _main [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-iwywad\cmTC_333d5.vcxproj]
+C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-iwywad\Debug\cmTC_333d5.exe : fatal error LNK1120: 1 unresolved externals [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-iwywad\cmTC_333d5.vcxproj]
+
+
+
+Performing C SOURCE FILE Test IS_WNO_UNUSED_FUNCTION_SUPPORTED failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-0lilj0
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_d492b.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+cl : command line  error D8021: invalid numeric argument '/Wno-unused-function' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-0lilj0\cmTC_d492b.vcxproj]
+
+
+Source file was:
+int main(void) { return 0; }
+
+Performing C SOURCE FILE Test IS_WNO_IMPLICIT_FALLTHROUGH_SUPPORTED failed with the following output:
+Change Dir: C:/Turkeye/src/build/CMakeFiles/CMakeScratch/TryCompile-vxtqxh
+
+Run Build Command(s):C:/Program Files/Microsoft Visual Studio/2022/Community/MSBuild/Current/Bin/amd64/MSBuild.exe cmTC_f51fb.vcxproj /p:Configuration=Debug /p:Platform=win32 /p:VisualStudioVersion=17.0 /v:m && MSBuild version 17.5.0+6f08c67f3 for .NET Framework
+
+cl : command line  error D8021: invalid numeric argument '/Wno-implicit-fallthrough' [C:\Turkeye\src\build\CMakeFiles\CMakeScratch\TryCompile-vxtqxh\cmTC_f51fb.vcxproj]
+
+
+Source file was:
+int main(void) { return 0; }
+

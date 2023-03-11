@@ -1,6 +1,6 @@
-prefix="C:/Program Files/libgit2"
-libdir="C:/Program Files/libgit2/lib"
-includedir="C:/Program Files/libgit2/include"
+prefix="C:/Program Files (x86)/libgit2"
+libdir="C:/Program Files (x86)/libgit2/lib"
+includedir="C:/Program Files (x86)/libgit2/include"
 
 Name: libgit2
 Description: The git library, take 2

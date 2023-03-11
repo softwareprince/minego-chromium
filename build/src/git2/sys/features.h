@@ -8,8 +8,8 @@
 #define GIT_THREADS 1
 /* #undef GIT_WIN32_LEAKCHECK */
 
-#define GIT_ARCH_64 1
-/* #undef GIT_ARCH_32 */
+/* #undef GIT_ARCH_64 */
+#define GIT_ARCH_32 1
 
 /* #undef GIT_USE_ICONV */
 #define GIT_USE_NSEC 1

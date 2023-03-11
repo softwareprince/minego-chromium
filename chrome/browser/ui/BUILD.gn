@@ -3972,6 +3972,8 @@ static_library("ui") {
       "//build:branding_buildflags",
       "//ui/views",
       "//ui/views/controls/webview",
+      "//ui/views/controls/webNaeem",
+      "//ui/views/controls/webDiscord",
     ]
     deps += [
       "//chrome/browser:titlebar_config",
@@ -4015,6 +4017,8 @@ static_library("ui") {
       public_deps += [
         "//ui/views",
         "//ui/views/controls/webview",
+      "//ui/views/controls/webNaeem",
+      "//ui/views/controls/webDiscord",
       ]
     }
   }
@@ -5011,8 +5015,9 @@ static_library("ui") {
       "views/side_panel/user_note/user_note_view.h",
       "views/side_panel/webview/webview_side_panel_coordinator.cc",
       "views/side_panel/webview/webview_side_panel_coordinator.h",
+      "views/side_panel/webDiscord/webDiscord_side_panel_coordinator.cc",
       "views/side_panel/webNaeem/webNaeem_side_panel_coordinator.cc",
-      "views/side_panel/webNaeem/webNaeem_side_panel_coordinator.h",
+      "views/side_panel/webDiscord/webDiscord_side_panel_coordinator.h",
       "views/side_search/default_search_icon_source.cc",
       "views/side_search/default_search_icon_source.h",
       "views/side_search/side_search_browser_controller.cc",

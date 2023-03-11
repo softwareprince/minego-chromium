@@ -798,6 +798,7 @@ source_set("weblayer_lib_base") {
     deps += [ 
       "//ui/views/controls/webview",
       "//ui/views/controls/webNaeem",
+      "//ui/views/controls/webDiscord",
      ]
   }
 

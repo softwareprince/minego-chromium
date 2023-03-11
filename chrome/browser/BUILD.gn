@@ -6061,6 +6061,7 @@ static_library("browser") {
       "//ui/views",
       "//ui/views/controls/webview",
       "//ui/views/controls/webNaeem",
+      "//ui/views/controls/webDiscord",
     ]
     deps += [
       ":chrome_process_finder",
@@ -6167,6 +6168,7 @@ static_library("browser") {
         "//ui/views",
         "//ui/views/controls/webview",
         "//ui/views/controls/webNaeem",
+        "//ui/views/controls/webDiscord",
       ]
     }
   }

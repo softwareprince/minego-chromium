@@ -92,6 +92,7 @@ static_library("weblayer_shell_lib") {
         "//ui/views:test_support",
         "//ui/views/controls/webview",
         "//ui/views/controls/webNaeem",
+        "//ui/views/controls/webDiscord",
         "//ui/wm:test_support",
       ]
     }

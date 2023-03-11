@@ -29,6 +29,7 @@ static_library("native_app_window") {
       "//ui/views",
       "//ui/views/controls/webview",
       "//ui/views/controls/webNaeem",
+      "//ui/views/controls/webDiscord",
     ]
   }
 }

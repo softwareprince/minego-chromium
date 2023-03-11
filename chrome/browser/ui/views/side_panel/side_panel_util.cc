@@ -22,6 +22,7 @@
 #include "chrome/browser/ui/views/side_panel/user_note/user_note_ui_coordinator.h"
 #include "chrome/browser/ui/views/side_panel/webview/webview_side_panel_coordinator.h"
 #include "chrome/browser/ui/views/side_panel/webNaeem/webNaeem_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webDiscord/webDiscord_side_panel_coordinator.h"
 #include "components/feed/feed_feature_list.h"
 #include "components/history_clusters/core/history_clusters_prefs.h"
 #include "components/history_clusters/core/history_clusters_service.h"
@@ -49,6 +50,7 @@ std::string GetHistogramNameForId(SidePanelEntry::Id id) {
            {SidePanelEntry::Id::kCustomizeChrome, "CustomizeChrome"},
            {SidePanelEntry::Id::kWebView, "WebView"},
            {SidePanelEntry::Id::kWebNaeem, "WebNaeem"},
+           {SidePanelEntry::Id::kWebDiscord, "WebDiscord"},
            {SidePanelEntry::Id::kExtension, "Extension"}});
   auto* i = id_to_histogram_name_map.find(id);
   DCHECK(i != id_to_histogram_name_map.cend());
@@ -107,6 +109,8 @@ void SidePanelUtil::PopulateGlobalEntries(Browser* browser,
         ->CreateAndRegisterEntry(global_registry);
 
     WebNaeemSidePanelCoordinator::GetOrCreateForBrowser(browser)
+        ->CreateAndRegisterEntry(global_registry);
+    WebDiscordSidePanelCoordinator::GetOrCreateForBrowser(browser)
         ->CreateAndRegisterEntry(global_registry);
   }
 

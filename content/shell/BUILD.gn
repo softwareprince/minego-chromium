@@ -361,6 +361,7 @@ static_library("content_shell_lib") {
         "//ui/resources",
         "//ui/views:test_support",
         "//ui/views/controls/webNaeem",
+        "//ui/views/controls/webDiscord",
         "//ui/views/controls/webview",
         "//ui/wm:test_support",
       ]
