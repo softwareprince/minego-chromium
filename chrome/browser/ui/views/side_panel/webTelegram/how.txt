@@ -1,0 +1,39 @@
+how to create a webview in chromium in desktop browser
+
+To create a WebView in Chromium for desktop browser, you can use the WebUI framework, which is based on the WebContents API.
+
+Here is an example of how to create a WebView in a BrowserPlugin:
+
+In the BrowserPlugin constructor, create a WebContents instance:
+
+web_contents_ = WebContents::Create(
+    WebContents::CreateParams(browser_context_, nullptr, session_storage_namespace));
+
+Load the URL you want to display in the WebView:
+
+
+web_contents_->GetController().LoadURL(
+    GURL("https://www.example.com"));
+
+Create a WebUI instance and register it with the WebContents:
+
+
+webui_ = std::make_unique<WebUI>(web_contents());
+webui_->AddMessageHandler(std::make_unique<MyMessageHandler>());
+webui_->SetController(
+    std::make_unique<MyWebUIController>(web_contents()));
+
+Attach the WebContents to the BrowserPlugin:
+
+
+web_contents_->SetDelegate(this);
+AttachWebContents(web_contents_.get());
+
+In the RenderViewHostDelegateView implementation, create a WebView instance:
+
+void MyRenderViewHostDelegateView::CreateViewForWidget(RenderWidgetHost* render_widget_host,
+    RenderWidgetHostView** render_widget_host_view) {
+  *render_widget_host_view = new WebView(render_widget_host, false);
+}
+
+This should create a WebView that displays the specified URL. You can customize the WebView by implementing your own WebView subclass and passing it to the WebView constructor.

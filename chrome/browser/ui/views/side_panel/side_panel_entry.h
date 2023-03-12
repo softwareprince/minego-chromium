@@ -33,11 +33,17 @@ class SidePanelEntry final {
     kWhatsapp,
     kBookmarks,
     kHistoryClusters,
-    kReadAnything,  
+    kReadAnything,
     kUserNote,
     kFeed,
     kWebView,
     kWebNaeem,
+    kWebWhatsapp,
+    kWebFacebook,
+    kWebTelegram,
+    kWebBinance,
+    kWebCoinMarketCap,
+    kWebFacebookMessenger,
     kWebDiscord,
     // Contextual Entries
     kSideSearch,
@@ -46,7 +52,8 @@ class SidePanelEntry final {
     kAboutThisSite,
     // check all chromium commits I have made if they contain CustomizeChrome
     // word
-    // or check where chrome\browser\ui\views\side_panel\side_panel_entry.h was disabled 
+    // or check where chrome\browser\ui\views\side_panel\side_panel_entry.h was
+    // disabled
     // if compiling commit before
     kCustomizeChrome,
     // Extensions (nothing more should be added below here)

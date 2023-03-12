@@ -20,9 +20,15 @@
 #include "chrome/browser/ui/views/side_panel/side_panel_content_proxy.h"
 #include "chrome/browser/ui/views/side_panel/side_panel_registry.h"
 #include "chrome/browser/ui/views/side_panel/user_note/user_note_ui_coordinator.h"
-#include "chrome/browser/ui/views/side_panel/webview/webview_side_panel_coordinator.h"
-#include "chrome/browser/ui/views/side_panel/webNaeem/webNaeem_side_panel_coordinator.h"
 #include "chrome/browser/ui/views/side_panel/webDiscord/webDiscord_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webFacebook/webFacebook_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webFacebookMessenger/webFacebookMessenger_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webNaeem/webNaeem_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webTelegram/webTelegram_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webBinance/webBinance_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webWhatsapp/webWhatsapp_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webCoinMarketCap/webCoinMarketCap_side_panel_coordinator.h"
+#include "chrome/browser/ui/views/side_panel/webview/webview_side_panel_coordinator.h"
 #include "components/feed/feed_feature_list.h"
 #include "components/history_clusters/core/history_clusters_prefs.h"
 #include "components/history_clusters/core/history_clusters_service.h"
@@ -49,8 +55,15 @@ std::string GetHistogramNameForId(SidePanelEntry::Id id) {
            {SidePanelEntry::Id::kAboutThisSite, "AboutThisSite"},
            {SidePanelEntry::Id::kCustomizeChrome, "CustomizeChrome"},
            {SidePanelEntry::Id::kWebView, "WebView"},
+           {SidePanelEntry::Id::kWebWhatsapp, "WebWhatsapp"},
            {SidePanelEntry::Id::kWebNaeem, "WebNaeem"},
+           {SidePanelEntry::Id::kWebTelegram, "WebTelegram"},
+           {SidePanelEntry::Id::kWebCoinMarketCap, "WebCoinMarketCap"},
+           {SidePanelEntry::Id::kWebFacebook, "WebFacebook"},
+           {SidePanelEntry::Id::kWebBinance, "WebBinance"},
+           
            {SidePanelEntry::Id::kWebDiscord, "WebDiscord"},
+           {SidePanelEntry::Id::kWebFacebookMessenger, "WebFacebookMessenger"},
            {SidePanelEntry::Id::kExtension, "Extension"}});
   auto* i = id_to_histogram_name_map.find(id);
   DCHECK(i != id_to_histogram_name_map.cend());
@@ -110,7 +123,19 @@ void SidePanelUtil::PopulateGlobalEntries(Browser* browser,
 
     WebNaeemSidePanelCoordinator::GetOrCreateForBrowser(browser)
         ->CreateAndRegisterEntry(global_registry);
+    WebCoinMarketCapSidePanelCoordinator::GetOrCreateForBrowser(browser)
+        ->CreateAndRegisterEntry(global_registry);
+    WebFacebookSidePanelCoordinator::GetOrCreateForBrowser(browser)
+        ->CreateAndRegisterEntry(global_registry);
+    WebBinanceSidePanelCoordinator::GetOrCreateForBrowser(browser)
+        ->CreateAndRegisterEntry(global_registry);
+    WebTelegramSidePanelCoordinator::GetOrCreateForBrowser(browser)
+        ->CreateAndRegisterEntry(global_registry);
+    WebWhatsappSidePanelCoordinator::GetOrCreateForBrowser(browser)
+        ->CreateAndRegisterEntry(global_registry);
     WebDiscordSidePanelCoordinator::GetOrCreateForBrowser(browser)
+        ->CreateAndRegisterEntry(global_registry);
+    WebFacebookMessengerSidePanelCoordinator::GetOrCreateForBrowser(browser)
         ->CreateAndRegisterEntry(global_registry);
   }
 

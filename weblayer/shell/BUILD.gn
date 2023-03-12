@@ -82,7 +82,6 @@ static_library("weblayer_shell_lib") {
       "//ui/strings",
       "//ui/wm",
     ]
-
     if (toolkit_views) {
       sources += [ "browser/shell_views.cc" ]
       deps += [
@@ -92,6 +91,13 @@ static_library("weblayer_shell_lib") {
         "//ui/views:test_support",
         "//ui/views/controls/webview",
         "//ui/views/controls/webNaeem",
+        "//ui/views/controls/webCoinMarketCap",
+        "//ui/views/controls/webFacebook",
+        "//ui/views/controls/webWhatsapp",
+        "//ui/views/controls/webBinance",
+        "//ui/views/controls/webTelegram",
+        
+        "//ui/views/controls/webFacebookMessenger",
         "//ui/views/controls/webDiscord",
         "//ui/wm:test_support",
       ]

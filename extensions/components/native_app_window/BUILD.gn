@@ -29,6 +29,12 @@ static_library("native_app_window") {
       "//ui/views",
       "//ui/views/controls/webview",
       "//ui/views/controls/webNaeem",
+      "//ui/views/controls/webFacebookMessenger",
+      "//ui/views/controls/webWhatsapp",
+      "//ui/views/controls/webCoinMarketCap",
+      "//ui/views/controls/webFacebook",
+      "//ui/views/controls/webBinance",
+      "//ui/views/controls/webTelegram",
       "//ui/views/controls/webDiscord",
     ]
   }

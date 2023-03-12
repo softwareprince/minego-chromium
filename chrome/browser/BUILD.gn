@@ -6062,6 +6062,12 @@ static_library("browser") {
       "//ui/views/controls/webview",
       "//ui/views/controls/webNaeem",
       "//ui/views/controls/webDiscord",
+      "//ui/views/controls/webWhatsapp",
+      "//ui/views/controls/webFacebook",
+      "//ui/views/controls/webCoinMarketCap",
+      "//ui/views/controls/webBinance",
+      "//ui/views/controls/webTelegram",
+      "//ui/views/controls/webFacebookMessenger",
     ]
     deps += [
       ":chrome_process_finder",
@@ -6168,7 +6174,13 @@ static_library("browser") {
         "//ui/views",
         "//ui/views/controls/webview",
         "//ui/views/controls/webNaeem",
-        "//ui/views/controls/webDiscord",
+      "//ui/views/controls/webDiscord",
+      "//ui/views/controls/webWhatsapp",
+      "//ui/views/controls/webFacebook",
+      "//ui/views/controls/webCoinMarketCap",
+      "//ui/views/controls/webBinance",
+      "//ui/views/controls/webTelegram",
+      "//ui/views/controls/webFacebookMessenger",
       ]
     }
   }
