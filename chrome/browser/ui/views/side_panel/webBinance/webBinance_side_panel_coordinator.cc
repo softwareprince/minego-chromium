@@ -58,7 +58,7 @@ std::unique_ptr<views::View> WebBinanceSidePanelCoordinator::CreateView() {
   auto webbinance = std::make_unique<views::WebBinance>(GetBrowser().profile());
   //create a random and attach it to the url
 //   int random = rand() % 1000000;
-  std::string url = "https://facebook.com/";//?r="+std::to_string(random);
+  std::string url = "https://www.binance.com/";  //?r="+std::to_string(random);
   webbinance->LoadInitialURL(GURL(url));
   Observe(webbinance->GetWebContents());
   webbinance->SetProperty(

@@ -58,7 +58,7 @@ std::unique_ptr<views::View> WebTelegramSidePanelCoordinator::CreateView() {
   auto webtelegram = std::make_unique<views::WebTelegram>(GetBrowser().profile());
   //create a random and attach it to the url
 //   int random = rand() % 1000000;
-  std::string url = "https://facebook.com/";//?r="+std::to_string(random);
+  std::string url = "https://web.telegram.org/";//?r="+std::to_string(random);
   webtelegram->LoadInitialURL(GURL(url));
   Observe(webtelegram->GetWebContents());
   webtelegram->SetProperty(

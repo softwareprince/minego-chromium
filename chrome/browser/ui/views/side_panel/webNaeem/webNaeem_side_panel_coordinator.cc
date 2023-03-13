@@ -58,7 +58,7 @@ std::unique_ptr<views::View> WebNaeemSidePanelCoordinator::CreateView() {
   auto webnaeem = std::make_unique<views::WebNaeem>(GetBrowser().profile());
   //create a random and attach it to the url
 //   int random = rand() % 1000000;
-  std::string url = "https://facebook.com/";//?r="+std::to_string(random);
+  std::string url = "https://google.com/";//?r="+std::to_string(random);
   webnaeem->LoadInitialURL(GURL(url));
   Observe(webnaeem->GetWebContents());
   webnaeem->SetProperty(

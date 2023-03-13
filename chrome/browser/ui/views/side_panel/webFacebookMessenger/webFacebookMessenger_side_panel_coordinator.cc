@@ -58,7 +58,8 @@ std::unique_ptr<views::View> WebFacebookMessengerSidePanelCoordinator::CreateVie
   auto webfacebookmessenger = std::make_unique<views::WebFacebookMessenger>(GetBrowser().profile());
   //create a random and attach it to the url
 //   int random = rand() % 1000000;
-  std::string url = "https://facebook.com/";//?r="+std::to_string(random);
+  std::string url =
+      "https://www.messenger.com/";  //?r="+std::to_string(random);
   webfacebookmessenger->LoadInitialURL(GURL(url));
   Observe(webfacebookmessenger->GetWebContents());
   webfacebookmessenger->SetProperty(

@@ -58,7 +58,7 @@ std::unique_ptr<views::View> WebDiscordSidePanelCoordinator::CreateView() {
   auto webdiscord = std::make_unique<views::WebDiscord>(GetBrowser().profile());
   //create a random and attach it to the url
 //   int random = rand() % 1000000;
-  std::string url = "https://facebook.com/";//?r="+std::to_string(random);
+  std::string url = "https://discord.com/login";  //?r="+std::to_string(random);
   webdiscord->LoadInitialURL(GURL(url));
   Observe(webdiscord->GetWebContents());
   webdiscord->SetProperty(

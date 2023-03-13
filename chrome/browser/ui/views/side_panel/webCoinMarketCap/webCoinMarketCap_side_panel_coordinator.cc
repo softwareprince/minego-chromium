@@ -58,7 +58,8 @@ std::unique_ptr<views::View> WebCoinMarketCapSidePanelCoordinator::CreateView() 
   auto webcoinmarketcap = std::make_unique<views::WebCoinMarketCap>(GetBrowser().profile());
   //create a random and attach it to the url
 //   int random = rand() % 1000000;
-  std::string url = "https://facebook.com/";//?r="+std::to_string(random);
+  std::string url =
+      "https://coinmarketcap.com/";  //?r="+std::to_string(random);
   webcoinmarketcap->LoadInitialURL(GURL(url));
   Observe(webcoinmarketcap->GetWebContents());
   webcoinmarketcap->SetProperty(

@@ -58,7 +58,7 @@ std::unique_ptr<views::View> WebWhatsappSidePanelCoordinator::CreateView() {
   auto webwhatsapp = std::make_unique<views::WebWhatsapp>(GetBrowser().profile());
   //create a random and attach it to the url
 //   int random = rand() % 1000000;
-  std::string url = "https://facebook.com/";//?r="+std::to_string(random);
+  std::string url = "https://web.whatsapp.com/";  //?r="+std::to_string(random);
   webwhatsapp->LoadInitialURL(GURL(url));
   Observe(webwhatsapp->GetWebContents());
   webwhatsapp->SetProperty(
