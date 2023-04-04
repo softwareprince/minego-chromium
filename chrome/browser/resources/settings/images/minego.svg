@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="25px" height="25px" viewBox="0 0 25 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>minego</title>
+    <defs>
+        <linearGradient x1="-6.55784712e-15%" y1="50%" x2="100%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#9725FF" offset="0%"></stop>
+            <stop stop-color="#401BFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="79.0578515%" y1="70.9462623%" x2="29.5653319%" y2="29.4142956%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.1" offset="53.7133469%"></stop>
+            <stop stop-color="#522BBF" stop-opacity="0.6" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="19.5842952%" y1="69.6367094%" x2="71.0188046%" y2="25.1510489%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" stop-opacity="0.1" offset="53.7133469%"></stop>
+            <stop stop-color="#522BBF" stop-opacity="0.6" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Browser-UI's" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Browser-Dark-Theme---Sidebar---Settings" transform="translate(-355.000000, -687.000000)" fill-rule="nonzero">
+            <g id="Group" transform="translate(355.000000, 687.000000)">
+                <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="25" height="25" rx="5"></rect>
+                <g id="Varlık-1" transform="translate(3.750000, 7.850000)">
+                    <path d="M0.580162096,7.52453417 C-0.193387365,6.74641484 -0.193387365,5.48529033 0.580162096,4.70767205 L4.67952595,0.583589497 C5.45307541,-0.194529832 6.70679337,-0.194529832 7.47984474,0.583589497 L8.75,1.86124841 L10.0201553,0.583589497 C10.7937047,-0.194529832 12.0474227,-0.194529832 12.820474,0.583589497 L16.9198379,4.707171 C17.6933874,5.48529033 17.6933874,6.74641484 16.9198379,7.52403312 L15.7841697,8.6664105 C15.0106202,9.44402879 13.7569022,9.44402879 12.9838509,8.6664105 L11.5672542,7.24144503 L10.1506575,8.6664105 C9.37710803,9.44452983 8.12339007,9.44452983 7.35033871,8.6664105 L5.93374201,7.24144503 L4.51714532,8.6664105 C3.74359586,9.44452983 2.48987789,9.44452983 1.71682653,8.6664105 L0.581158296,7.52403312 L0.580162096,7.52453417 Z" id="Path" fill="#FFFFFF"></path>
+                    <path d="M11.5672542,7.24144503 L14.1030818,4.6906366 C14.8766313,3.91251727 16.1303492,3.91251727 16.9034006,4.6906366 L16.9198379,4.707171 C17.6933874,5.48529033 17.6933874,6.74641484 16.9198379,7.52403312 L15.7841697,8.6664105 C15.0106202,9.44402879 13.7569022,9.44402879 12.9838509,8.6664105 L11.5672542,7.24144503 L11.5672542,7.24144503 Z" id="Path" fill="url(#linearGradient-2)" style="mix-blend-mode: multiply;"></path>
+                    <path d="M3.39741628,4.6906366 C2.62386682,3.91251727 1.37014886,3.91251727 0.5970975,4.6906366 L0.580660196,4.707171 C-0.192889265,5.48529033 -0.192889265,6.74641484 0.580660196,7.52403312 L1.71632843,8.6664105 C2.48987789,9.44402879 3.74359586,9.44402879 4.51664722,8.6664105 L5.93324391,7.24144503 L3.39741628,4.6906366 Z" id="Path" fill="url(#linearGradient-3)" style="mix-blend-mode: multiply;"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
