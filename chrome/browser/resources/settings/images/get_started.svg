@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>get_started_dark</title>
+    <defs>
+        <linearGradient x1="-6.55784712e-15%" y1="50%" x2="100%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#9725FF" offset="0%"></stop>
+            <stop stop-color="#401BFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Browser-UI's" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Browser-Dark-Theme---Sidebar---Settings" transform="translate(-364.000000, -192.000000)">
+            <g id="get_started_dark" transform="translate(364.000000, 192.000000)">
+                <g id="Group-2-Copy-5"></g>
+                <rect id="Background" fill="url(#linearGradient-1)" fill-rule="nonzero" x="0" y="0" width="7" height="7" rx="3"></rect>
+                <rect id="Background-Copy-2" fill="#1B1C1E" fill-rule="nonzero" x="0" y="8" width="7" height="7" rx="3"></rect>
+                <rect id="Background-Copy" fill="#1B1C1E" fill-rule="nonzero" x="8" y="0" width="7" height="7" rx="3"></rect>
+                <rect id="Background-Copy-3" fill="#1B1C1E" fill-rule="nonzero" x="8" y="8" width="7" height="7" rx="3"></rect>
+            </g>
+        </g>
+    </g>
+</svg>
